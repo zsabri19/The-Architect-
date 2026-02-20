@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>From Exile to Transformation — The Memoir by Zeeshan Sabri</title>
+  <meta name="description" content="From Exile to Transformation: A Memoir Beyond Techniques. The story of how displacement became the foundation for the world's first Human Operating System. By Zeeshan Sabri. Coming 2026." />
+  <!-- Open Graph -->
+  <meta property="og:type"        content="book" />
+  <meta property="og:title"       content="From Exile to Transformation — A Memoir by Zeeshan Sabri" />
+  <meta property="og:description" content="The story of how Gulf War displacement, 20 years in Fortune 500, and a lifetime of witnessing transformation failure built ClarityOS. Coming 2026." />
+  <meta property="og:image"       content="assets/images/1000231025.jpg" />
+  <meta property="og:url"         content="https://clarityos.global-mkts.com/memoir.html" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="From Exile to Transformation — Memoir" />
+  <meta name="twitter:description" content="A memoir beyond techniques. How displacement built the world's first Human Operating System." />
+  <meta name="twitter:image"       content="assets/images/1000231025.jpg" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Book hero — large centred cover */
+    .book-hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-top: clamp(7rem, 12vw, 10rem);
+      padding-bottom: clamp(4rem, 8vw, 7rem);
+      text-align: center;
+      position: relative;
+    }
+    .book-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 40%,
+        rgba(201,162,39,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    /* Large book for hero */
+    .book-lg {
+      position: relative;
+      width: clamp(200px, 30vw, 280px);
+      height: clamp(280px, 42vw, 400px);
+      filter: drop-shadow(0 30px 70px rgba(0,0,0,0.7));
+      transform: perspective(900px) rotateY(-8deg);
+      margin-bottom: 3rem;
+      flex-shrink: 0;
+    }
+    .book-lg__spine {
+      position: absolute;
+      left: -20px;
+      top: 0;
+      bottom: 0;
+      width: 20px;
+      background: linear-gradient(to right, #a02020 0%, var(--ember) 100%);
+      border-radius: 3px 0 0 3px;
+    }
+    .book-lg__cover {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(165deg, #1a1a30 0%, #0d0d1a 100%);
+      border-radius: 3px 12px 12px 3px;
+      border: 1px solid rgba(201,162,39,0.35);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem 1.75rem;
+      gap: 0.75rem;
+      text-align: center;
+      overflow: hidden;
+    }
+    .book-lg__cover::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--wisdom), var(--shine));
+    }
+    .book-lg__cover::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--wisdom), var(--shine));
+    }
+    .book-lg__badge {
+      background: rgba(201,162,39,0.12);
+      border: 1px solid rgba(201,162,39,0.35);
+      border-radius: 20px;
+      padding: 0.3rem 0.875rem;
+      font-size: 0.625rem;
+      font-weight: 700;
+      color: var(--wisdom);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .book-lg__ornament {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--wisdom), transparent);
+    }
+    .book-lg__title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+      font-weight: 700;
+      color: var(--wisdom);
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+    .book-lg__subtitle {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-style: italic;
+      letter-spacing: 0.03em;
+    }
+    .book-lg__author {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* Chapter outline */
+    .chapter-outline {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .chapter-card {
+      background: var(--shadow);
+      border: 1px solid var(--faint);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      transition: border-color var(--dur-med), transform var(--dur-med) var(--ease-out);
+    }
+    .chapter-card:hover {
+      border-color: rgba(201,162,39,0.3);
+      transform: translateY(-4px);
+    }
+    .chapter-card__num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: rgba(201,162,39,0.2);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+    .chapter-card__title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--dawn);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+    .chapter-card__body {
+      font-size: var(--size-sm);
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* Author's note */
+    .authors-note {
+      max-width: 72ch;
+      margin-inline: auto;
+      padding: 3rem;
+      background: var(--shadow);
+      border: 1px solid var(--faint);
+      border-radius: var(--radius-lg);
+      border-left: 4px solid var(--wisdom);
+    }
+    .authors-note__label {
+      font-size: var(--size-xs);
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--wisdom);
+      margin-bottom: 1.5rem;
+    }
+    .authors-note__text {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.0625rem, 2vw, 1.25rem);
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.9;
+      color: var(--muted);
+    }
+    .authors-note__text p + p { margin-top: 1.25rem; }
+
+    @media (max-width: 900px) {
+      .chapter-outline { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .chapter-outline { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ── NAVIGATION ── -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="Zeeshan Sabri — Home">
+      Zeeshan Sabri <span class="nav__logo-dot" aria-hidden="true"></span>
+    </a>
+    <ul class="nav__links" role="list">
+      <li><a href="the-architect.html" class="nav__link">The Architect</a></li>
+      <li><a href="clarityos.html"     class="nav__link">ClarityOS</a></li>
+      <li><a href="media.html"         class="nav__link">Media</a></li>
+      <li><a href="memoir.html"        class="nav__link" aria-current="page">Memoir</a></li>
+      <li><a href="connect.html"       class="nav__link">Connect</a></li>
+    </ul>
+    <a href="clarityos.html" class="nav__link nav__cta">Book a Session</a>
+    <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav__mobile" id="mobile-menu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+  <a href="the-architect.html" class="nav__mobile-link">The Architect</a>
+  <a href="clarityos.html"     class="nav__mobile-link">ClarityOS</a>
+  <a href="media.html"         class="nav__mobile-link">Media</a>
+  <a href="memoir.html"        class="nav__mobile-link">Memoir</a>
+  <a href="connect.html"       class="nav__mobile-link">Connect</a>
+  <a href="clarityos.html"     class="nav__mobile-cta">Book a Session</a>
+</div>
+
+
+<!-- ============================================================
+     BOOK HERO
+     ============================================================ -->
+<section class="section--void book-hero" aria-label="From Exile to Transformation book">
+  <div class="container" style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center">
+
+    <!-- Large CSS book cover -->
+    <div class="book-lg reveal" role="img" aria-label="Book cover: From Exile to Transformation by Zeeshan Sabri">
+      <div class="book-lg__spine" aria-hidden="true"></div>
+      <div class="book-lg__cover">
+        <div class="book-lg__badge">Coming 2026</div>
+        <div class="book-lg__ornament" aria-hidden="true"></div>
+        <h1 class="book-lg__title">From Exile to Transformation</h1>
+        <div class="book-lg__ornament" aria-hidden="true"></div>
+        <p class="book-lg__subtitle">A Memoir Beyond Techniques</p>
+        <p class="book-lg__author">Zeeshan Sabri</p>
+      </div>
+    </div>
+
+    <!-- Title block -->
+    <p class="eyebrow reveal" style="transition-delay:120ms;margin-bottom:1rem">The Memoir</p>
+    <h2 class="reveal" style="font-size:var(--size-h2);text-align:center;max-width:20ch;transition-delay:180ms">
+      From Exile to Transformation
+    </h2>
+    <p class="reveal lead" style="max-width:56ch;margin-top:1rem;text-align:center;transition-delay:240ms">
+      A Memoir Beyond Techniques. The story of how displacement became the foundation for the world's first Human Operating System. Coming 2026.
+    </p>
+
+    <div class="btn-group reveal" style="justify-content:center;margin-top:2.5rem;transition-delay:300ms">
+      <a href="#early-reader" class="btn btn--primary">
+        Read It Before Publication <span class="btn__arrow" aria-hidden="true">→</span>
+      </a>
+      <a href="the-architect.html" class="btn btn--ghost">
+        The Architect's Story
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     DEDICATION
+     ============================================================ -->
+<section class="section section--shadow" aria-label="Book dedication">
+  <div class="container">
+    <div style="max-width:60ch;margin-inline:auto;text-align:center" class="reveal">
+      <p class="eyebrow" style="margin-bottom:1.5rem">Dedication</p>
+      <div style="font-family:'Playfair Display',serif;font-size:clamp(1.25rem,2.5vw,1.875rem);font-style:italic;font-weight:400;color:var(--dawn);line-height:1.7">
+        For Nashwa, Amirah, and Ahlam —<br />
+        who never had to be displaced to understand<br />
+        what it means to be rooted.
+      </div>
+      <div style="width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--wisdom),transparent);margin:2rem auto"></div>
+      <p style="font-size:var(--size-sm);color:var(--muted);font-style:italic;line-height:1.8">
+        And for everyone who was told their story began the day they found success —<br />
+        when the real story began the day they were displaced from everything they thought they were.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     AUTHOR'S NOTE EXCERPT
+     ============================================================ -->
+<section class="section section--void" aria-label="Author's note from the memoir">
+  <div class="container">
+    <p class="eyebrow reveal" style="text-align:center;margin-bottom:2rem">Author's Note</p>
+    <div class="authors-note reveal" style="transition-delay:80ms">
+      <p class="authors-note__label">A note before the first chapter</p>
+      <div class="authors-note__text">
+        <p>This is not a book about how to manage. It is not a book about leadership theory, procurement excellence, or digital transformation strategy. Those books exist. They are useful in the way a map of a country you have never visited is useful.</p>
+        <p>This is a book about what happens when the map is taken away.</p>
+        <p>In 1990, my family left Kuwait not by choice but by necessity. We did not leave with a plan. We left with ourselves — and it turned out that was either everything or nothing, depending entirely on what kind of operating system we had installed inside us before the crisis arrived.</p>
+        <p>The organisations I have worked in over the past twenty years left Kuwait too — metaphorically. They deployed transformation programmes without installing the human layer first. They handed maps to people who didn't know where they were. And then they were surprised when nobody arrived where the map said they should go.</p>
+        <p>ClarityOS is the answer I built — first for myself, then for teams, then for organisations. This memoir is the account of how I built it, and why building it required everything that came before.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CHAPTER OUTLINE
+     ============================================================ -->
+<section class="section section--shadow" aria-label="Chapter outline">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <p class="eyebrow">Inside the Book</p>
+      <h2>Three Parts. One Operating System.</h2>
+      <p>From the Gulf War to ClarityOS — a memoir structured like the thing it describes: a clear architecture, built from lived experience.</p>
+    </div>
+
+    <div class="chapter-outline stagger">
+
+      <article class="chapter-card reveal">
+        <div class="chapter-card__num" aria-hidden="true">I</div>
+        <h3 class="chapter-card__title">The Exile</h3>
+        <p class="chapter-card__body">Kuwait before the war. The evacuation. Pakistan and the lessons of displacement. A father who ran his internal operating system in the ruins of everything external. The origin of the question that would become ClarityOS.</p>
+      </article>
+
+      <article class="chapter-card reveal">
+        <div class="chapter-card__num" aria-hidden="true">II</div>
+        <h3 class="chapter-card__title">The Apprenticeship</h3>
+        <p class="chapter-card__body">Return to Kuwait. University and formation. Eight years at Huawei. Five years at Motorola Solutions. Watching the same failure pattern execute itself across different industries, geographies, and organisations. The growing conviction that the problem has a name.</p>
+      </article>
+
+      <article class="chapter-card reveal">
+        <div class="chapter-card__num" aria-hidden="true">III</div>
+        <h3 class="chapter-card__title">The Architect</h3>
+        <p class="chapter-card__body">The COO role and the first full installation. The decision to name and formalise the system. The founding of ClarityOS. The memoir as the final articulation: here is the operating system, here is where it came from, here is how to install it.</p>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CHAPTER TEASERS — individual chapters
+     ============================================================ -->
+<section class="section section--void" aria-label="Individual chapter previews">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <p class="eyebrow">What You Will Find Inside</p>
+      <h2>Six Chapters That Change How You See Transformation</h2>
+    </div>
+
+    <div class="grid-2 stagger" style="gap:2rem;align-items:start">
+
+      <article style="display:flex;flex-direction:column;gap:0.75rem;padding:1.5rem;border-bottom:1px solid var(--faint)" class="reveal">
+        <span style="font-family:'Playfair Display',serif;font-size:0.875rem;font-weight:600;color:rgba(201,162,39,0.4)">Part I</span>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--dawn)">Roots &amp; Resilience</h3>
+        <p style="font-size:var(--size-sm);color:var(--muted);line-height:1.75">Kuwait, the evacuation, and what a father's discipline under pressure teaches you about the only system worth building — the one inside you.</p>
+      </article>
+
+      <article style="display:flex;flex-direction:column;gap:0.75rem;padding:1.5rem;border-bottom:1px solid var(--faint)" class="reveal">
+        <span style="font-family:'Playfair Display',serif;font-size:0.875rem;font-weight:600;color:rgba(201,162,39,0.4)">Part II</span>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--dawn)">Fortune 500 Foundations</h3>
+        <p style="font-size:var(--size-sm);color:var(--muted);line-height:1.75">The Huawei years. What one of the world's most operationally complex companies actually runs on — and why the human layer is the only layer that matters when everything else is equal.</p>
+      </article>
+
+      <article style="display:flex;flex-direction:column;gap:0.75rem;padding:1.5rem;border-bottom:1px solid var(--faint)" class="reveal">
+        <span style="font-family:'Playfair Display',serif;font-size:0.875rem;font-weight:600;color:rgba(201,162,39,0.4)">Part III</span>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--dawn)">GCC Odyssey</h3>
+        <p style="font-size:var(--size-sm);color:var(--muted);line-height:1.75">Motorola, security infrastructure, government contracts. What the GCC's most demanding operational theatre teaches about decision clarity under conditions where ambiguity has real consequences.</p>
+      </article>
+
+      <article style="display:flex;flex-direction:column;gap:0.75rem;padding:1.5rem;border-bottom:1px solid var(--faint)" class="reveal">
+        <span style="font-family:'Playfair Display',serif;font-size:0.875rem;font-weight:600;color:rgba(201,162,39,0.4)">Part IV</span>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--dawn)">Frameworks &amp; Playbooks</h3>
+        <p style="font-size:var(--size-sm);color:var(--muted);line-height:1.75">The years of pattern recognition. How watching transformation fail — consistently, predictably, for the same reason — built the intellectual foundation of ClarityOS before it had a name.</p>
+      </article>
+
+      <article style="display:flex;flex-direction:column;gap:0.75rem;padding:1.5rem;border-bottom:1px solid var(--faint)" class="reveal">
+        <span style="font-family:'Playfair Display',serif;font-size:0.875rem;font-weight:600;color:rgba(201,162,39,0.4)">Part V</span>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--dawn)">Building Movements</h3>
+        <p style="font-size:var(--size-sm);color:var(--muted);line-height:1.75">The COO years and the first full-organisation installation. What it looks like when ClarityOS runs across an entire leadership team — and what changes when it does.</p>
+      </article>
+
+      <article style="display:flex;flex-direction:column;gap:0.75rem;padding:1.5rem;border-bottom:1px solid var(--faint)" class="reveal">
+        <span style="font-family:'Playfair Display',serif;font-size:0.875rem;font-weight:600;color:rgba(201,162,39,0.4)">Part VI</span>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--dawn)">The Leader &amp; The Self</h3>
+        <p style="font-size:var(--size-sm);color:var(--muted);line-height:1.75">The memoir closes not with a framework but with a letter. To Nashwa. On what it means to build an operating system that holds — not because the world stopped being difficult, but because you did.</p>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     LETTER TO NASHWA
+     ============================================================ -->
+<section class="section section--shadow" aria-label="Letter to Nashwa — excerpt from the memoir">
+  <div class="container">
+    <div style="max-width:68ch;margin-inline:auto" class="reveal">
+      <p class="eyebrow" style="margin-bottom:2rem">Closing Chapter Excerpt</p>
+      <div class="authors-note">
+        <p class="authors-note__label">A letter to Nashwa</p>
+        <div class="authors-note__text">
+          <p>By the time you read this, you will already know most of what I want to say. Not because I told you. Because you watched. You watched a father who was displaced and came back, who worked for companies that were paying him to build things and was also, quietly, building something else — an operating system that would outlast every contract, every role, every geography.</p>
+          <p>What I want you to know — what this whole book is pointing at — is this: the system inside you is the only system you will carry into every room you ever walk into. Every organisation will give you their tools. Some of them will give you their frameworks. None of them will install your operating system. That is your work. It has always been your work.</p>
+          <p>ClarityOS is not the name of a product. It is the name of what your grandfather showed me in 1990, in Pakistan, when Kuwait was gone and all we had was how we operated. It is the most important thing I know. And now it belongs to anyone willing to install it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     EARLY READER CAPTURE
+     ============================================================ -->
+<section class="section section--depth dispatch-section" id="early-reader" aria-label="Join the early reader list">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="eyebrow">Coming 2026</p>
+      <h2>Get Chapter One Free</h2>
+      <p>
+        Enter your email and receive the opening chapter before publication — the story of exile, operating systems, and why everything else came after. No commitment. No noise. Just the book, early.
+      </p>
+    </div>
+
+    <form class="dispatch__form reveal" style="transition-delay:120ms;max-width:520px" action="#" method="post" aria-label="Early reader sign up">
+      <label for="memoir-email" class="sr-only">Your email address</label>
+      <input
+        type="email"
+        id="memoir-email"
+        name="email"
+        class="dispatch__input"
+        placeholder="Your email address"
+        required
+        autocomplete="email"
+      />
+      <button type="submit" class="btn btn--primary">Get Chapter One →</button>
+    </form>
+
+    <p class="reveal" style="text-align:center;font-size:var(--size-xs);color:var(--muted);margin-top:1rem;transition-delay:180ms">
+      No spam. Just the book, when it's ready.
+    </p>
+  </div>
+</section>
+
+
+<!-- ── FOOTER ── -->
+<footer class="footer" role="contentinfo">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <div>
+        <div class="footer__brand-name">Zeeshan Sabri <span class="footer__brand-dot" aria-hidden="true"></span></div>
+        <p class="footer__tagline">The Human OS before the System OS. ClarityOS is the prerequisite, not the upgrade.</p>
+      </div>
+      <div>
+        <p class="footer__col-title">Navigate</p>
+        <ul class="footer__links" role="list">
+          <li><a href="the-architect.html" class="footer__link">The Architect</a></li>
+          <li><a href="clarityos.html"     class="footer__link">ClarityOS</a></li>
+          <li><a href="media.html"         class="footer__link">Media</a></li>
+          <li><a href="memoir.html"        class="footer__link">Memoir</a></li>
+          <li><a href="connect.html"       class="footer__link">Connect</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">ClarityOS</p>
+        <ul class="footer__links" role="list">
+          <li><a href="clarityos.html"            class="footer__link">Personal Session</a></li>
+          <li><a href="clarityos.html#enterprise"  class="footer__link">Enterprise</a></li>
+          <li><a href="connect.html"               class="footer__link">Speaking</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Connect</p>
+        <ul class="footer__links" role="list">
+          <li><a href="https://linkedin.com/in/zeeshan-sabri" class="footer__link" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://www.youtube.com/@ZeeshanSabri83" class="footer__link" target="_blank" rel="noopener noreferrer" aria-label="Zeeshan Sabri YouTube channel">YouTube ↗</a></li>
+          <li><a href="https://www.instagram.com/zsabri/" class="footer__link" target="_blank" rel="noopener noreferrer" aria-label="Zeeshan Sabri Instagram">Instagram ↗</a></li>
+          <li><a href="https://www.tiktok.com/@zsabri83" class="footer__link" target="_blank" rel="noopener noreferrer" aria-label="Zeeshan Sabri TikTok">TikTok ↗</a></li>
+          <li><a href="mailto:zsabri@gmail.com"               class="footer__link">zsabri@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copyright">&copy; 2026 Zeeshan Sabri. ClarityOS™ is a registered trademark. All rights reserved.</p>
+      <div class="footer__social">
+        <a href="https://linkedin.com/in/zeeshan-sabri" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn →</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

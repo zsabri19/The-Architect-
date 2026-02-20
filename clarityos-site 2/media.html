@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Media — Zeeshan Sabri | Talks, Writing &amp; Field Intelligence</title>
+  <meta name="description" content="Beyond Techniques articles, live sessions, curated reading, and field testimonials from Zeeshan Sabri — Founder of ClarityOS™ and GCC Transformation Architect." />
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="Media — Zeeshan Sabri" />
+  <meta property="og:description" content="Talks, writing, and field intelligence from the Founder of ClarityOS™." />
+  <meta property="og:image"       content="assets/images/1000231025.jpg" />
+  <meta property="og:url"         content="https://clarityos.global-mkts.com/media.html" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Media — Zeeshan Sabri" />
+  <meta name="twitter:description" content="Talks, writing, and field intelligence from the Founder of ClarityOS™." />
+  <meta name="twitter:image"       content="assets/images/1000231025.jpg" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* ── Media-page local styles ── */
+    .media-hero {
+      padding-top: clamp(8rem, 14vw, 11rem);
+      padding-bottom: clamp(3rem, 6vw, 5rem);
+      text-align: center;
+    }
+    .media-hero__title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+    .media-hero__sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--muted);
+      max-width: 52ch;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ── Beyond Techniques card ── */
+    .bt-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-lg);
+      padding: 2rem 2rem 2.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .bt-card:hover {
+      border-color: rgba(201,162,39,0.35);
+      transform: translateY(-4px);
+    }
+    .bt-card__issue {
+      font-size: var(--size-xs);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--wisdom);
+    }
+    .bt-card__title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      font-weight: 600;
+      color: var(--dawn);
+      line-height: 1.3;
+      margin: 0;
+    }
+    .bt-card__body {
+      font-size: var(--size-sm);
+      color: var(--muted);
+      line-height: 1.75;
+      flex: 1;
+    }
+    .bt-card__badge {
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-size: var(--size-xs);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--wisdom);
+      border: 1px solid rgba(201,162,39,0.35);
+      border-radius: 20px;
+      padding: 0.3rem 0.875rem;
+      align-self: flex-start;
+    }
+
+    /* ── YouTube 9:16 embed ── */
+    .yt-vertical {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 9/16;
+      background: #000;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .yt-vertical iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* ── YouTube 16:9 embed ── */
+    .yt-wide {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      background: #000;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .yt-wide iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* ── YouTube two-column layout ── */
+    .yt-duo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    @media (max-width: 700px) {
+      .yt-duo { grid-template-columns: 1fr; }
+    }
+
+    /* ── Field Intelligence grid ── */
+    .fi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* ── Divider ── */
+    .media-divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.08), transparent);
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Grain texture overlay -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="Zeeshan Sabri — Home">
+      Zeeshan Sabri
+      <span class="nav__logo-dot" aria-hidden="true"></span>
+    </a>
+
+    <ul class="nav__links" role="list">
+      <li><a href="the-architect.html" class="nav__link">The Architect</a></li>
+      <li><a href="clarityos.html"     class="nav__link">ClarityOS</a></li>
+      <li><a href="media.html"         class="nav__link" aria-current="page">Media</a></li>
+      <li><a href="memoir.html"        class="nav__link">Memoir</a></li>
+      <li><a href="connect.html"       class="nav__link">Connect</a></li>
+    </ul>
+
+    <a href="clarityos.html" class="nav__link nav__cta">Book a Session</a>
+
+    <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="nav__mobile" id="mobile-menu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+  <a href="the-architect.html" class="nav__mobile-link">The Architect</a>
+  <a href="clarityos.html"     class="nav__mobile-link">ClarityOS</a>
+  <a href="media.html"         class="nav__mobile-link">Media</a>
+  <a href="memoir.html"        class="nav__mobile-link">Memoir</a>
+  <a href="connect.html"       class="nav__mobile-link">Connect</a>
+  <a href="clarityos.html"     class="nav__mobile-cta">Book a Session</a>
+</div>
+
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="section--void media-hero" aria-label="Media hub hero">
+  <div class="container">
+    <p class="eyebrow reveal">Content Hub</p>
+    <h1 class="media-hero__title reveal" style="transition-delay:80ms">
+      The Field.<br /><em style="color:var(--wisdom)">In Writing. On Screen.</em>
+    </h1>
+    <p class="media-hero__sub reveal" style="transition-delay:160ms">
+      Articles, live sessions, curated reading, and unfiltered field intelligence — everything from twenty years of transformation work, made available.
+    </p>
+  </div>
+</section>
+
+
+<div class="media-divider"></div>
+
+
+<!-- ============================================================
+     BEYOND TECHNIQUES — Article series
+     ============================================================ -->
+<section class="section section--void" id="beyond-techniques" aria-label="Beyond Techniques article series">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <p class="eyebrow">The Series</p>
+      <h2>Beyond Techniques</h2>
+      <p>Character, dignity, and resilience — the foundations that techniques alone can never build. Essays from the edge of transformation.</p>
+    </div>
+
+    <div class="grid-3 stagger">
+
+      <article class="bt-card reveal">
+        <p class="bt-card__issue">Issue 01</p>
+        <h3 class="bt-card__title">Why Techniques Alone Always Fail</h3>
+        <p class="bt-card__body">The thesis. What lies beyond the frameworks — and why it determines whether transformation holds or collapses. The argument that launched ClarityOS.</p>
+        <span class="bt-card__badge">Publishing Soon</span>
+      </article>
+
+      <article class="bt-card reveal" style="transition-delay:80ms">
+        <p class="bt-card__issue">Issue 02</p>
+        <h3 class="bt-card__title">The Human OS Under Pressure</h3>
+        <p class="bt-card__body">What the Gulf War taught one family about operating systems — and what that means for every leader facing crisis. A personal account of clarity under fire.</p>
+        <span class="bt-card__badge">Publishing Soon</span>
+      </article>
+
+      <article class="bt-card reveal" style="transition-delay:160ms">
+        <p class="bt-card__issue">Issue 03</p>
+        <h3 class="bt-card__title">Frameworks, Downloads &amp; Field Tools</h3>
+        <p class="bt-card__body">Templates, diagnostics, and decision frameworks from 20 years of procurement and transformation leadership. Built in the field, not the classroom.</p>
+        <span class="bt-card__badge">Coming Soon</span>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+
+<div class="media-divider"></div>
+
+
+<!-- ============================================================
+     LIVE & IN THE ROOM — Weekly sessions playlist
+     ============================================================ -->
+<section class="section section--shadow" id="live-sessions" aria-label="Live sessions and talks">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <p class="eyebrow">Weekly Sessions</p>
+      <h2>Live &amp; In the Room</h2>
+      <p>Frameworks, field insights, and unfiltered thinking — published every week directly from the sessions and stages.</p>
+    </div>
+
+    <div class="yt-vertical reveal" style="transition-delay:80ms">
+      <iframe
+        src="https://www.youtube.com/embed/videoseries?list=PLFmoR9YuJU_zRH8sDJLptzRGVjxXyUovL&rel=0&modestbranding=1"
+        title="Zeeshan Sabri — Live Sessions &amp; Clarity Talks"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        loading="lazy"
+      ></iframe>
+    </div>
+
+    <div class="flex-center mt-6 reveal">
+      <a
+        href="https://www.youtube.com/@ZeeshanSabri83"
+        class="btn btn--ghost-gold"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Subscribe on YouTube <span class="btn__arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<div class="media-divider"></div>
+
+
+<!-- ============================================================
+     THE READING ROOM — Curated playlist
+     ============================================================ -->
+<section class="section section--void" id="reading-room" aria-label="The Reading Room — curated content">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <p class="eyebrow">Curated by Zeeshan</p>
+      <h2>The Reading Room</h2>
+      <p>The books, talks, and thinking that shaped ClarityOS — and the lens through which transformation finally makes sense.</p>
+    </div>
+
+    <div class="yt-vertical reveal" style="transition-delay:80ms">
+      <iframe
+        src="https://www.youtube.com/embed/videoseries?list=PLFmoR9YuJU_xkTFGvEjwRoXaPlbuYtgOr&rel=0&modestbranding=1"
+        title="Zeeshan Sabri — The Reading Room"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        loading="lazy"
+      ></iframe>
+    </div>
+
+  </div>
+</section>
+
+
+<div class="media-divider"></div>
+
+
+<!-- ============================================================
+     FIELD INTELLIGENCE — Testimonials
+     ============================================================ -->
+<section class="section section--shadow" id="field-intelligence" aria-label="Field results and testimonials">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <p class="eyebrow">Field Intelligence</p>
+      <h2>What the Room Said</h2>
+      <p>Unfiltered feedback from sessions, keynotes, and leadership programmes across the GCC.</p>
+    </div>
+
+    <!-- Rating summary -->
+    <div class="reveal" style="display:flex;align-items:center;gap:1.25rem;margin-bottom:3rem;flex-wrap:wrap;justify-content:center;transition-delay:80ms">
+      <div style="display:flex;gap:0.25rem" aria-label="4.9 out of 5 stars">
+        <svg viewBox="0 0 24 24" width="24" height="24" style="fill:var(--wisdom);stroke:none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" width="24" height="24" style="fill:var(--wisdom);stroke:none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" width="24" height="24" style="fill:var(--wisdom);stroke:none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" width="24" height="24" style="fill:var(--wisdom);stroke:none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" width="24" height="24" style="fill:var(--wisdom);stroke:none;opacity:0.55"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <div>
+        <span style="font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:700;font-family:'Playfair Display',serif;color:var(--dawn)">4.9 / 5.0</span>
+        <p style="font-size:var(--size-sm);color:var(--muted);margin:0">Average participant rating — NCMS Leadership Programme</p>
+      </div>
+    </div>
+
+    <!-- Testimonials grid -->
+    <div class="fi-grid stagger">
+
+      <div class="pull-quote reveal">
+        <p class="pull-quote__text">"The session challenged me to reconsider everything I thought I knew about leadership. Not theory — lived experience at the highest level."</p>
+        <p class="pull-quote__attribution">— Senior Leader, National Centre for Meteorology</p>
+      </div>
+
+      <div class="pull-quote reveal" style="transition-delay:80ms">
+        <p class="pull-quote__text">"Zeeshan doesn't just present frameworks — he installs a different way of thinking. I left with clarity I'd been searching for years."</p>
+        <p class="pull-quote__attribution">— Director, NCMS Leadership Programme</p>
+      </div>
+
+      <div class="pull-quote reveal" style="transition-delay:160ms">
+        <p class="pull-quote__text">"The most impactful session in the entire programme. Real, honest, and immediately applicable."</p>
+        <p class="pull-quote__attribution">— Programme Participant, NCMS</p>
+      </div>
+
+      <div class="pull-quote reveal" style="transition-delay:240ms">
+        <p class="pull-quote__text">"He does not only get the numbers right but also builds meaningful relationships — that one leader I always want to walk with."</p>
+        <p class="pull-quote__attribution">— Farooq Khalil, Director, Ottu</p>
+      </div>
+
+      <div class="pull-quote reveal" style="transition-delay:320ms">
+        <p class="pull-quote__text">"Structured, consultative approach with solid understanding of sourcing strategies, compliance, and process optimization."</p>
+        <p class="pull-quote__attribution">— Imran Shareef, Head of Procurement, Motorola Solutions</p>
+      </div>
+
+      <div class="pull-quote reveal" style="transition-delay:400ms">
+        <p class="pull-quote__text">"An uncanny ability to find a win-win solution — every time, across every stakeholder."</p>
+        <p class="pull-quote__attribution">— Hamza Bin Tariq, Executive Director, Radiance Tek</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<div class="media-divider"></div>
+
+
+<!-- ============================================================
+     SPEAKING CTA
+     ============================================================ -->
+<section class="section section--void" aria-label="Book Zeeshan to speak">
+  <div class="container" style="text-align:center;max-width:44rem">
+
+    <div class="section-header reveal" style="margin-bottom:2rem">
+      <p class="eyebrow">Bring It to Your Room</p>
+      <h2>Book Zeeshan to Speak</h2>
+      <p>
+        Keynotes, leadership programmes, and executive roundtables across the GCC.<br />
+        The conversation your team has been missing.
+      </p>
+    </div>
+
+    <div class="flex-center reveal" style="gap:1rem;flex-wrap:wrap;transition-delay:120ms">
+      <a href="connect.html#speaking" class="btn btn--primary">
+        Speaking Enquiry <span class="btn__arrow" aria-hidden="true">→</span>
+      </a>
+      <a href="clarityos.html" class="btn btn--ghost-gold">
+        See ClarityOS Programmes
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer" role="contentinfo">
+  <div class="footer__inner">
+    <div class="footer__top">
+
+      <!-- Brand -->
+      <div>
+        <div class="footer__brand-name">
+          Zeeshan Sabri <span class="footer__brand-dot" aria-hidden="true"></span>
+        </div>
+        <p class="footer__tagline">
+          The Human OS before the System OS. ClarityOS is the prerequisite, not the upgrade.
+        </p>
+      </div>
+
+      <!-- Nav -->
+      <div>
+        <p class="footer__col-title">Navigate</p>
+        <ul class="footer__links" role="list">
+          <li><a href="the-architect.html" class="footer__link">The Architect</a></li>
+          <li><a href="clarityos.html"     class="footer__link">ClarityOS</a></li>
+          <li><a href="media.html"         class="footer__link">Media</a></li>
+          <li><a href="memoir.html"        class="footer__link">Memoir</a></li>
+          <li><a href="connect.html"       class="footer__link">Connect</a></li>
+        </ul>
+      </div>
+
+      <!-- ClarityOS -->
+      <div>
+        <p class="footer__col-title">ClarityOS</p>
+        <ul class="footer__links" role="list">
+          <li><a href="clarityos.html"           class="footer__link">Personal Session — $79</a></li>
+          <li><a href="clarityos.html#enterprise" class="footer__link">Enterprise Engagement</a></li>
+          <li><a href="connect.html"              class="footer__link">Speaking Enquiry</a></li>
+        </ul>
+      </div>
+
+      <!-- Connect -->
+      <div>
+        <p class="footer__col-title">Connect</p>
+        <ul class="footer__links" role="list">
+          <li><a href="https://linkedin.com/in/zeeshan-sabri" class="footer__link" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://www.youtube.com/@ZeeshanSabri83" class="footer__link" target="_blank" rel="noopener noreferrer">YouTube ↗</a></li>
+          <li><a href="https://www.instagram.com/zsabri/" class="footer__link" target="_blank" rel="noopener noreferrer">Instagram ↗</a></li>
+          <li><a href="https://www.tiktok.com/@zsabri83" class="footer__link" target="_blank" rel="noopener noreferrer">TikTok ↗</a></li>
+          <li><a href="mailto:zsabri@gmail.com" class="footer__link">zsabri@gmail.com</a></li>
+          <li><a href="connect.html"            class="footer__link">Get in Touch</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__copyright">
+        &copy; 2026 Zeeshan Sabri. ClarityOS™ is a registered trademark. All rights reserved.
+      </p>
+      <div class="footer__social">
+        <a
+          href="https://linkedin.com/in/zeeshan-sabri"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn profile"
+        >LinkedIn →</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

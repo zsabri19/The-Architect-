@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Architect — Zeeshan Sabri | From Exile to ClarityOS</title>
+  <meta name="description" content="The memoir-quality story of Zeeshan Sabri — from Gulf War displacement, through 20 years of Fortune 500 leadership, to founding ClarityOS. The human operating system built from a life forged under pressure." />
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="The Architect — Zeeshan Sabri" />
+  <meta property="og:description" content="From Gulf War exile to founding the world's first Human Operating System. The origin story of ClarityOS." />
+  <meta property="og:image"       content="assets/images/1000231025.jpg" />
+  <meta property="og:url"         content="https://clarityos.global-mkts.com/the-architect.html" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="The Architect — Zeeshan Sabri" />
+  <meta name="twitter:description" content="From Gulf War exile to founding the world's first Human Operating System." />
+  <meta name="twitter:image"       content="assets/images/1000231025.jpg" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    @media (max-width: 768px) {
+      .grid-breakpoint { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+      .grid-breakpoint-form { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+    }
+    /* Page-specific: cinematic chapter headings */
+    .chapter-num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(5rem, 12vw, 9rem);
+      font-weight: 700;
+      color: rgba(201, 162, 39, 0.07);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      user-select: none;
+      display: block;
+      margin-bottom: -2rem;
+    }
+    .chapter-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--dawn);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    .chapter-body {
+      font-size: clamp(1rem, 1.75vw, 1.2rem);
+      font-weight: 300;
+      line-height: 1.9;
+      color: var(--muted);
+      max-width: 72ch;
+    }
+    .stats-band {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid var(--faint);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .stat-block {
+      padding: 2rem;
+      text-align: center;
+      border-right: 1px solid var(--faint);
+    }
+    .stat-block:last-child { border-right: none; }
+    .stat-block__num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--wisdom);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .stat-block__label {
+      font-size: var(--size-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+    @media (max-width: 768px) {
+      .stats-band { grid-template-columns: 1fr 1fr; }
+      .stat-block { border-right: none; border-bottom: 1px solid var(--faint); }
+      .stat-block:nth-child(odd) { border-right: 1px solid var(--faint); }
+      .stat-block:nth-last-child(-n+2) { border-bottom: none; }
+    }
+    @media (max-width: 480px) {
+      .stats-band { grid-template-columns: 1fr; }
+      .stat-block { border-right: none; }
+      .stat-block:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ── NAVIGATION ── -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="Zeeshan Sabri — Home">
+      Zeeshan Sabri <span class="nav__logo-dot" aria-hidden="true"></span>
+    </a>
+    <ul class="nav__links" role="list">
+      <li><a href="the-architect.html" class="nav__link" aria-current="page">The Architect</a></li>
+      <li><a href="clarityos.html"     class="nav__link">ClarityOS</a></li>
+      <li><a href="media.html"         class="nav__link">Media</a></li>
+      <li><a href="memoir.html"        class="nav__link">Memoir</a></li>
+      <li><a href="connect.html"       class="nav__link">Connect</a></li>
+    </ul>
+    <a href="clarityos.html" class="nav__link nav__cta">Book a Session</a>
+    <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav__mobile" id="mobile-menu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+  <a href="the-architect.html" class="nav__mobile-link">The Architect</a>
+  <a href="clarityos.html"     class="nav__mobile-link">ClarityOS</a>
+  <a href="media.html"         class="nav__mobile-link">Media</a>
+  <a href="memoir.html"        class="nav__mobile-link">Memoir</a>
+  <a href="connect.html"       class="nav__mobile-link">Connect</a>
+  <a href="clarityos.html"     class="nav__mobile-cta">Book a Session</a>
+</div>
+
+
+<!-- ============================================================
+     HERO — full portrait
+     ============================================================ -->
+<section class="section architect-hero" aria-label="Zeeshan Sabri — Transformation Architect">
+  <div class="container">
+    <div class="architect-hero__inner">
+
+      <!-- Rotating Codex Quote -->
+      <div class="architect-codex" aria-live="polite">
+        <div class="architect-codex__quote active">
+          <blockquote>I don't fix systems.<br>I fix the people<br>who run them.</blockquote>
+        </div>
+        <div class="architect-codex__quote">
+          <blockquote>You cannot install governance<br>on a broken human foundation.</blockquote>
+        </div>
+        <div class="architect-codex__quote">
+          <blockquote>Crisis is the most<br>honest teacher.</blockquote>
+        </div>
+        <div class="architect-codex__quote">
+          <blockquote>Fix the Human OS.<br>Everything else follows.</blockquote>
+        </div>
+      </div>
+
+      <!-- Identity -->
+      <div class="architect-hero__identity reveal">
+        <p class="architect-hero__name">ZEESHAN SABRI</p>
+        <p class="architect-hero__title">Transformation Architect &nbsp;·&nbsp; Human-OS Designer</p>
+        <div class="architect-hero__badges">
+          <span class="arch-badge arch-badge--gold">Behavioural Engineer</span>
+          <span class="arch-badge">Fractional Executive</span>
+          <span class="arch-badge">Governance Specialist</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     STATS BAND
+     ============================================================ -->
+<section class="section--shadow" style="padding-block:0" aria-label="Career highlights">
+  <div class="container" style="padding-block:0">
+    <div class="stats-band reveal">
+      <div class="stat-block">
+        <div class="stat-block__num">20+</div>
+        <div class="stat-block__label">Years in Transformation</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-block__num">$80M+</div>
+        <div class="stat-block__label">Portfolios Managed</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-block__num">97.6%</div>
+        <div class="stat-block__label">Procurement Rating</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-block__num">GCC</div>
+        <div class="stat-block__label">Primary Theatre</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CHAPTER I — The Exile
+     ============================================================ -->
+<section class="section section--void" aria-label="Chapter I: The Exile">
+  <div class="container">
+    <div style="max-width:80ch;margin-inline:auto">
+
+      <span class="chapter-num reveal" aria-hidden="true">I</span>
+      <h2 class="chapter-title reveal" style="transition-delay:60ms;margin-bottom:1.5rem">The Exile</h2>
+
+      <p class="chapter-body reveal" style="transition-delay:120ms">
+        In August 1990, Iraqi forces entered Kuwait. Zeeshan Sabri was a child when his family joined the thousands of civilians evacuated from the country — and the life — they had built. Overnight, security became memory. Home became a word that no longer had an address.
+      </p>
+
+      <p class="chapter-body reveal" style="transition-delay:180ms;margin-top:1.25rem">
+        The family relocated to Pakistan. And there, in the absence of the ordinary, something unusual happened. Zeeshan's father — a man forged in the discipline of professional service — continued to show up with the same rigour he had brought to his career in Kuwait. Not because it was required. Because it was installed. A human operating system that didn't need external infrastructure to run.
+      </p>
+
+      <div class="pull-quote reveal" style="transition-delay:240ms">
+        <p class="pull-quote__text">"Displacement teaches you the only thing no one can take away: how you operate when everything else is gone."</p>
+        <p class="pull-quote__attribution">— Zeeshan Sabri</p>
+      </div>
+
+      <p class="chapter-body reveal" style="transition-delay:300ms;margin-top:1.25rem">
+        That lesson — that the human layer is the only layer that survives disruption — would take 30 years to crystallise into ClarityOS. But it began there, in exile, watching a man run his internal operating system in the ruins of everything external.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CHAPTER II — Return and Formation
+     ============================================================ -->
+<section class="section section--shadow" aria-label="Chapter II: Return and Formation">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center" class="grid-breakpoint">
+
+      <div class="reveal">
+        <div style="border-radius:var(--radius-lg);overflow:hidden;height:clamp(320px,50vh,480px)">
+          <img
+            src="assets/images/zeeshan-insta.jpg"
+            alt="Zeeshan Sabri — The Origin"
+            style="width:100%;height:100%;object-fit:cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <div style="max-width:60ch" class="reveal" style="transition-delay:120ms">
+        <span class="chapter-num" aria-hidden="true" style="font-size:clamp(4rem,8vw,7rem)">II</span>
+        <h2 class="chapter-title" style="margin-bottom:1.5rem">Return and the Discipline of Ordinary Excellence</h2>
+        <p class="chapter-body">
+          The family returned to Kuwait after the liberation. Zeeshan returned to school, then to cricket — a sport where the connection between inner discipline and outer performance is unmistakable. He played with the focus of someone who already knew, at some level, that mental operating systems were the real game.
+        </p>
+        <p class="chapter-body" style="margin-top:1.25rem">
+          University followed. Then early career work in procurement and supply chain — fields where decisions compound, where a single bad call on a $10M contract can cascade for years. He became Chartered MCIPS. He paid attention to why some organisations made consistently better decisions than others, and why most didn't.
+        </p>
+        <p class="chapter-body" style="margin-top:1.25rem;font-weight:400;color:var(--dawn)">
+          The pattern he kept seeing: the technical systems were fine. It was always the human layer that failed.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CHAPTER III — The Fortune 500 Years
+     ============================================================ -->
+<section class="section section--void" aria-label="Chapter III: The Fortune 500 Years">
+  <div class="container">
+    <div style="max-width:80ch;margin-inline:auto">
+
+      <span class="chapter-num reveal" aria-hidden="true">III</span>
+      <h2 class="chapter-title reveal" style="margin-bottom:1.5rem;transition-delay:60ms">Eight Years Inside the Machine</h2>
+
+      <p class="chapter-body reveal" style="transition-delay:120ms">
+        Huawei. One of the world's largest technology companies. An organisation of extraordinary operational complexity — and, at its core, a masterclass in what happens when human alignment precedes system deployment. Zeeshan spent eight years inside Huawei's GCC procurement operations, managing portfolios that would eventually exceed $80 million across defence, telecom, and government sectors.
+      </p>
+
+      <div class="pull-quote reveal" style="transition-delay:180ms">
+        <p class="pull-quote__text">"The organisations that succeeded weren't the ones with better technology. They were the ones where people already knew how to operate — before the system arrived."</p>
+        <p class="pull-quote__attribution">— Zeeshan Sabri</p>
+      </div>
+
+      <p class="chapter-body reveal" style="transition-delay:240ms;margin-top:1.25rem">
+        Then Motorola Solutions. Five years managing security and communications procurement across the GCC — a theatre where the stakes of operational failure are not abstract. Government clients. Infrastructure contracts. Decisions where ambiguity costs more than money.
+      </p>
+
+      <p class="chapter-body reveal" style="transition-delay:300ms;margin-top:1.25rem">
+        Across 13 years in Fortune 500 environments, Zeeshan watched the same failure mode execute itself in different organisations, different industries, different geographies. Huge technology investments. Sophisticated governance frameworks. Brilliant people. And still — the same 75–80% failure rate on transformation projects. The same reason every time: the human layer was never installed before the system was deployed.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     TIMELINE
+     ============================================================ -->
+<section class="section section--shadow" aria-label="Career timeline">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <p class="eyebrow">The Journey</p>
+      <h2>Milestones That Built the OS</h2>
+    </div>
+
+    <div style="max-width:72ch;margin-inline:auto">
+      <div class="timeline">
+
+        <div class="timeline__item reveal">
+          <div class="timeline__year" aria-hidden="true">1989</div>
+          <h3 class="timeline__title">Kuwait — Before Everything Changed</h3>
+          <p class="timeline__body">Born into a professional family in Kuwait, with a father whose operating discipline would become the original model for ClarityOS. Cricket, school, early formation under a father who showed what it looks like to run well when everything around you is uncertain.</p>
+        </div>
+
+        <div class="timeline__item reveal">
+          <div class="timeline__year" aria-hidden="true">1990</div>
+          <h3 class="timeline__title">The Gulf War Evacuation</h3>
+          <p class="timeline__body">Displaced from Kuwait during the Iraqi invasion. The family relocates to Pakistan. The lesson of exile: external systems can be removed overnight. The human operating system cannot. This is the root of ClarityOS — not a theory but a lived observation.</p>
+        </div>
+
+        <div class="timeline__item reveal">
+          <div class="timeline__year" aria-hidden="true">2003</div>
+          <h3 class="timeline__title">Chartered MCIPS — The Professional Foundation</h3>
+          <p class="timeline__body">Achieves Chartered MCIPS, one of the most rigorous professional credentials in procurement and supply chain globally. Begins systematic study of why organisations fail at transformation despite having everything they need technically.</p>
+        </div>
+
+        <div class="timeline__item reveal">
+          <div class="timeline__year" aria-hidden="true">2006</div>
+          <h3 class="timeline__title">Huawei — Eight Years in the Machine</h3>
+          <p class="timeline__body">Joins Huawei's GCC operations. Over eight years, builds and manages procurement and transformation portfolios across defence, telecom, and government — eventually exceeding $80M in value. Witnesses at scale the pattern he first observed in exile: human alignment precedes system success.</p>
+        </div>
+
+        <div class="timeline__item reveal">
+          <div class="timeline__year" aria-hidden="true">2014</div>
+          <h3 class="timeline__title">Motorola Solutions — The GCC Security Theatre</h3>
+          <p class="timeline__body">Moves to Motorola Solutions to lead GCC procurement across security and communications infrastructure. Five years managing contracts where operational clarity is not optional — it is the difference between functional and failed systems in the field.</p>
+        </div>
+
+        <div class="timeline__item reveal">
+          <div class="timeline__year" aria-hidden="true">2019</div>
+          <h3 class="timeline__title">COO — SuperJet Oman</h3>
+          <p class="timeline__body">Takes the COO role at SuperJet Oman, moving from procurement leadership to full operational accountability. The first full installation of what would become ClarityOS — building the human operating system that ran the organisation beneath its technical infrastructure.</p>
+        </div>
+
+        <div class="timeline__item reveal">
+          <div class="timeline__year" aria-hidden="true">2024</div>
+          <h3 class="timeline__title">Founding ClarityOS — The Installation Begins</h3>
+          <p class="timeline__body">Founds Global Markets Transformation and formalises ClarityOS as a named system. What had been a practised philosophy becomes a named, deployable, scalable Human Operating System — available to individuals for $79 and to organisations through the 90-day enterprise engagement.</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PHILOSOPHY QUOTES
+     ============================================================ -->
+<section class="section section--void" aria-label="Zeeshan's core philosophy">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <p class="eyebrow">The Operating Principles</p>
+      <h2>The Philosophy Behind ClarityOS</h2>
+    </div>
+
+    <div class="grid-2 stagger" style="gap:1.5rem">
+
+      <div class="pull-quote reveal">
+        <p class="pull-quote__text">"Clarity is not the absence of complexity. It is an operating system that runs well inside complexity."</p>
+        <p class="pull-quote__attribution">— Zeeshan Sabri</p>
+      </div>
+
+      <div class="pull-quote reveal">
+        <p class="pull-quote__text">"Technology transforms nothing on its own. It amplifies whatever human operating system exists beneath it — for better or for catastrophically worse."</p>
+        <p class="pull-quote__attribution">— Zeeshan Sabri</p>
+      </div>
+
+      <div class="pull-quote reveal">
+        <p class="pull-quote__text">"Every organisation that failed at transformation had the right tools. None of them had the right human layer installed first."</p>
+        <p class="pull-quote__attribution">— Zeeshan Sabri</p>
+      </div>
+
+      <div class="pull-quote reveal">
+        <p class="pull-quote__text">"Displacement taught me that the only thing that holds when everything else falls is the operating system you carry inside. That is what I install."</p>
+        <p class="pull-quote__attribution">— Zeeshan Sabri</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     IN THE FIELD — Featured card + grid
+     ============================================================ -->
+<section class="section section--shadow" aria-label="In the field">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <p class="eyebrow">On the Ground</p>
+      <h2>In the Field</h2>
+      <p>Defence ministries, national platforms, AI forums, and procurement summits — across the GCC and beyond.</p>
+    </div>
+
+    <!-- Featured LUMS card -->
+    <div class="field-featured reveal" style="margin-bottom:1.5rem;transition-delay:80ms">
+      <img
+        src="assets/images/Field Results LUMS Keynote.jpg"
+        alt="LUMS Lahore Keynote 2026"
+        style="width:100%;border-radius:var(--radius-lg);object-fit:cover;object-position:top center;max-height:420px;filter:brightness(0.8);display:block"
+        loading="lazy"
+      >
+      <p style="text-align:center;font-size:var(--size-xs);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--wisdom);margin-top:0.875rem">LUMS Lahore Keynote — 2026</p>
+    </div>
+
+    <!-- 6-image grid -->
+    <div class="field-grid stagger">
+      <div class="field-cell reveal"><img src="assets/images/In the field 1 KSA Defence Workshop.jpg"   alt="KSA Defence Workshop"                         loading="lazy"></div>
+      <div class="field-cell reveal"><img src="assets/images/In the field 2 KSA Defence Workshop.jpg"   alt="KSA Defence Workshop"                         loading="lazy"></div>
+      <div class="field-cell reveal"><img src="assets/images/In the field 3 MSI ME.jpeg"                alt="MSI Middle East"                              loading="lazy"></div>
+      <div class="field-cell reveal"><img src="assets/images/In the field 4 OSH Founders Oman.jpg"      alt="OSH Founders Oman"                            loading="lazy"></div>
+      <div class="field-cell reveal"><img src="assets/images/In the field 5 AI Doha Workshop.jpg"       alt="AI Doha Workshop"                             loading="lazy"></div>
+      <div class="field-cell reveal"><img src="assets/images/In the field 6 SuperJet Sanad.jpg"         alt="SuperJet Sanad"                               loading="lazy"></div>
+    </div>
+
+    <!-- Bottom 2-column row -->
+    <div class="field-grid field-grid--two stagger" style="margin-top:1rem">
+      <div class="field-cell reveal"><img src="assets/images/In the field 3 partner visit KSA.jpg"                                  alt="Partner Visit KSA"                  loading="lazy"></div>
+      <div class="field-cell reveal"><img src="assets/images/In the field 7 Dubai Supply chain &amp; Procurement Panelist 2024.jpg" alt="Dubai Supply Chain Panelist 2024"    loading="lazy"></div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CHAPTER IV — The Creation of ClarityOS
+     ============================================================ -->
+<section class="section section--void" aria-label="Chapter IV: The Creation of ClarityOS">
+  <div class="container">
+    <div style="max-width:80ch;margin-inline:auto">
+
+      <span class="chapter-num reveal" aria-hidden="true">IV</span>
+      <h2 class="chapter-title reveal" style="margin-bottom:1.5rem;transition-delay:60ms">The Human OS Nobody Built</h2>
+
+      <p class="chapter-body reveal" style="transition-delay:120ms">
+        After two decades across Fortune 500 corporations, the GCC's most demanding operational environments, and an accumulated observation of why transformation projects fail — Zeeshan did not find a solution in the existing market. There was no product, no framework, no methodology that addressed the actual problem: the human layer beneath every system is never intentionally designed.
+      </p>
+
+      <p class="chapter-body reveal" style="transition-delay:180ms;margin-top:1.25rem">
+        So he built it. ClarityOS began as a personal practice — the operating principles that had allowed him to perform consistently under conditions that broke other people's clarity. It was formalised through the COO role at SuperJet Oman, where installing it across a leadership team produced measurable changes in decision quality and execution velocity.
+      </p>
+
+      <div class="pull-quote reveal" style="transition-delay:240ms">
+        <p class="pull-quote__text">"I built ClarityOS because I needed it, and nothing else existed. Now I install it for others because the need is everywhere — and the solution is nowhere."</p>
+        <p class="pull-quote__attribution">— Zeeshan Sabri, Founder of ClarityOS™</p>
+      </div>
+
+      <p class="chapter-body reveal" style="transition-delay:300ms;margin-top:1.25rem">
+        The memoir — <em>From Exile to Transformation</em> — tells the full story of how this operating system emerged. Not as a management theory. As the distilled intelligence of a life built under real pressure, in real organisations, across real geographies.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     RECOGNITION — Credentials scrolling strip
+     ============================================================ -->
+<section class="section section--shadow" aria-label="Recognition and credentials">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="eyebrow">Recognition &amp; Credentials</p>
+      <h2>Validated in the Field</h2>
+      <p>Chartered MCIPS · Award-winning mentor · Keynote speaker across KSA, Kuwait, UAE and Pakistan.</p>
+    </div>
+  </div>
+
+  <div class="cred-track-wrapper" aria-hidden="true">
+    <div class="cred-track">
+      <img src="assets/images/Recognition Huw best mentor award.jpg"       alt="Huw Best Mentor Award"          class="cred-img">
+      <img src="assets/images/Recognition Kuwait Summit.jpg"                alt="Kuwait Procurement Summit"       class="cred-img">
+      <img src="assets/images/Recognition_AI_Certified_Trainer_El.jpg"     alt="AI Certified Trainer"            class="cred-img">
+      <img src="assets/images/RecognitionHuawei_Farewell_Card.jpg"          alt="Huawei Recognition"              class="cred-img">
+      <!-- Duplicate set for seamless infinite loop -->
+      <img src="assets/images/Recognition Huw best mentor award.jpg"       alt=""                                class="cred-img" aria-hidden="true">
+      <img src="assets/images/Recognition Kuwait Summit.jpg"                alt=""                                class="cred-img" aria-hidden="true">
+      <img src="assets/images/Recognition_AI_Certified_Trainer_El.jpg"     alt=""                                class="cred-img" aria-hidden="true">
+      <img src="assets/images/RecognitionHuawei_Farewell_Card.jpg"          alt=""                                class="cred-img" aria-hidden="true">
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     THOUGHT LEADERSHIP — 3 video conversations
+     ============================================================ -->
+<section class="section section--void" aria-label="Thought leadership conversations">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <p class="eyebrow">Thought Leadership</p>
+      <h2>Live. Ideas in Public.</h2>
+      <p>Three conversations that shaped the thinking behind ClarityOS™.</p>
+    </div>
+
+    <div class="grid-3 stagger">
+
+      <!-- Simon Sinek -->
+      <div class="tl-card reveal">
+        <div class="tl-card__embed">
+          <iframe
+            src="https://www.youtube.com/embed/6l0rlOzFJoA"
+            title="Simon Sinek — Conversation with Zeeshan Sabri"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy"
+            style="width:100%;height:100%;border:none"
+          ></iframe>
+        </div>
+        <p class="tl-card__name">Simon Sinek</p>
+        <p class="tl-card__label">Leadership &amp; Purpose</p>
+      </div>
+
+      <!-- Christine Hadid -->
+      <div class="tl-card reveal" style="transition-delay:80ms">
+        <div class="tl-card__embed">
+          <iframe
+            src="https://www.youtube.com/embed/czHWIyHpDSo"
+            title="Christine Hadid — Conversation with Zeeshan Sabri"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy"
+            style="width:100%;height:100%;border:none"
+          ></iframe>
+        </div>
+        <p class="tl-card__name">Christine Hadid</p>
+        <p class="tl-card__label">Transformation &amp; Identity</p>
+      </div>
+
+      <!-- Zach Kass — Instagram fallback card -->
+      <div class="tl-card reveal" style="transition-delay:160ms">
+        <a
+          href="https://www.instagram.com/reels/DPEE4TWgmbh/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="tl-card__ig-link"
+          aria-label="Watch Zach Kass conversation on Instagram"
+        >
+          <div class="tl-card__embed tl-card__embed--static">
+            <div class="tl-card__play-overlay">
+              <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="26" cy="26" r="26" fill="rgba(201,162,39,0.15)"/>
+                <circle cx="26" cy="26" r="25" stroke="rgba(201,162,39,0.5)" stroke-width="1"/>
+                <path d="M21 18L36 26L21 34V18Z" fill="#C9A227"/>
+              </svg>
+              <p style="font-size:var(--size-xs);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--wisdom);margin-top:0.75rem;margin-bottom:0">Watch on Instagram</p>
+            </div>
+          </div>
+        </a>
+        <p class="tl-card__name">Zach Kass</p>
+        <p class="tl-card__label">AI &amp; The Human Future</p>
+      </div>
+
+    </div>
+
+    <div class="flex-center reveal" style="margin-top:2.5rem">
+      <a href="media.html" class="btn btn--ghost-gold">See All Content on Media <span class="btn__arrow" aria-hidden="true">→</span></a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     METHODOLOGY ARC
+     ============================================================ -->
+<section class="section section--void" aria-label="The ClarityOS methodology arc">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <p class="eyebrow">The Method</p>
+      <h2>The Methodology Arc</h2>
+      <p>Not a framework you learn. A sequence you walk through — from diagnosis to permanent installation.</p>
+    </div>
+
+    <div class="method-arc reveal" style="transition-delay:80ms">
+
+      <div class="method-step method-step--active">
+        <div class="method-step__dot" aria-hidden="true">01</div>
+        <div>
+          <h3 class="method-step__title">Surface</h3>
+          <p class="method-step__sub">Reveal the operating system that is already running — often unconsciously — beneath every decision and behaviour.</p>
+        </div>
+      </div>
+
+      <div class="method-step">
+        <div class="method-step__dot" aria-hidden="true">02</div>
+        <div>
+          <h3 class="method-step__title">Diagnose</h3>
+          <p class="method-step__sub">Map the friction points, identity conflicts, and decision patterns causing execution gaps at the individual or institutional level.</p>
+        </div>
+      </div>
+
+      <div class="method-step">
+        <div class="method-step__dot" aria-hidden="true">03</div>
+        <div>
+          <h3 class="method-step__title">Install</h3>
+          <p class="method-step__sub">Build the ClarityOS layer — identity anchors, decision principles, behavioural governance architecture — and install it deliberately.</p>
+        </div>
+      </div>
+
+      <div class="method-step">
+        <div class="method-step__dot" aria-hidden="true">04</div>
+        <div>
+          <h3 class="method-step__title">Govern</h3>
+          <p class="method-step__sub">Run live decisions through the installed OS. Calibrate. Embed. Leave with a Human OS that operates independently after the engagement ends.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="method-outcomes reveal" style="transition-delay:200ms">
+      <div class="method-outcome">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--wisdom)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        Decisions made faster and held
+      </div>
+      <div class="method-outcome">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--wisdom)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        Teams that operate from clarity, not confusion
+      </div>
+      <div class="method-outcome">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--wisdom)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        Technology transformation that actually holds
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CASE STUDIES
+     ============================================================ -->
+<section class="section section--shadow" aria-label="ClarityOS case studies">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <p class="eyebrow">Field Results</p>
+      <h2>Where ClarityOS Has Run</h2>
+      <p>Three engagements. Three different contexts. The same root cause addressed — and the same result delivered.</p>
+    </div>
+
+    <div class="grid-3 stagger">
+
+      <article class="case-card reveal">
+        <p class="case-card__role">COO · SuperJet Oman</p>
+        <h3 class="case-card__title">Governance Excellence — From Firefighting to Architecture</h3>
+        <p class="case-card__sub">Installed ClarityOS across the leadership team of a GCC aviation services company. Replaced reactive decision culture with a structured human OS — before deploying governance frameworks.</p>
+        <ul class="case-card__impacts">
+          <li>Decision cycles reduced from weeks to days</li>
+          <li>Governance frameworks adopted — and held</li>
+          <li>Leadership coherence measurably improved</li>
+        </ul>
+        <span class="case-card__badge">Enterprise · 90-Day Engagement</span>
+      </article>
+
+      <article class="case-card reveal" style="transition-delay:80ms">
+        <p class="case-card__role">Strategic Procurement · Huawei GCC</p>
+        <h3 class="case-card__title">Strategic Consolidation — $80M Portfolio, Zero Chaos</h3>
+        <p class="case-card__sub">Led procurement transformation across defence, telecom, and government sectors. Built the human operating layer that made large-scale contract consolidation coherent and executable.</p>
+        <ul class="case-card__impacts">
+          <li>$80M+ portfolio under governance without additional headcount</li>
+          <li>97.6% procurement performance rating achieved</li>
+          <li>Cross-functional clarity architecture installed</li>
+        </ul>
+        <span class="case-card__badge">Fortune 500 · 8-Year Engagement</span>
+      </article>
+
+      <article class="case-card reveal" style="transition-delay:160ms">
+        <p class="case-card__role">Keynote · NCMS Leadership Programme</p>
+        <h3 class="case-card__title">National Platform Velocity — 4.9/5 in the Room</h3>
+        <p class="case-card__sub">Delivered ClarityOS methodology as keynote to UAE national leadership programme. Translated 20 years of transformation intelligence into a single high-impact session that shifted how leaders think about operating systems.</p>
+        <ul class="case-card__impacts">
+          <li>4.9/5.0 average participant rating</li>
+          <li>"Most impactful session in the programme" — multiple participants</li>
+          <li>Immediate applicability — session to practice in hours</li>
+        </ul>
+        <span class="case-card__badge">Keynote · National Leadership Programme</span>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FINAL CTA
+     ============================================================ -->
+<section class="section section--depth" style="text-align:center" aria-label="Work with Zeeshan Sabri">
+  <div class="container">
+    <div style="max-width:60ch;margin-inline:auto">
+      <p class="eyebrow reveal">Work With Zeeshan</p>
+      <h2 class="reveal" style="transition-delay:80ms">Install ClarityOS in Your Life or Organisation</h2>
+      <p class="reveal" style="color:var(--muted);margin-bottom:2.5rem;transition-delay:160ms">
+        Whether you are an executive navigating consequential decisions, a leadership team preparing for transformation, or a conference organiser looking for a speaker who will change how the room thinks about change — Zeeshan is available.
+      </p>
+      <div class="btn-group reveal" style="justify-content:center;transition-delay:240ms">
+        <a href="clarityos.html" class="btn btn--primary">
+          Book a Session <span class="btn__arrow" aria-hidden="true">→</span>
+        </a>
+        <a href="connect.html" class="btn btn--ghost">
+          Speaking &amp; Enterprise Enquiry
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── FOOTER ── -->
+<footer class="footer" role="contentinfo">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <div>
+        <div class="footer__brand-name">Zeeshan Sabri <span class="footer__brand-dot" aria-hidden="true"></span></div>
+        <p class="footer__tagline">The Human OS before the System OS. ClarityOS is the prerequisite, not the upgrade.</p>
+      </div>
+      <div>
+        <p class="footer__col-title">Navigate</p>
+        <ul class="footer__links" role="list">
+          <li><a href="the-architect.html" class="footer__link">The Architect</a></li>
+          <li><a href="clarityos.html"     class="footer__link">ClarityOS</a></li>
+          <li><a href="media.html"         class="footer__link">Media</a></li>
+          <li><a href="memoir.html"        class="footer__link">Memoir</a></li>
+          <li><a href="connect.html"       class="footer__link">Connect</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">ClarityOS</p>
+        <ul class="footer__links" role="list">
+          <li><a href="clarityos.html"            class="footer__link">Personal Session</a></li>
+          <li><a href="clarityos.html#enterprise"  class="footer__link">Enterprise</a></li>
+          <li><a href="connect.html"               class="footer__link">Speaking</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Connect</p>
+        <ul class="footer__links" role="list">
+          <li><a href="https://linkedin.com/in/zeeshan-sabri" class="footer__link" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://www.youtube.com/@ZeeshanSabri83" class="footer__link" target="_blank" rel="noopener noreferrer" aria-label="Zeeshan Sabri YouTube channel">YouTube ↗</a></li>
+          <li><a href="https://www.instagram.com/zsabri/" class="footer__link" target="_blank" rel="noopener noreferrer" aria-label="Zeeshan Sabri Instagram">Instagram ↗</a></li>
+          <li><a href="https://www.tiktok.com/@zsabri83" class="footer__link" target="_blank" rel="noopener noreferrer" aria-label="Zeeshan Sabri TikTok">TikTok ↗</a></li>
+          <li><a href="mailto:zsabri@gmail.com"               class="footer__link">zsabri@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copyright">&copy; 2026 Zeeshan Sabri. ClarityOS™ is a registered trademark.</p>
+      <div class="footer__social">
+        <a href="https://linkedin.com/in/zeeshan-sabri" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn →</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+(function() {
+  const quotes = document.querySelectorAll('.architect-codex__quote');
+  if (!quotes.length) return;
+  let current = 0;
+  setInterval(() => {
+    quotes[current].classList.remove('active');
+    current = (current + 1) % quotes.length;
+    quotes[current].classList.add('active');
+  }, 6000);
+})();
+</script>
+<script>
+  /* Grid 2-column responsive for architect page */
+  const grids = document.querySelectorAll('.grid-breakpoint');
+  function checkGrid() {
+    grids.forEach(g => {
+      if (window.innerWidth <= 768) {
+        g.style.gridTemplateColumns = '1fr';
+        g.style.gap = '2.5rem';
+      } else {
+        g.style.gridTemplateColumns = '1fr 1fr';
+        g.style.gap = '5rem';
+      }
+    });
+  }
+  checkGrid();
+  window.addEventListener('resize', checkGrid);
+</script>
+</body>
+</html>
