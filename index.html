@@ -30,87 +30,320 @@
 
 <body>
 <!-- CLARITY GATE -->
-<div id="clarity-gate" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#0a0a0a;z-index:99999;display:flex;align-items:center;justify-content:center;flex-direction:column;font-family:'Cormorant Garamond',Georgia,serif;">
-  <div style="max-width:640px;width:90%;text-align:center;padding:40px 20px;">
+<style>
+#cg-overlay {
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  background:#0a0a0a;z-index:99999;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',Georgia,serif;
+}
+#cg-overlay .cg-wrap {
+  max-width:700px;width:90%;text-align:center;padding:40px 20px;
+}
+.cg-label {
+  color:#C9A84C;font-size:0.7rem;letter-spacing:0.22em;
+  text-transform:uppercase;margin-bottom:28px;display:block;
+}
+.cg-title {
+  color:#fff;font-size:2.6rem;font-weight:400;line-height:1.2;margin:0 0 8px;
+}
+.cg-title em {
+  color:#C9A84C;font-style:italic;
+}
+.cg-sub {
+  color:#888;font-size:1rem;font-weight:300;margin:16px 0 40px;line-height:1.6;
+}
+.cg-card {
+  background:#111;border:1px solid #1e1e1e;border-left:3px solid #C9A84C;
+  padding:20px 24px;margin-bottom:16px;text-align:left;border-radius:2px;
+}
+.cg-card-num {
+  color:#C9A84C;font-size:0.65rem;letter-spacing:0.2em;margin-bottom:6px;display:block;
+}
+.cg-card-title {
+  color:#fff;font-size:1.05rem;font-weight:600;margin-bottom:4px;
+}
+.cg-card-desc {
+  color:#777;font-size:0.85rem;line-height:1.5;margin-bottom:16px;
+}
+.cg-options {
+  display:flex;gap:10px;flex-wrap:wrap;
+}
+.cg-opt {
+  background:transparent;border:1px solid #333;color:#aaa;
+  padding:8px 20px;font-size:0.8rem;letter-spacing:0.08em;
+  cursor:pointer;border-radius:2px;transition:all 0.2s;
+  font-family:'Cormorant Garamond',Georgia,serif;
+}
+.cg-opt:hover, .cg-opt.selected {
+  border-color:#C9A84C;color:#C9A84C;background:#1a1500;
+}
+.cg-percent {
+  background:transparent;border:1px solid #333;color:#aaa;
+  padding:8px 20px;font-size:0.85rem;letter-spacing:0.05em;
+  cursor:pointer;border-radius:2px;transition:all 0.2s;
+  font-family:'Cormorant Garamond',Georgia,serif;
+}
+.cg-percent:hover, .cg-percent.selected {
+  border-color:#C9A84C;color:#C9A84C;background:#1a1500;
+}
+.cg-nav {
+  display:flex;align-items:center;justify-content:center;gap:24px;margin-top:36px;
+}
+.cg-btn-prev {
+  background:transparent;border:none;color:#444;font-size:0.8rem;
+  letter-spacing:0.1em;cursor:pointer;font-family:'Cormorant Garamond',Georgia,serif;
+}
+.cg-btn-prev:hover { color:#888; }
+.cg-btn-next {
+  background:#C9A84C;color:#0a0a0a;border:none;
+  padding:12px 40px;font-size:0.8rem;font-weight:700;
+  letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;
+  font-family:'Cormorant Garamond',Georgia,serif;transition:opacity 0.2s;
+}
+.cg-btn-next:hover { opacity:0.85; }
+.cg-dots {
+  display:flex;gap:8px;justify-content:center;margin-top:24px;
+}
+.cg-dot {
+  width:6px;height:6px;border-radius:50%;background:#333;transition:background 0.3s;
+}
+.cg-dot.active { background:#C9A84C; }
+.cg-skip {
+  display:block;margin-top:28px;color:#333;font-size:0.72rem;
+  letter-spacing:0.1em;text-decoration:none;border-bottom:1px solid #222;
+  padding-bottom:2px;cursor:pointer;transition:color 0.2s;
+}
+.cg-skip:hover { color:#666; }
+.cg-email-input {
+  width:100%;max-width:400px;background:#111;
+  border:none;border-bottom:2px solid #C9A84C;
+  color:#fff;padding:14px 0;font-size:1.1rem;
+  outline:none;text-align:center;font-family:'Cormorant Garamond',Georgia,serif;
+  margin-bottom:20px;display:block;margin-left:auto;margin-right:auto;
+}
+.cg-email-input::placeholder { color:#444; }
+.cg-submit {
+  background:#C9A84C;color:#0a0a0a;border:none;
+  padding:14px 56px;font-size:0.85rem;font-weight:700;
+  letter-spacing:0.18em;text-transform:uppercase;cursor:pointer;
+  font-family:'Cormorant Garamond',Georgia,serif;
+  width:100%;max-width:400px;transition:opacity 0.2s;
+}
+.cg-submit:hover { opacity:0.85; }
+.cg-reveal {
+  color:#C9A84C;font-size:0.8rem;letter-spacing:0.12em;
+  margin-bottom:20px;display:block;
+}
+.cg-twin-checks {
+  list-style:none;padding:0;margin:0 0 32px;text-align:left;
+  max-width:480px;margin-left:auto;margin-right:auto;
+}
+.cg-twin-checks li {
+  color:#ccc;font-size:0.95rem;padding:10px 0;
+  border-bottom:1px solid #1a1a1a;display:flex;gap:12px;align-items:flex-start;
+}
+.cg-twin-checks li span.ck { color:#C9A84C;margin-top:2px; }
+</style>
 
-    <!-- STEP 1: Teaser questions -->
-    <div id="gate-step-1">
-      <p style="color:#C9A84C;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:32px;">Before You Enter</p>
-      <div id="gate-questions" style="margin-bottom:40px;">
-        <p id="gate-q" style="color:#ffffff;font-size:1.6rem;line-height:1.5;font-weight:300;min-height:80px;transition:opacity 0.5s;"></p>
-        <div style="display:flex;gap:16px;justify-content:center;margin-top:28px;">
-          <button onclick="gateAnswer(true)" style="background:transparent;border:1px solid #C9A84C;color:#C9A84C;padding:12px 36px;font-size:0.9rem;letter-spacing:0.1em;cursor:pointer;transition:all 0.2s;">YES</button>
-          <button onclick="gateAnswer(false)" style="background:transparent;border:1px solid #555;color:#888;padding:12px 36px;font-size:0.9rem;letter-spacing:0.1em;cursor:pointer;transition:all 0.2s;">NO</button>
+<div id="cg-overlay">
+  <div class="cg-wrap">
+
+    <!-- SLIDE 1 -->
+    <div class="cg-slide" id="cg-s1">
+      <span class="cg-label">The Clarity Assessment</span>
+      <h2 class="cg-title">5 Signs You're<br><em>Thinking Blind</em></h2>
+      <p class="cg-sub">High-performers don't realise how much clarity they're leaving on the table.<br><em style="color:#555;">Do you recognise yourself in any of these?</em></p>
+      <div class="cg-nav">
+        <button class="cg-btn-next" onclick="cgNext()">NEXT →</button>
+      </div>
+      <div class="cg-dots" id="cg-dots-1"></div>
+      <a class="cg-skip" onclick="cgClose()">Skip for now</a>
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div class="cg-slide" id="cg-s2" style="display:none">
+      <span class="cg-label">Signs 01 — 02</span>
+      <div class="cg-card">
+        <span class="cg-card-num">01</span>
+        <div class="cg-card-title">You Revisit the Same Decisions</div>
+        <div class="cg-card-desc">You make a call, then spend the next three days second-guessing it. You're not deciding once — you're deciding five times.</div>
+        <div class="cg-options">
+          <button class="cg-opt" onclick="cgSelect(this,'q1')">Yeah, always</button>
+          <button class="cg-opt" onclick="cgSelect(this,'q1')">Sometimes</button>
+          <button class="cg-opt" onclick="cgSelect(this,'q1')">Rarely</button>
         </div>
       </div>
+      <div class="cg-card">
+        <span class="cg-card-num">02</span>
+        <div class="cg-card-title">Your Best Ideas Come at 2 AM</div>
+        <div class="cg-card-desc">Clarity strikes in the shower, on a walk, when you're trying to sleep. Your "aha moments" are accidents, not a system.</div>
+        <div class="cg-options">
+          <button class="cg-opt" onclick="cgSelect(this,'q2')">Oh yes</button>
+          <button class="cg-opt" onclick="cgSelect(this,'q2')">Maybe so</button>
+          <button class="cg-opt" onclick="cgSelect(this,'q2')">Not really</button>
+        </div>
+      </div>
+      <div class="cg-nav">
+        <button class="cg-btn-prev" onclick="cgPrev()">← PREV</button>
+        <button class="cg-btn-next" onclick="cgNext()">NEXT →</button>
+      </div>
+      <div class="cg-dots" id="cg-dots-2"></div>
+      <a class="cg-skip" onclick="cgClose()">Skip for now</a>
     </div>
 
-    <!-- STEP 2: Email capture -->
-    <div id="gate-step-2" style="display:none;">
-      <p style="color:#C9A84C;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:16px;">You Recognise The Pattern</p>
-      <p style="color:#ffffff;font-size:1.4rem;font-weight:300;line-height:1.6;margin-bottom:32px;">ClarityOS is the operating system built for people who do.<br><span style="color:#C9A84C;">Enter your email to go inside.</span></p>
-      <form action="https://global-mkts.us3.list-manage.com/subscribe/post?u=38399e57f8cf7c6d2b1055b16&amp;id=f64785d6c9&amp;f_id=00338ee0f0" method="post" target="_blank" onsubmit="gateSubmit(event)" style="display:flex;flex-direction:column;align-items:center;gap:16px;">
-        <input type="email" name="EMAIL" placeholder="your@email.com" required style="width:100%;max-width:380px;background:#1a1a1a;border:1px solid #333;border-bottom:2px solid #C9A84C;color:#fff;padding:14px 18px;font-size:1rem;outline:none;text-align:center;" />
-        <input type="hidden" name="b_38399e57f8cf7c6d2b1055b16_f64785d6c9" value="" />
-        <button type="submit" style="background:#C9A84C;color:#0a0a0a;border:none;padding:14px 48px;font-size:0.9rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;width:100%;max-width:380px;">Enter ClarityOS →</button>
+    <!-- SLIDE 3 -->
+    <div class="cg-slide" id="cg-s3" style="display:none">
+      <span class="cg-label">Signs 03 — 05</span>
+      <div class="cg-card">
+        <span class="cg-card-num">03</span>
+        <div class="cg-card-title">You Sound Different in Your Head</div>
+        <div class="cg-card-desc">You know exactly what you want to say — but when you speak, it comes out muddled. Others don't quite get it.</div>
+        <div class="cg-options">
+          <button class="cg-opt" onclick="cgSelect(this,'q3')">Yeah, it does</button>
+          <button class="cg-opt" onclick="cgSelect(this,'q3')">Sometimes</button>
+          <button class="cg-opt" onclick="cgSelect(this,'q3')">It does not</button>
+        </div>
+      </div>
+      <div class="cg-card">
+        <span class="cg-card-num">04</span>
+        <div class="cg-card-title">You're Stuck in Reactive Mode</div>
+        <div class="cg-card-desc">Your days are a fire drill. You're responding to whatever lands in your inbox, not driving toward what matters.</div>
+        <div class="cg-options" style="justify-content:center;">
+          <button class="cg-percent" onclick="cgSelect(this,'q4')">35%</button>
+          <button class="cg-percent" onclick="cgSelect(this,'q4')">65%</button>
+          <button class="cg-percent" onclick="cgSelect(this,'q4')">89%</button>
+        </div>
+        <p style="color:#444;font-size:0.72rem;margin-top:10px;letter-spacing:0.05em;">How much of your day is reactive?</p>
+      </div>
+      <div class="cg-card">
+        <span class="cg-card-num">05</span>
+        <div class="cg-card-title">You Have No Record of Your Thinking</div>
+        <div class="cg-card-desc">Last month's big decision? You remember the outcome, not the reasoning. Every decision starts from scratch — missed follow-ups, forgotten threads, lost context.</div>
+        <div class="cg-options">
+          <button class="cg-opt" onclick="cgSelect(this,'q5')">Yes</button>
+          <button class="cg-opt" onclick="cgSelect(this,'q5')">Sometimes</button>
+          <button class="cg-opt" onclick="cgSelect(this,'q5')">I remember everything</button>
+        </div>
+      </div>
+      <div class="cg-nav">
+        <button class="cg-btn-prev" onclick="cgPrev()">← PREV</button>
+        <button class="cg-btn-next" onclick="cgNext()">NEXT →</button>
+      </div>
+      <div class="cg-dots" id="cg-dots-3"></div>
+      <a class="cg-skip" onclick="cgClose()">Skip for now</a>
+    </div>
+
+    <!-- SLIDE 4 -->
+    <div class="cg-slide" id="cg-s4" style="display:none">
+      <span class="cg-label">What if you could see clearly?</span>
+      <h2 class="cg-title">Your<br><em>Clarity Twin.</em></h2>
+      <ul class="cg-twin-checks">
+        <li><span class="ck">✓</span>Captures your thoughts as they happen — no more 2 AM epiphanies lost to sleep.</li>
+        <li><span class="ck">✓</span>Reflects your thinking back to you, revealing patterns you can't see yourself.</li>
+        <li><span class="ck">✓</span>Helps you make decisions once, with confidence that holds.</li>
+        <li><span class="ck">✓</span>Builds a record of your clarity — so you learn and improve over time.</li>
+      </ul>
+      <p style="color:#555;font-size:0.85rem;font-style:italic;">Not generic AI. A mirror built from how you actually think.</p>
+      <div class="cg-nav">
+        <button class="cg-btn-prev" onclick="cgPrev()">← PREV</button>
+        <button class="cg-btn-next" onclick="cgNext()">NEXT →</button>
+      </div>
+      <div class="cg-dots" id="cg-dots-4"></div>
+      <a class="cg-skip" onclick="cgClose()">Skip for now</a>
+    </div>
+
+    <!-- SLIDE 5 — Email -->
+    <div class="cg-slide" id="cg-s5" style="display:none">
+      <span class="cg-label">2026 Edition</span>
+      <h2 class="cg-title" style="font-size:3rem;"><em>ClarityOS™</em></h2>
+      <p class="cg-sub" style="margin-bottom:8px;">"The quality of your decisions determines<br>the quality of your life.<br><em style="color:#C9A84C;">It's time to see what you've been missing."</em></p>
+      <p style="color:#555;font-size:0.8rem;letter-spacing:0.08em;margin-bottom:32px;">Think Clearly. Decide Better.</p>
+      <form id="cg-form" onsubmit="cgSubmit(event)">
+        <input type="hidden" name="u" value="38399e57f8cf7c6d2b1055b16">
+        <input type="hidden" name="id" value="f64785d6c9">
+        <input class="cg-email-input" type="email" name="EMAIL" placeholder="your@email.com" required />
+        <input type="hidden" name="b_38399e57f8cf7c6d2b1055b16_f64785d6c9" value="">
+        <button class="cg-submit" type="submit">Enter ClarityOS →</button>
       </form>
+      <div class="cg-nav" style="margin-top:16px;">
+        <button class="cg-btn-prev" onclick="cgPrev()">← PREV</button>
+      </div>
+      <div class="cg-dots" id="cg-dots-5"></div>
+      <a class="cg-skip" onclick="cgClose()">Skip for now</a>
     </div>
 
-    <!-- Skip link -->
-    <p style="margin-top:40px;">
-      <a href="#" onclick="gateClose()" style="color:#444;font-size:0.75rem;letter-spacing:0.1em;text-decoration:none;border-bottom:1px solid #333;">Skip for now</a>
-    </p>
   </div>
 </div>
 
 <script>
-(function() {
-  // Don't show if already seen in this session
-  if (sessionStorage.getItem('clarity_gate_seen')) {
-    document.getElementById('clarity-gate').style.display = 'none';
+(function(){
+  if(sessionStorage.getItem('cg_done')){
+    document.getElementById('cg-overlay').style.display='none';
     return;
   }
 
-  var questions = [
-    "Have you ever launched a transformation that looked right on paper — but stalled in execution?",
-    "Have you felt that the real problem wasn't the system — it was the people running it?",
-    "Do you believe most organisations are one clear decision away from a breakthrough?"
-  ];
-  var current = 0;
-  var yesCount = 0;
+  var current = 1;
+  var total = 5;
 
-  function showQuestion(i) {
-    var el = document.getElementById('gate-q');
-    el.style.opacity = 0;
-    setTimeout(function() {
-      el.textContent = questions[i];
-      el.style.opacity = 1;
-    }, 300);
+  function renderDots(slideId){
+    for(var i=1;i<=total;i++){
+      var el=document.getElementById('cg-dots-'+i);
+      if(!el)continue;
+      el.innerHTML='';
+      for(var d=1;d<=total;d++){
+        var dot=document.createElement('div');
+        dot.className='cg-dot'+(d===slideId?' active':'');
+        el.appendChild(dot);
+      }
+    }
   }
 
-  showQuestion(0);
+  renderDots(1);
 
-  window.gateAnswer = function(isYes) {
-    if (isYes) yesCount++;
+  window.cgNext=function(){
+    document.getElementById('cg-s'+current).style.display='none';
     current++;
-    if (current < questions.length) {
-      showQuestion(current);
-    } else {
-      document.getElementById('gate-step-1').style.display = 'none';
-      document.getElementById('gate-step-2').style.display = 'block';
-    }
+    if(current>total)current=total;
+    document.getElementById('cg-s'+current).style.display='block';
+    renderDots(current);
+    window.scrollTo(0,0);
   };
 
-  window.gateSubmit = function(e) {
-    setTimeout(gateClose, 800);
+  window.cgPrev=function(){
+    document.getElementById('cg-s'+current).style.display='none';
+    current--;
+    if(current<1)current=1;
+    document.getElementById('cg-s'+current).style.display='block';
+    renderDots(current);
+    window.scrollTo(0,0);
   };
 
-  window.gateClose = function() {
-    sessionStorage.setItem('clarity_gate_seen', '1');
-    var gate = document.getElementById('clarity-gate');
-    gate.style.transition = 'opacity 0.6s';
-    gate.style.opacity = '0';
-    setTimeout(function() { gate.style.display = 'none'; }, 600);
+  window.cgSelect=function(btn,q){
+    var siblings=btn.parentElement.querySelectorAll('.cg-opt,.cg-percent');
+    siblings.forEach(function(b){b.classList.remove('selected');});
+    btn.classList.add('selected');
+  };
+
+  window.cgSubmit=function(e){
+    e.preventDefault();
+    var email=document.querySelector('#cg-form input[name="EMAIL"]').value;
+    if(!email)return;
+    // Submit to Mailchimp via hidden image (no redirect)
+    var u='38399e57f8cf7c6d2b1055b16';
+    var id='f64785d6c9';
+    var url='https://global-mkts.us3.list-manage.com/subscribe/post?u='+u+'&id='+id+'&EMAIL='+encodeURIComponent(email)+'&b_'+u+'_'+id+'=';
+    new Image().src=url;
+    sessionStorage.setItem('cg_done','1');
+    cgClose();
+  };
+
+  window.cgClose=function(){
+    sessionStorage.setItem('cg_done','1');
+    var ov=document.getElementById('cg-overlay');
+    ov.style.transition='opacity 0.6s';
+    ov.style.opacity='0';
+    setTimeout(function(){ov.style.display='none';},600);
   };
 })();
 </script>
