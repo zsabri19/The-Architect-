@@ -35,145 +35,202 @@
   position:fixed;top:0;left:0;width:100%;height:100%;
   background:#0a0a0a;z-index:99999;
   display:flex;align-items:center;justify-content:center;
+  overflow-y:auto;-webkit-overflow-scrolling:touch;
   font-family:'Cormorant Garamond',Georgia,serif;
 }
-#cg-overlay .cg-wrap {
-  max-width:700px;width:90%;text-align:center;padding:40px 20px;
+.cg-wrap {
+  width:100%;max-width:480px;
+  padding:48px 28px 64px;
+  margin:auto;text-align:center;
+  box-sizing:border-box;
 }
-.cg-label {color:#C9A84C;font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:28px;display:block;}
-.cg-title {color:#fff;font-size:2.6rem;font-weight:400;line-height:1.2;margin:0 0 8px;}
-.cg-title em {color:#C9A84C;font-style:italic;}
-.cg-sub {color:#888;font-size:1rem;font-weight:300;margin:16px 0 40px;line-height:1.6;}
-.cg-card {background:#111;border:1px solid #1e1e1e;border-left:3px solid #C9A84C;padding:20px 24px;margin-bottom:16px;text-align:left;border-radius:2px;}
-.cg-card-num {color:#C9A84C;font-size:0.65rem;letter-spacing:0.2em;margin-bottom:6px;display:block;}
-.cg-card-title {color:#fff;font-size:1.05rem;font-weight:600;margin-bottom:4px;}
-.cg-card-desc {color:#777;font-size:0.85rem;line-height:1.5;margin-bottom:16px;}
-.cg-options {display:flex;gap:10px;flex-wrap:wrap;}
-.cg-opt {background:transparent;border:1px solid #333;color:#aaa;padding:8px 20px;font-size:0.8rem;letter-spacing:0.08em;cursor:pointer;border-radius:2px;transition:all 0.2s;font-family:'Cormorant Garamond',Georgia,serif;}
-.cg-opt:hover,.cg-opt.selected {border-color:#C9A84C;color:#C9A84C;background:#1a1500;}
-.cg-percent {background:transparent;border:1px solid #333;color:#aaa;padding:8px 20px;font-size:0.85rem;cursor:pointer;border-radius:2px;transition:all 0.2s;font-family:'Cormorant Garamond',Georgia,serif;}
-.cg-percent:hover,.cg-percent.selected {border-color:#C9A84C;color:#C9A84C;background:#1a1500;}
-.cg-nav {display:flex;align-items:center;justify-content:center;gap:24px;margin-top:36px;}
-.cg-btn-prev {background:transparent;border:none;color:#444;font-size:0.8rem;letter-spacing:0.1em;cursor:pointer;font-family:'Cormorant Garamond',Georgia,serif;}
-.cg-btn-prev:hover {color:#888;}
-.cg-btn-next {background:#C9A84C;color:#0a0a0a;border:none;padding:12px 40px;font-size:0.8rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;font-family:'Cormorant Garamond',Georgia,serif;transition:opacity 0.2s;}
-.cg-btn-next:hover {opacity:0.85;}
-.cg-dots {display:flex;gap:8px;justify-content:center;margin-top:24px;}
-.cg-dot {width:6px;height:6px;border-radius:50%;background:#333;transition:background 0.3s;}
-.cg-dot.active {background:#C9A84C;}
-.cg-skip {display:block;margin-top:28px;color:#333;font-size:0.72rem;letter-spacing:0.1em;text-decoration:none;border-bottom:1px solid #222;padding-bottom:2px;cursor:pointer;transition:color 0.2s;}
-.cg-skip:hover {color:#666;}
-.cg-email-input {width:100%;max-width:400px;background:#111;border:none;border-bottom:2px solid #C9A84C;color:#fff;padding:14px 0;font-size:1.1rem;outline:none;text-align:center;font-family:'Cormorant Garamond',Georgia,serif;margin-bottom:20px;display:block;margin-left:auto;margin-right:auto;}
-.cg-email-input::placeholder {color:#444;}
-.cg-submit {background:#C9A84C;color:#0a0a0a;border:none;padding:14px 56px;font-size:0.85rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer;font-family:'Cormorant Garamond',Georgia,serif;width:100%;max-width:400px;transition:opacity 0.2s;}
-.cg-submit:hover {opacity:0.85;}
+.cg-eyebrow {
+  font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;
+  color:#C9A84C;margin-bottom:24px;display:block;
+}
+.cg-title {
+  color:#fff;font-size:clamp(1.8rem,6vw,2.6rem);
+  font-weight:400;line-height:1.2;margin:0 0 16px;
+}
+.cg-title em { color:#C9A84C;font-style:italic; }
+.cg-sub {
+  color:#666;font-size:clamp(0.9rem,3vw,1rem);
+  line-height:1.7;margin:0 0 40px;
+}
+.cg-question {
+  color:#fff;font-size:clamp(1.15rem,4vw,1.5rem);
+  font-weight:400;line-height:1.4;margin:0 0 12px;
+}
+.cg-question-sub {
+  color:#555;font-size:clamp(0.8rem,2.5vw,0.88rem);
+  line-height:1.6;margin:0 0 32px;
+}
+.cg-options {
+  display:flex;flex-direction:column;gap:12px;margin-bottom:0;
+}
+.cg-opt {
+  display:block;width:100%;
+  background:transparent;
+  border:1px solid #222;
+  color:#bbb;
+  padding:16px 20px;
+  font-size:clamp(0.95rem,3vw,1.05rem);
+  font-family:'Cormorant Garamond',Georgia,serif;
+  letter-spacing:0.04em;
+  border-radius:4px;
+  cursor:pointer;
+  text-align:center;
+  transition:all 0.2s;
+  min-height:54px;
+  -webkit-tap-highlight-color:transparent;
+}
+.cg-opt:hover,.cg-opt.selected {
+  border-color:#C9A84C;color:#C9A84C;background:#110f00;
+}
+.cg-divider {
+  border:none;border-top:1px solid #1a1a1a;
+  margin:28px 0;
+}
+.cg-nav {
+  display:flex;align-items:center;justify-content:center;
+  gap:16px;margin-top:36px;
+}
+.cg-btn-next {
+  background:#C9A84C;color:#0a0a0a;border:none;
+  padding:15px 0;width:100%;
+  font-size:0.78rem;font-weight:700;letter-spacing:0.18em;
+  text-transform:uppercase;cursor:pointer;border-radius:4px;
+  font-family:'Cormorant Garamond',Georgia,serif;
+  min-height:52px;transition:opacity 0.2s;
+  -webkit-tap-highlight-color:transparent;
+}
+.cg-btn-next:hover { opacity:0.85; }
+.cg-btn-prev {
+  background:transparent;border:none;color:#444;
+  font-size:0.75rem;letter-spacing:0.12em;
+  text-transform:uppercase;cursor:pointer;
+  font-family:'Cormorant Garamond',Georgia,serif;
+  padding:8px 0;min-height:44px;
+  -webkit-tap-highlight-color:transparent;
+}
+.cg-btn-prev:hover { color:#888; }
+.cg-dots {
+  display:flex;gap:8px;justify-content:center;margin-top:24px;
+}
+.cg-dot {
+  width:5px;height:5px;border-radius:50%;
+  background:#2a2a2a;transition:background 0.3s;
+}
+.cg-dot.active { background:#C9A84C; }
+.cg-skip {
+  display:block;margin-top:28px;
+  color:#2e2e2e;font-size:0.7rem;letter-spacing:0.1em;
+  text-decoration:none;cursor:pointer;
+  transition:color 0.2s;
+  -webkit-tap-highlight-color:transparent;
+}
+.cg-skip:hover { color:#555; }
+.cg-email-input {
+  width:100%;background:transparent;
+  border:none;border-bottom:1px solid #333;
+  color:#fff;padding:16px 0;
+  font-size:clamp(1rem,3.5vw,1.15rem);
+  outline:none;text-align:center;
+  font-family:'Cormorant Garamond',Georgia,serif;
+  margin-bottom:28px;display:block;
+  box-sizing:border-box;
+  transition:border-color 0.2s;
+}
+.cg-email-input:focus { border-bottom-color:#C9A84C; }
+.cg-email-input::placeholder { color:#333; }
 </style>
 
 <div id="cg-overlay">
-  <div class="cg-wrap">
+<div class="cg-wrap">
 
-    <!-- SLIDE 1: Intro -->
-    <div class="cg-slide" id="cg-s1">
-      <span class="cg-label">The Clarity Assessment</span>
-      <h2 class="cg-title">5 Signs You're<br><em>Thinking Blind</em></h2>
-      <p class="cg-sub">High-performers don't realise how much clarity they're leaving on the table.<br><em style="color:#555;">Do you recognise yourself in any of these?</em></p>
-      <div class="cg-nav"><button class="cg-btn-next" onclick="cgNext()">NEXT →</button></div>
-      <div class="cg-dots" id="cg-dots-1"></div>
-      <a class="cg-skip" onclick="cgClose()">Skip for now</a>
-    </div>
-
-    <!-- SLIDE 2: Signs 01-02 -->
-    <div class="cg-slide" id="cg-s2" style="display:none">
-      <span class="cg-label">Signs 01 — 02</span>
-      <div class="cg-card">
-        <span class="cg-card-num">01</span>
-        <div class="cg-card-title">You Revisit the Same Decisions</div>
-        <div class="cg-card-desc">You make a call, then spend the next three days second-guessing it. You're not deciding once — you're deciding five times.</div>
-        <div class="cg-options">
-          <button class="cg-opt" onclick="cgSelect(this,'q1')">Yeah, always</button>
-          <button class="cg-opt" onclick="cgSelect(this,'q1')">Sometimes</button>
-          <button class="cg-opt" onclick="cgSelect(this,'q1')">Rarely</button>
-        </div>
-      </div>
-      <div class="cg-card">
-        <span class="cg-card-num">02</span>
-        <div class="cg-card-title">Your Best Ideas Come at 2 AM</div>
-        <div class="cg-card-desc">Clarity strikes in the shower, on a walk, when you're trying to sleep. Your "aha moments" are accidents, not a system.</div>
-        <div class="cg-options">
-          <button class="cg-opt" onclick="cgSelect(this,'q2')">Oh yes</button>
-          <button class="cg-opt" onclick="cgSelect(this,'q2')">Maybe so</button>
-          <button class="cg-opt" onclick="cgSelect(this,'q2')">Not really</button>
-        </div>
-      </div>
-      <div class="cg-nav">
-        <button class="cg-btn-prev" onclick="cgPrev()">← PREV</button>
-        <button class="cg-btn-next" onclick="cgNext()">NEXT →</button>
-      </div>
-      <div class="cg-dots" id="cg-dots-2"></div>
-      <a class="cg-skip" onclick="cgClose()">Skip for now</a>
-    </div>
-
-    <!-- SLIDE 3: Signs 03-05 -->
-    <div class="cg-slide" id="cg-s3" style="display:none">
-      <span class="cg-label">Signs 03 — 05</span>
-      <div class="cg-card">
-        <span class="cg-card-num">03</span>
-        <div class="cg-card-title">You Sound Different in Your Head</div>
-        <div class="cg-card-desc">You know exactly what you want to say — but when you speak, it comes out muddled. Others don't quite get it.</div>
-        <div class="cg-options">
-          <button class="cg-opt" onclick="cgSelect(this,'q3')">Yeah, it does</button>
-          <button class="cg-opt" onclick="cgSelect(this,'q3')">Sometimes</button>
-          <button class="cg-opt" onclick="cgSelect(this,'q3')">It does not</button>
-        </div>
-      </div>
-      <div class="cg-card">
-        <span class="cg-card-num">04</span>
-        <div class="cg-card-title">You're Stuck in Reactive Mode</div>
-        <div class="cg-card-desc">Your days are a fire drill. You're responding to whatever lands in your inbox, not driving toward what matters.</div>
-        <div class="cg-options" style="justify-content:center;">
-          <button class="cg-percent" onclick="cgSelect(this,'q4')">35%</button>
-          <button class="cg-percent" onclick="cgSelect(this,'q4')">65%</button>
-          <button class="cg-percent" onclick="cgSelect(this,'q4')">89%</button>
-        </div>
-        <p style="color:#444;font-size:0.72rem;margin-top:10px;letter-spacing:0.05em;">How much of your day is reactive?</p>
-      </div>
-      <div class="cg-card">
-        <span class="cg-card-num">05</span>
-        <div class="cg-card-title">You Have No Record of Your Thinking</div>
-        <div class="cg-card-desc">Last month's big decision? You remember the outcome, not the reasoning. Missed follow-ups, forgotten threads, lost context.</div>
-        <div class="cg-options">
-          <button class="cg-opt" onclick="cgSelect(this,'q5')">Yes</button>
-          <button class="cg-opt" onclick="cgSelect(this,'q5')">Sometimes</button>
-          <button class="cg-opt" onclick="cgSelect(this,'q5')">I remember everything</button>
-        </div>
-      </div>
-      <div class="cg-nav">
-        <button class="cg-btn-prev" onclick="cgPrev()">← PREV</button>
-        <button class="cg-btn-next" onclick="cgNext()">NEXT →</button>
-      </div>
-      <div class="cg-dots" id="cg-dots-3"></div>
-      <a class="cg-skip" onclick="cgClose()">Skip for now</a>
-    </div>
-
-    <!-- SLIDE 4: Email -->
-    <div class="cg-slide" id="cg-s4" style="display:none">
-      <span class="cg-label">2026 Edition</span>
-      <h2 class="cg-title" style="font-size:3rem;"><em>ClarityOS™</em></h2>
-      <p class="cg-sub">"The quality of your decisions determines the quality of your life.<br><em style="color:#C9A84C;">It's time to see what you've been missing."</em></p>
-      <p style="color:#555;font-size:0.8rem;letter-spacing:0.08em;margin-bottom:32px;">Think Clearly. Decide Better.</p>
-      <form id="cg-form" onsubmit="cgSubmit(event)">
-        <input class="cg-email-input" type="email" name="EMAIL" placeholder="your@email.com" required />
-        <input type="hidden" name="b_38399e57f8cf7c6d2b1055b16_f64785d6c9" value="">
-        <button class="cg-submit" type="submit">Enter ClarityOS →</button>
-      </form>
-      <div class="cg-nav" style="margin-top:16px;">
-        <button class="cg-btn-prev" onclick="cgPrev()">← PREV</button>
-      </div>
-      <div class="cg-dots" id="cg-dots-4"></div>
-      <a class="cg-skip" onclick="cgClose()">Skip for now</a>
-    </div>
-
+  <!-- SLIDE 1: Intro -->
+  <div id="cg-s1">
+    <span class="cg-eyebrow">The Clarity Assessment</span>
+    <h2 class="cg-title">5 Signs You're<br><em>Thinking Blind</em></h2>
+    <p class="cg-sub">High-performers don't realise how much clarity they're leaving on the table.<br><br><em style="color:#444;font-size:0.9em;">Do you recognise yourself?</em></p>
+    <button class="cg-btn-next" onclick="cgNext()">BEGIN →</button>
+    <div class="cg-dots" id="cg-d1"></div>
+    <a class="cg-skip" onclick="cgClose()">Skip for now</a>
   </div>
+
+  <!-- SLIDE 2: Q1 -->
+  <div id="cg-s2" style="display:none">
+    <span class="cg-eyebrow">Sign 01 of 03</span>
+    <p class="cg-question">You revisit the same decisions.</p>
+    <p class="cg-question-sub">You make a call — then spend days second-guessing it.</p>
+    <div class="cg-options">
+      <button class="cg-opt" onclick="cgSelect(this,'q1')">Yeah, always</button>
+      <button class="cg-opt" onclick="cgSelect(this,'q1')">Sometimes</button>
+      <button class="cg-opt" onclick="cgSelect(this,'q1')">Rarely</button>
+    </div>
+    <div class="cg-nav">
+      <button class="cg-btn-next" onclick="cgNext()">NEXT →</button>
+    </div>
+    <div class="cg-dots" id="cg-d2"></div>
+    <a class="cg-skip" onclick="cgClose()">Skip for now</a>
+  </div>
+
+  <!-- SLIDE 3: Q2 -->
+  <div id="cg-s3" style="display:none">
+    <span class="cg-eyebrow">Sign 02 of 03</span>
+    <p class="cg-question">Your best ideas come at 2 AM.</p>
+    <p class="cg-question-sub">Clarity strikes when you're trying to sleep — not in the meeting.</p>
+    <div class="cg-options">
+      <button class="cg-opt" onclick="cgSelect(this,'q2')">Oh yes</button>
+      <button class="cg-opt" onclick="cgSelect(this,'q2')">Maybe so</button>
+      <button class="cg-opt" onclick="cgSelect(this,'q2')">Not really</button>
+    </div>
+    <div class="cg-nav">
+      <button class="cg-btn-next" onclick="cgNext()">NEXT →</button>
+    </div>
+    <div class="cg-dots" id="cg-d3"></div>
+    <a class="cg-skip" onclick="cgClose()">Skip for now</a>
+  </div>
+
+  <!-- SLIDE 4: Q3 + Q4 -->
+  <div id="cg-s4" style="display:none">
+    <span class="cg-eyebrow">Sign 03 of 03</span>
+    <p class="cg-question">You're stuck in reactive mode.</p>
+    <p class="cg-question-sub">How much of your day is fire-drill?</p>
+    <div class="cg-options" style="flex-direction:row;flex-wrap:wrap;justify-content:center;gap:10px">
+      <button class="cg-opt" style="width:auto;padding:16px 24px;" onclick="cgSelect(this,'q3')">35%</button>
+      <button class="cg-opt" style="width:auto;padding:16px 24px;" onclick="cgSelect(this,'q3')">65%</button>
+      <button class="cg-opt" style="width:auto;padding:16px 24px;" onclick="cgSelect(this,'q3')">89%</button>
+    </div>
+    <hr class="cg-divider">
+    <p class="cg-question">You have no record of your thinking.</p>
+    <p class="cg-question-sub">Last month's big decision? You remember the outcome — not the reasoning.</p>
+    <div class="cg-options">
+      <button class="cg-opt" onclick="cgSelect(this,'q4')">Yes</button>
+      <button class="cg-opt" onclick="cgSelect(this,'q4')">Sometimes</button>
+      <button class="cg-opt" onclick="cgSelect(this,'q4')">I remember everything</button>
+    </div>
+    <div class="cg-nav">
+      <button class="cg-btn-next" onclick="cgNext()">NEXT →</button>
+    </div>
+    <div class="cg-dots" id="cg-d4"></div>
+    <a class="cg-skip" onclick="cgClose()">Skip for now</a>
+  </div>
+
+  <!-- SLIDE 5: Email -->
+  <div id="cg-s5" style="display:none">
+    <span class="cg-eyebrow">2026 Edition</span>
+    <h2 class="cg-title"><em>ClarityOS™</em></h2>
+    <p class="cg-sub" style="margin-bottom:36px;">"The quality of your decisions determines<br>the quality of your life."<br><br><em style="color:#C9A84C;font-size:0.9em;">Think Clearly. Decide Better.</em></p>
+    <form id="cg-form" onsubmit="cgSubmit(event)">
+      <input class="cg-email-input" type="email" name="EMAIL" placeholder="your@email.com" required />
+      <button class="cg-btn-next" type="submit">Enter ClarityOS →</button>
+    </form>
+    <div class="cg-dots" id="cg-d5"></div>
+    <a class="cg-skip" onclick="cgClose()">Skip for now</a>
+  </div>
+
+</div>
 </div>
 
 <script>
@@ -182,10 +239,10 @@
     document.getElementById('cg-overlay').style.display='none';
     return;
   }
-  var current=1,total=4;
-  function renderDots(n){
+  var cur=1,total=5;
+  function dots(n){
     for(var i=1;i<=total;i++){
-      var el=document.getElementById('cg-dots-'+i);
+      var el=document.getElementById('cg-d'+i);
       if(!el)continue;
       el.innerHTML='';
       for(var d=1;d<=total;d++){
@@ -195,21 +252,16 @@
       }
     }
   }
-  renderDots(1);
+  dots(1);
   window.cgNext=function(){
-    document.getElementById('cg-s'+current).style.display='none';
-    current=Math.min(current+1,total);
-    document.getElementById('cg-s'+current).style.display='block';
-    renderDots(current);
-  };
-  window.cgPrev=function(){
-    document.getElementById('cg-s'+current).style.display='none';
-    current=Math.max(current-1,1);
-    document.getElementById('cg-s'+current).style.display='block';
-    renderDots(current);
+    document.getElementById('cg-s'+cur).style.display='none';
+    cur=Math.min(cur+1,total);
+    document.getElementById('cg-s'+cur).style.display='block';
+    dots(cur);
+    window.scrollTo(0,0);
   };
   window.cgSelect=function(btn,q){
-    btn.parentElement.querySelectorAll('.cg-opt,.cg-percent').forEach(function(b){b.classList.remove('selected');});
+    btn.parentElement.querySelectorAll('.cg-opt').forEach(function(b){b.classList.remove('selected');});
     btn.classList.add('selected');
   };
   window.cgSubmit=function(e){
@@ -222,9 +274,9 @@
   window.cgClose=function(){
     sessionStorage.setItem('cg_done','1');
     var ov=document.getElementById('cg-overlay');
-    ov.style.transition='opacity 0.6s';
+    ov.style.transition='opacity 0.5s';
     ov.style.opacity='0';
-    setTimeout(function(){ov.style.display='none';},600);
+    setTimeout(function(){ov.style.display='none';},500);
   };
 })();
 </script>
