@@ -268,7 +268,18 @@
     e.preventDefault();
     var email=document.querySelector('#cg-form input[name="EMAIL"]').value;
     if(!email)return;
-    new Image().src='https://global-mkts.us3.list-manage.com/subscribe/post?u=38399e57f8cf7c6d2b1055b16&id=f64785d6c9&EMAIL='+encodeURIComponent(email)+'&b_38399e57f8cf7c6d2b1055b16_f64785d6c9=';
+    // Submit to Mailchimp properly
+    var form = document.getElementById('cg-form');
+    var action = 'https://global-mkts.us3.list-manage.com/subscribe/post?u=38399e57f8cf7c6d2b1055b16&id=f64785d6c9';
+    var hiddenInput = document.createElement('input');
+    hiddenInput.type = 'hidden';
+    hiddenInput.name = 'b_38399e57f8cf7c6d2b1055b16_f64785d6c9';
+    hiddenInput.value = '';
+    form.action = action;
+    form.method = 'POST';
+    form.target = '_blank';
+    form.appendChild(hiddenInput);
+    form.submit();
     cgClose();
   };
   window.cgClose=function(){
