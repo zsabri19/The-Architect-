@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Clarity Dispatch — Weekly Insights | Zeeshan Sabri</title>
+  <meta name="description" content="One insight from ClarityOS, applied to one business challenge, every week. Read by transformation leaders across the GCC and beyond.">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="The Clarity Dispatch — Weekly Insights">
+  <meta property="og:description" content="One insight from ClarityOS, applied to one business challenge, every week.">
+  <meta property="og:image" content="assets/images/1000231025.jpg">
+  <meta property="og:url" content="https://architect.global-mkts.com/newsletter.html">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Clarity Dispatch">
+  <meta name="twitter:description" content="One insight from ClarityOS, applied to one business challenge, every week.">
+  <meta name="twitter:image" content="assets/images/1000231025.jpg">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <style>
+    /* Newsletter-specific styles */
+    .newsletter-hero {
+      padding: calc(var(--section-gap) * 0.6) 0 var(--section-gap);
+      text-align: center;
+    }
+    
+    .newsletter-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: var(--size-hero);
+      font-weight: 500;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+    
+    .newsletter-hero h1 em {
+      color: var(--wisdom);
+      font-style: italic;
+    }
+    
+    .newsletter-hero__subtitle {
+      font-size: var(--size-h4);
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+    
+    .newsletter-hero__meta {
+      font-size: var(--size-xs);
+      color: var(--faint);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+    
+    /* Subscribe form */
+    .subscribe-section {
+      background: var(--shadow);
+      padding: 3rem 0;
+      margin-bottom: var(--section-gap);
+    }
+    
+    .subscribe-form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .subscribe-form input[type="email"] {
+      flex: 1;
+      min-width: 280px;
+      padding: 1rem 1.25rem;
+      background: var(--void);
+      border: 1px solid var(--faint);
+      border-radius: var(--radius-sm);
+      color: var(--dawn);
+      font-size: var(--size-sm);
+      font-family: inherit;
+    }
+    
+    .subscribe-form input[type="email"]:focus {
+      outline: none;
+      border-color: var(--wisdom);
+    }
+    
+    .subscribe-form input[type="email"]::placeholder {
+      color: var(--muted);
+    }
+    
+    /* Article cards */
+    .articles-grid {
+      display: grid;
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .article-card {
+      background: var(--shadow);
+      border: 1px solid var(--faint);
+      border-radius: var(--radius-md);
+      padding: 2.5rem;
+      transition: all var(--dur-med) var(--ease-out);
+    }
+    
+    .article-card:hover {
+      border-color: var(--wisdom);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lift);
+    }
+    
+    .article-card__eyebrow {
+      font-size: var(--size-xs);
+      color: var(--wisdom);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 1rem;
+    }
+    
+    .article-card__title {
+      font-family: 'Playfair Display', serif;
+      font-size: var(--size-h3);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+    
+    .article-card__title a {
+      color: var(--dawn);
+      text-decoration: none;
+    }
+    
+    .article-card__title a:hover {
+      color: var(--wisdom);
+    }
+    
+    .article-card__preview {
+      color: var(--muted);
+      font-size: var(--size-sm);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    
+    .article-card__meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: var(--size-xs);
+      color: var(--faint);
+    }
+    
+    .article-card__meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    /* Full article styles */
+    .article-full {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: var(--section-gap) 0;
+    }
+    
+    .article-full__header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .article-full__eyebrow {
+      font-size: var(--size-xs);
+      color: var(--wisdom);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 1rem;
+    }
+    
+    .article-full__title {
+      font-family: 'Playfair Display', serif;
+      font-size: var(--size-h1);
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+    
+    .article-full__preview {
+      font-size: var(--size-h4);
+      color: var(--muted);
+      font-style: italic;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .article-full__content {
+      font-size: var(--size-body);
+      line-height: 1.9;
+    }
+    
+    .article-full__content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: var(--size-h3);
+      font-weight: 600;
+      margin: 2.5rem 0 1rem;
+      color: var(--dawn);
+    }
+    
+    .article-full__content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: var(--size-h4);
+      font-weight: 600;
+      margin: 2rem 0 1rem;
+      color: var(--dawn);
+    }
+    
+    .article-full__content p {
+      margin-bottom: 1.5rem;
+      color: var(--muted);
+    }
+    
+    .article-full__content strong {
+      color: var(--dawn);
+      font-weight: 600;
+    }
+    
+    .article-full__content blockquote {
+      border-left: 3px solid var(--wisdom);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      font-style: italic;
+      color: var(--dawn);
+    }
+    
+    .article-full__content ul,
+    .article-full__content ol {
+      margin: 1.5rem 0;
+      padding-left: 1.5rem;
+    }
+    
+    .article-full__content li {
+      margin-bottom: 0.75rem;
+      color: var(--muted);
+    }
+    
+    .article-full__content hr {
+      border: none;
+      border-top: 1px solid var(--faint);
+      margin: 2.5rem 0;
+    }
+    
+    .article-full__content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      font-size: var(--size-sm);
+    }
+    
+    .article-full__content th,
+    .article-full__content td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--faint);
+    }
+    
+    .article-full__content th {
+      color: var(--dawn);
+      font-weight: 600;
+    }
+    
+    .article-full__content td {
+      color: var(--muted);
+    }
+    
+    .article-full__footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--faint);
+      text-align: center;
+    }
+    
+    .article-full__signature {
+      font-family: 'Playfair Display', serif;
+      font-size: var(--size-h4);
+      color: var(--wisdom);
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Back link */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: var(--size-sm);
+      margin-bottom: 2rem;
+      transition: color var(--dur-fast);
+    }
+    
+    .back-link:hover {
+      color: var(--wisdom);
+    }
+    
+    /* Share buttons */
+    .share-section {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    
+    .share-btn {
+      padding: 0.75rem 1.5rem;
+      background: var(--shadow);
+      border: 1px solid var(--faint);
+      border-radius: var(--radius-sm);
+      color: var(--muted);
+      font-size: var(--size-xs);
+      text-decoration: none;
+      transition: all var(--dur-fast);
+    }
+    
+    .share-btn:hover {
+      border-color: var(--wisdom);
+      color: var(--wisdom);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__brand" aria-label="Home">
+        <span class="nav__brand-name">Zeeshan Sabri</span>
+      </a>
+      <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav__menu" id="navMenu" role="menubar">
+        <li role="none"><a href="the-architect.html" class="nav__link" role="menuitem">The Architect</a></li>
+        <li role="none"><a href="clarityos.html" class="nav__link" role="menuitem">ClarityOS</a></li>
+        <li role="none"><a href="newsletter.html" class="nav__link nav__link--active" role="menuitem">Dispatch</a></li>
+        <li role="none"><a href="advisory.html" class="nav__link" role="menuitem">Advisory</a></li>
+        <li role="none"><a href="media.html" class="nav__link" role="menuitem">Media</a></li>
+        <li role="none"><a href="connect.html" class="nav__link" role="menuitem">Connect</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="newsletter-hero">
+      <div class="container">
+        <p class="newsletter-hero__meta">Weekly Insight</p>
+        <h1>The <em>Clarity</em> Dispatch</h1>
+        <p class="newsletter-hero__subtitle">
+          One insight from ClarityOS, applied to one business challenge, every week.<br>
+          Read by transformation leaders across the GCC and beyond.
+        </p>
+      </div>
+    </section>
+
+    <!-- Subscribe Section -->
+    <section class="subscribe-section">
+      <div class="container">
+        <form class="subscribe-form" action="https://global-mkts.us3.list-manage.com/subscribe/post?u=38399e57f8cf7c6d2b1055b16&id=f64785d6c9" method="post" target="_blank">
+          <input type="email" name="EMAIL" placeholder="Enter your email" required aria-label="Email address">
+          <button type="submit" class="btn btn--primary">Subscribe <span class="btn__arrow">→</span></button>
+        </form>
+        <p style="text-align:center;font-size:var(--size-xs);color:var(--muted);margin-top:1rem">
+          No spam. No noise. Just clarity. Unsubscribe anytime.
+        </p>
+      </div>
+    </section>
+
+    <!-- Articles List -->
+    <section class="section">
+      <div class="container">
+        <div class="articles-grid">
+          
+          <!-- Article 1 -->
+          <article class="article-card reveal">
+            <p class="article-card__eyebrow">Newsletter #1 · March 2026</p>
+            <h2 class="article-card__title">
+              <a href="newsletter-01-investment-paradox.html">The Investment Paradox: Why We Can't Fix Chaos with Code</a>
+            </h2>
+            <p class="article-card__preview">
+              We spend 90% of transformation budgets on System OS—ERP, AI, governance frameworks—and 0% on Human OS: identity, behavior, discipline. This is why 70% of transformations fail. The Investment Paradox explains why better systems don't create better outcomes when the human architecture is missing.
+            </p>
+            <div class="article-card__meta">
+              <span>📖 5 min read</span>
+              <span>·</span>
+              <span>#Transformation #HumanOS</span>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="article-card reveal">
+            <p class="article-card__eyebrow">Newsletter #2 · March 2026</p>
+            <h2 class="article-card__title">
+              <a href="newsletter-02-ai-adoption.html">AI Adoption is Leadership, Not Installation</a>
+            </h2>
+            <p class="article-card__preview">
+              Every board meeting in 2026 asks: "What's our AI strategy?" Most CEOs respond: "We're piloting ChatGPT Enterprise." That's not strategy—it's procurement with better branding. The Pyramid Framework shows how to embed AI with governance and capability, not just licenses.
+            </p>
+            <div class="article-card__meta">
+              <span>📖 6 min read</span>
+              <span>·</span>
+              <span>#AIAdoption #Governance</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section section--depth" style="text-align:center">
+      <div class="container">
+        <h2 style="font-family:'Playfair Display',serif;font-size:var(--size-h2);margin-bottom:1rem">Ready to Go Deeper?</h2>
+        <p style="color:var(--muted);max-width:500px;margin:0 auto 2rem">
+          The Dispatch is free. But if you're facing a specific transformation challenge, 
+          let's talk about how ClarityOS applies to your situation.
+        </p>
+        <a href="connect.html" class="btn btn--primary">Book a Clarity Call <span class="btn__arrow">→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <div>
+          <div class="footer__brand-name">
+            Zeeshan Sabri <span class="footer__brand-dot" aria-hidden="true"></span>
+          </div>
+          <p class="footer__tagline">
+            The Human OS before the System OS. ClarityOS is the prerequisite, not the upgrade.
+          </p>
+        </div>
+        <div>
+          <p class="footer__col-title">Navigate</p>
+          <ul class="footer__links" role="list">
+            <li><a href="the-architect.html" class="footer__link">The Architect</a></li>
+            <li><a href="clarityos.html" class="footer__link">ClarityOS</a></li>
+            <li><a href="newsletter.html" class="footer__link">Dispatch</a></li>
+            <li><a href="advisory.html" class="footer__link">Advisory</a></li>
+            <li><a href="connect.html" class="footer__link">Connect</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Connect</p>
+          <ul class="footer__links" role="list">
+            <li><a href="https://linkedin.com/in/zeeshan-sabri" class="footer__link" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://www.youtube.com/@ZeeshanSabri83" class="footer__link" target="_blank" rel="noopener noreferrer">YouTube ↗</a></li>
+            <li><a href="mailto:ClarityOS@global-mkts.com" class="footer__link">ClarityOS@global-mkts.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright">
+          &copy; 2026 Zeeshan Sabri. ClarityOS™ is a registered trademark.
+        </p>
+        <div class="footer__social">
+          <a href="https://linkedin.com/in/zeeshan-sabri" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">LinkedIn →</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation toggle
+    const navToggle = document.querySelector('.nav__toggle');
+    const navMenu = document.querySelector('.nav__menu');
+    
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', !isExpanded);
+        navMenu.classList.toggle('nav__menu--open');
+      });
+    }
+  </script>
+</body>
+</html>
