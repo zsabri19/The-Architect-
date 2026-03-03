@@ -1745,6 +1745,110 @@ strong {
 }
 
 /* ============================================================
+   20b. ADVISORY PAGE — Hero, Pricing Grid, Feature Grid
+   ============================================================ */
+
+/* Single-column hero for advisory (no image column) */
+.hero--advisory {
+  grid-template-columns: 1fr;
+  text-align: center;
+  align-items: end;
+  min-height: 80svh;
+  position: relative;
+}
+
+.hero--advisory::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 60%, rgba(201, 162, 39, 0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 30% at 20% 80%, rgba(201, 162, 39, 0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero--advisory::after {
+  display: none;
+}
+
+.hero--advisory .hero__content {
+  align-items: center;
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+.hero--advisory .hero__title {
+  font-size: clamp(2.75rem, 6vw, 5rem);
+}
+
+.hero--advisory .hero__sub {
+  max-width: 60ch;
+  text-align: center;
+}
+
+/* Pricing grid — 3 columns on desktop, stack on mobile */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.pricing-grid .pricing-box {
+  max-width: none;
+  margin: 0;
+}
+
+/* Featured pricing tier */
+.pricing-box--featured {
+  border: 2px solid var(--wisdom);
+  position: relative;
+  transform: scale(1.03);
+}
+
+.pricing-box__badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--wisdom);
+  color: var(--void);
+  padding: 0.25rem 1rem;
+  font-size: var(--size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+
+/* Pricing grid responsive */
+@media (max-width: 768px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin-inline: auto;
+  }
+
+  .pricing-box--featured {
+    transform: none;
+  }
+
+  .hero--advisory {
+    min-height: 70svh;
+    text-align: left;
+  }
+
+  .hero--advisory .hero__content {
+    align-items: flex-start;
+  }
+
+  .hero--advisory .hero__sub {
+    text-align: left;
+  }
+}
+
+/* ============================================================
    21. FAQ ACCORDION
    ============================================================ */
 .faq {
