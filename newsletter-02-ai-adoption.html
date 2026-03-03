@@ -40,6 +40,39 @@
     .nav__link:hover { color: #c9a227; }
     @media (max-width: 768px) { .nav__menu { display: none; } .article-page { padding-top: 6rem; } }
   </style>
+
+  <!-- Google Analytics 4 — REPLACE G-XXXXXXXXXX with your Measurement ID -->
+  <!-- Create property at https://analytics.google.com → Admin → Create Property -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <!-- Structured Data — Person + Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Zeeshan Sabri",
+    "url": "https://architect.global-mkts.com",
+    "image": "https://architect.global-mkts.com/assets/images/1000231025.jpg",
+    "jobTitle": "Founder of ClarityOS™, Transformation Architect",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Global Markets Technologies LLC",
+      "url": "https://global-mkts.com"
+    },
+    "sameAs": [
+      "https://linkedin.com/in/zeeshan-sabri",
+      "https://www.youtube.com/@ZeeshanSabri83"
+    ],
+    "description": "Founder of ClarityOS™ — the operating system for transformation. Author, advisor, and transformation architect serving the GCC and beyond.",
+    "knowsAbout": ["Transformation", "ClarityOS", "Executive Advisory", "Procurement", "Digital Governance"]
+  }
+  </script>
 </head>
 <body style="background: #0a0a0f; color: #9a9aaa; font-family: 'Inter', sans-serif;">
   <nav class="nav">

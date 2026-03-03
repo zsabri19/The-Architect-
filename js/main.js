@@ -201,25 +201,28 @@
     /* ============================================================
        9. NEWSLETTER FORM — simple submit handler
        ============================================================ */
+    /* Dispatch form now submits directly to Mailchimp via form action.
+       This handler provides visual feedback after submission. */
     const dispatchForm = document.querySelector('.dispatch__form');
     if (dispatchForm) {
-      dispatchForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-        const input  = this.querySelector('input[type="email"]');
-        const btn    = this.querySelector('button[type="submit"]');
+      dispatchForm.addEventListener('submit', function () {
+        /* Allow the native form POST to Mailchimp, then show feedback */
+        const input = this.querySelector('input[type="email"]');
+        const btn   = this.querySelector('button[type="submit"]');
         if (!input || !input.value) return;
 
         const originalText = btn.textContent;
-        btn.textContent = 'Subscribed ✓';
-        btn.disabled    = true;
-        btn.style.background = '#2e7d52';
-        input.value = '';
-
         setTimeout(() => {
-          btn.textContent = originalText;
-          btn.disabled    = false;
-          btn.style.background = '';
-        }, 4000);
+          btn.textContent = 'Subscribed ✓';
+          btn.disabled    = true;
+          btn.style.background = '#2e7d52';
+          input.value = '';
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.disabled    = false;
+            btn.style.background = '';
+          }, 5000);
+        }, 500);
       });
     }
 
