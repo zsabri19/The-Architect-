@@ -87,7 +87,7 @@
   </nav>
 
   <!-- ── MOBILE MENU ── -->
-  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <div class="nav__mobile" id="mobile-menu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
     <a href="the-architect.html" class="nav__mobile-link">The Architect</a>
     <a href="clarityos.html" class="nav__mobile-link">ClarityOS</a>
     <a href="advisory.html" class="nav__mobile-link">Advisory</a>
@@ -98,11 +98,20 @@
   </div>
 
   <!-- ── HERO ── -->
-  <section class="hero hero--small">
-    <div class="hero__content">
-      <p class="hero__eyebrow">Powered by ClarityOS™</p>
-      <h1 class="hero__title">The GCC Relocation Advisory</h1>
-      <p class="hero__subtitle">Strategic career acceleration through governance-embedded GCC transitions. Not a recruitment service. A transition architecture.</p>
+  <section class="hero hero--advisory">
+    <div class="container">
+      <div class="hero__content">
+        <div class="hero__eyebrow reveal">
+          <span class="hero__eyebrow-line" aria-hidden="true"></span>
+          <span class="eyebrow">Powered by ClarityOS™</span>
+        </div>
+        <h1 class="hero__title reveal" style="transition-delay:80ms">The GCC Relocation<br><em>Advisory</em></h1>
+        <p class="hero__sub reveal" style="transition-delay:160ms">Strategic career acceleration through governance-embedded GCC transitions.<br>Not a recruitment service. A transition architecture.</p>
+        <div class="btn-group reveal" style="transition-delay:240ms">
+          <a href="#book" class="btn btn--primary">View Engagements <span class="btn__arrow" aria-hidden="true">→</span></a>
+          <a href="the-architect.html" class="btn btn--ghost">About The Architect</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -116,7 +125,7 @@
         <p>Generic career coaching doesn't work for GCC transitions. You need ecosystem intelligence that crosses government, semi-government, and private sector boundaries.</p>
       </div>
 
-      <div class="features__grid">
+      <div class="grid-2 stagger">
         <article class="feature-card reveal">
           <div class="feature-card__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -176,7 +185,7 @@
 
       <div class="proof-section">
         <div class="proof__image-wrap">
-          <img class="proof__img" src="assets/images/1000231025.jpg" alt="Zeeshan Sabri — GCC Transformation Architect" width="600" height="700" loading="lazy" />
+          <img class="proof__img" src="assets/images/1000231025.jpg" alt="Zeeshan Sabri — GCC Transformation Architect" width="600" height="700" loading="lazy" style="object-position:center 20%" />
         </div>
 
         <div class="proof__content reveal" style="transition-delay:120ms">
@@ -258,10 +267,10 @@
         <p>Payment upfront ensures focused, high-value engagement that respects your time and mine. <strong style="color:var(--wisdom)">48-hour deliverable guarantee. Clarity-or-credit assurance.</strong></p>
       </div>
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;max-width:1200px;margin:0 auto">
+      <div class="pricing-grid">
         
         <!-- Strategic Compass -->
-        <div class="pricing-box reveal" style="position:relative">
+        <div class="pricing-box reveal">
           <p class="eyebrow" style="margin-bottom:1rem">Entry Point</p>
           <div class="pricing-box__amount">$250</div>
           <p class="pricing-box__period">30 minutes • Rapid strategic assessment</p>
@@ -279,8 +288,8 @@
         </div>
 
         <!-- Integration Blueprint -->
-        <div class="pricing-box reveal" style="position:relative;border:2px solid var(--wisdom)">
-          <span style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--wisdom);color:var(--void);padding:0.25rem 1rem;font-size:var(--size-xs);font-weight:600;text-transform:uppercase;letter-spacing:0.1em;border-radius:var(--radius-sm)">Most Popular</span>
+        <div class="pricing-box pricing-box--featured reveal">
+          <span class="pricing-box__badge">Most Popular</span>
           <p class="eyebrow" style="margin-bottom:1rem">Comprehensive</p>
           <div class="pricing-box__amount">$500</div>
           <p class="pricing-box__period">60 minutes • Complete transition strategy</p>
@@ -299,7 +308,7 @@
         </div>
 
         <!-- Executive Transition Architecture -->
-        <div class="pricing-box reveal" style="position:relative">
+        <div class="pricing-box reveal">
           <p class="eyebrow" style="margin-bottom:1rem">Full Architecture</p>
           <div class="pricing-box__amount">$750</div>
           <p class="pricing-box__period">90 minutes • Multi-scenario framework</p>
