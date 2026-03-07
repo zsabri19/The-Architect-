@@ -8,7 +8,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&family=Oswald:wght@400;500;700&display=swap');
 
 /* ============================================================
-   REACT THEME — Grid Texture & Effects
+   REACT THEME — Texture & Effects (Matching React Site)
    ============================================================ */
 
 /* React color palette */
@@ -17,47 +17,13 @@
   --matte-black: #0F0F0F;
 }
 
-/* Grid background pattern (React style) */
-.grid-texture {
-  position: relative;
-}
-
-.grid-texture::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Full page grid texture */
+/* Full page texture - NO GRID, just dark matte black */
 body.grid-texture-bg {
   background-color: var(--matte-black);
+  cursor: crosshair; /* Brutalist cursor like React */
 }
 
-body.grid-texture-bg::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 50px 50px;
-  pointer-events: none;
-  z-index: 9998;
-}
-
-/* CRT Scanlines effect */
+/* CRT Scanlines effect - exact React replica */
 .scanlines {
   position: fixed;
   top: 0;
@@ -68,13 +34,47 @@ body.grid-texture-bg::before {
     to bottom,
     rgba(255,255,255,0),
     rgba(255,255,255,0) 50%,
-    rgba(0,0,0,0.1) 50%,
-    rgba(0,0,0,0.1)
+    rgba(0,0,0,0.2) 50%,
+    rgba(0,0,0,0.2)
   );
   background-size: 100% 4px;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.3;
+  opacity: 0.6;
+}
+
+/* Subtle Flicker Animation */
+@keyframes flicker {
+  0% { opacity: 0.97; }
+  5% { opacity: 0.95; }
+  10% { opacity: 0.9; }
+  15% { opacity: 0.95; }
+  20% { opacity: 0.99; }
+  100% { opacity: 0.97; }
+}
+
+.crt-flicker {
+  animation: flicker 0.15s infinite;
+}
+
+/* Text Selection - Orange accent */
+::selection {
+  background: var(--signal-orange);
+  color: #000;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--matte-black);
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--signal-orange);
 }
 
 /* Subtle pulse animation */
