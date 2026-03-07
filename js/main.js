@@ -201,28 +201,25 @@
     /* ============================================================
        9. NEWSLETTER FORM — simple submit handler
        ============================================================ */
-    /* Dispatch form now submits directly to Mailchimp via form action.
-       This handler provides visual feedback after submission. */
     const dispatchForm = document.querySelector('.dispatch__form');
     if (dispatchForm) {
-      dispatchForm.addEventListener('submit', function () {
-        /* Allow the native form POST to Mailchimp, then show feedback */
-        const input = this.querySelector('input[type="email"]');
-        const btn   = this.querySelector('button[type="submit"]');
+      dispatchForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const input  = this.querySelector('input[type="email"]');
+        const btn    = this.querySelector('button[type="submit"]');
         if (!input || !input.value) return;
 
         const originalText = btn.textContent;
+        btn.textContent = 'Subscribed ✓';
+        btn.disabled    = true;
+        btn.style.background = '#2e7d52';
+        input.value = '';
+
         setTimeout(() => {
-          btn.textContent = 'Subscribed ✓';
-          btn.disabled    = true;
-          btn.style.background = '#2e7d52';
-          input.value = '';
-          setTimeout(() => {
-            btn.textContent = originalText;
-            btn.disabled    = false;
-            btn.style.background = '';
-          }, 5000);
-        }, 500);
+          btn.textContent = originalText;
+          btn.disabled    = false;
+          btn.style.background = '';
+        }, 4000);
       });
     }
 
@@ -309,3 +306,175 @@
   }); // end ready
 
 })();
+
+/* ============================================================
+   EMAIL CAPTURE HANDLER
+   ============================================================ */
+function handleEmailCapture(event) {
+  event.preventDefault();
+  const email = event.target.email.value;
+
+  // Store email (replace with your email service integration)
+  console.log('Email captured:', email);
+
+  // Show success message
+  const form = event.target;
+  const text = form.parentElement.querySelector('.email-capture__text');
+  const sub = form.parentElement.querySelector('.email-capture__sub');
+
+  form.innerHTML = '<p style="color:#C9A84C;font-size:1rem;text-align:center;padding:1rem;">Thanks! Check your inbox for the assessment.</p>';
+
+  // Track conversion
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'generate_lead', {
+      'event_category': 'form',
+      'event_label': 'hero_email_capture'
+    });
+  }
+}
+
+/* ============================================================
+   EXIT INTENT POPUP
+   ============================================================ */
+let exitIntentShown = false;
+document.addEventListener('mouseleave', (e) => {
+  if (e.clientY <= 0 && !exitIntentShown && !sessionStorage.getItem('exit_intent_shown')) {
+    exitIntentShown = true;
+    sessionStorage.setItem('exit_intent_shown', '1');
+
+    // Show exit intent after slight delay
+    setTimeout(() => {
+      showExitIntent();
+    }, 500);
+  }
+});
+
+function showExitIntent() {
+  // Create popup dynamically
+  const popup = document.createElement('div');
+  popup.id = 'exit-intent-popup';
+  popup.innerHTML = `
+    <div class="exit-intent-overlay" onclick="closeExitIntent()"></div>
+    <div class="exit-intent-modal">
+      <button class="exit-intent-close" onclick="closeExitIntent()">&times;</button>
+      <span class="exit-intent-eyebrow">Before You Go</span>
+      <h2 class="exit-intent-title">Get the Free<br/>Framework Guide</h2>
+      <p class="exit-intent-text">Download the 8C Crisis-to-Clarity Framework — used by Fortune 500 leaders.</p>
+      <form class="exit-intent-form" onsubmit="handleExitIntent(event)">
+        <input type="email" name="email" placeholder="Your email" required />
+        <button type="submit">Send Me the Framework</button>
+      </form>
+    </div>
+  `;
+  document.body.appendChild(popup);
+  document.body.style.overflow = 'hidden';
+}
+
+function closeExitIntent() {
+  const popup = document.getElementById('exit-intent-popup');
+  if (popup) {
+    popup.remove();
+    document.body.style.overflow = '';
+  }
+}
+
+function handleExitIntent(event) {
+  event.preventDefault();
+  const email = event.target.email.value;
+  console.log('Exit intent email:', email);
+  closeExitIntent();
+  alert('Thanks! Check your inbox for the framework guide.');
+}
+
+/* ============================================================
+   CHAT WIDGET (ClarityOS Agent Demo)
+   ============================================================ */
+function initChatWidget() {
+  // Floating chat button
+  const chatBtn = document.createElement('div');
+  chatBtn.id = 'chat-widget-btn';
+  chatBtn.innerHTML = `
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
+    <span>Try ClarityOS Agent</span>
+  `;
+  chatBtn.onclick = openChatWidget;
+  document.body.appendChild(chatBtn);
+}
+
+// Initialize on load
+document.addEventListener('DOMContentLoaded', initChatWidget);
+
+function openChatWidget() {
+  // Check if popup already exists
+  let widget = document.getElementById('chat-widget-modal');
+
+  if (!widget) {
+    widget = document.createElement('div');
+    widget.id = 'chat-widget-modal';
+    widget.innerHTML = `
+      <div class="chat-widget-overlay" onclick="closeChatWidget()"></div>
+      <div class="chat-widget-content">
+        <div class="chat-widget-header">
+          <h3>ClarityOS Agent</h3>
+          <button onclick="closeChatWidget()">&times;</button>
+        </div>
+        <div class="chat-widget-body" id="chat-messages">
+          <div class="chat-message chat-message--bot">
+            <p>I'm the ClarityOS Intelligence Node. I operate with the precision of a transformation architect.</p>
+            <p style="margin-top:0.5rem;color:#888;font-size:0.8rem;">Try me: "How do I fix a failing transformation?"</p>
+          </div>
+        </div>
+        <form class="chat-widget-input" onsubmit="handleChatSubmit(event)">
+          <input type="text" id="chat-input" placeholder="Ask me anything..." />
+          <button type="submit">Send</button>
+        </form>
+        <p class="chat-widget-footer">This is a demo. <a href="clarityos.html">Book a session</a> for full access.</p>
+      </div>
+    `;
+    document.body.appendChild(widget);
+  }
+
+  document.body.style.overflow = 'hidden';
+}
+
+function closeChatWidget() {
+  const widget = document.getElementById('chat-widget-modal');
+  if (widget) {
+    widget.remove();
+    document.body.style.overflow = '';
+  }
+}
+
+function handleChatSubmit(event) {
+  event.preventDefault();
+  const input = document.getElementById('chat-input');
+  const message = input.value.trim();
+
+  if (!message) return;
+
+  // Add user message
+  const messagesDiv = document.getElementById('chat-messages');
+  messagesDiv.innerHTML += `
+    <div class="chat-message chat-message--user">
+      <p>${message}</p>
+    </div>
+  `;
+
+  // Clear input
+  input.value = '';
+
+  // Simulate bot response (replace with actual API call to your ClarityOS agent)
+  setTimeout(() => {
+    messagesDiv.innerHTML += `
+      <div class="chat-message chat-message--bot">
+        <p>Crisis forces clarity that comfort never could.</p>
+        <p style="margin-top:0.5rem;">This is a demo response. To unlock the full ClarityOS agent with my full capabilities, <a href="clarityos.html" style="color:#C984C;">book a $79 session</a>.</p>
+      </div>
+    `;
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+  }, 1000);
+
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+}
