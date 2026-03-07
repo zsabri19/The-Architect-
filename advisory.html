@@ -90,7 +90,7 @@
   </nav>
 
   <!-- ── MOBILE MENU ── -->
-  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <div class="nav__mobile" id="mobile-menu" aria-hidden="true">
     <a href="the-architect.html" class="nav__mobile-link">The Architect</a>
     <a href="clarityos.html" class="nav__mobile-link">ClarityOS</a>
     <a href="advisory.html" class="nav__mobile-link">Advisory</a>
@@ -314,78 +314,150 @@
         <p style="max-width:600px;margin:1rem auto;color:var(--muted)">From refugee to ecosystem architect — every country added a dimension to the INSIGHT→INTEGRATION methodology.</p>
       </div>
 
-      <div style="overflow-x:auto;margin-top:2rem">
-        <table style="width:100%;border-collapse:collapse;min-width:600px">
-          <thead>
-            <tr style="border-bottom:1px solid var(--faint)">
-              <th style="text-align:left;padding:1rem;color:var(--wisdom);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em">Country</th>
-              <th style="text-align:left;padding:1rem;color:var(--wisdom);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em">Period</th>
-              <th style="text-align:left;padding:1rem;color:var(--wisdom);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em">Theme</th>
-              <th style="text-align:left;padding:1rem;color:var(--wisdom);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em">Key</th>
-            </tr>
-          </thead>
-          <tbody style="color:var(--muted);font-size:0.9rem">
-            <tr style="border-bottom:1px solid var(--faint)">
-              <td style="padding:1rem">Pakistan</td>
-              <td>1990-1992</td>
-              <td style="color:var(--wisdom)">Foundation Forged</td>
-              <td>Crisis resilience, adaptive leadership</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--faint)">
-              <td style="padding:1rem">Kuwait</td>
-              <td>1983-2016</td>
-              <td style="color:var(--wisdom)">Origin & Growth</td>
-              <td>Entrepreneurship, cricket excellence</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--faint)">
-              <td style="padding:1rem">UAE</td>
-              <td>2004-05, 2020-23</td>
-              <td style="color:var(--wisdom)">Innovation Gateway</td>
-              <td>Du launch, Motorola $80M+ programs</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--faint)">
-              <td style="padding:1rem">Qatar</td>
-              <td>2007-2009</td>
-              <td style="color:var(--wisdom)">Strategic Catalyst</td>
-              <td>Regulatory mastery, stakeholder ecosystems</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--faint)">
-              <td style="padding:1rem">Bahrain</td>
-              <td>2016-2020</td>
-              <td style="color:var(--wisdom)">Crisis Leadership</td>
-              <td>MCIPS, Huawei growth, sanctions navigation</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--faint)">
-              <td style="padding:1rem">Saudi</td>
-              <td>2016-Present</td>
-              <td style="color:var(--wisdom)">Partnership Network</td>
-              <td>Vision 2030, trust-based partnerships</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--faint)">
-              <td style="padding:1rem">UK</td>
-              <td>2023-2024</td>
-              <td style="color:var(--wisdom)">Global Bridge</td>
-              <td>MBA Augment, advisory network</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--faint)">
-              <td style="padding:1rem">US</td>
-              <td>2024-2025</td>
-              <td style="color:var(--wisdom)">Resilience Test</td>
-              <td>Family separation & reunion</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--faint)">
-              <td style="padding:1rem">Oman</td>
-              <td>Present</td>
-              <td style="color:var(--wisdom)">Ecosystem Architecture</td>
-              <td>SuperJet 5M+ citizens, Vision 2040</td>
-            </tr>
-          </tbody>
-        </table>
+      <!-- Interactive Country Tabs -->
+      <div style="margin-top:2rem">
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;margin-bottom:2rem">
+          <button onclick="showCountry('pakistan')" style="background:transparent;border:1px solid var(--faint);color:var(--muted);padding:0.75rem 1.25rem;font-size:0.85rem;cursor:pointer;transition:all 0.2s;font-family:inherit">Pakistan</button>
+          <button onclick="showCountry('kuwait')" style="background:transparent;border:1px solid var(--faint);color:var(--muted);padding:0.75rem 1.25rem;font-size:0.85rem;cursor:pointer;transition:all 0.2s;font-family:inherit">Kuwait</button>
+          <button onclick="showCountry('uae')" style="background:transparent;border:1px solid var(--faint);color:var(--muted);padding:0.75rem 1.25rem;font-size:0.85rem;cursor:pointer;transition:all 0.2s;font-family:inherit">UAE</button>
+          <button onclick="showCountry('qatar')" style="background:transparent;border:1px solid var(--faint);color:var(--muted);padding:0.75rem 1.25rem;font-size:0.85rem;cursor:pointer;transition:all 0.2s;font-family:inherit">Qatar</button>
+          <button onclick="showCountry('bahrain')" style="background:transparent;border:1px solid var(--faint);color:var(--muted);padding:0.75rem 1.25rem;font-size:0.85rem;cursor:pointer;transition:all 0.2s;font-family:inherit">Bahrain</button>
+          <button onclick="showCountry('saudi')" style="background:transparent;border:1px solid var(--faint);color:var(--muted);padding:0.75rem 1.25rem;font-size:0.85rem;cursor:pointer;transition:all 0.2s;font-family:inherit">Saudi</button>
+          <button onclick="showCountry('uk')" style="background:transparent;border:1px solid var(--faint);color:var(--muted);padding:0.75rem 1.25rem;font-size:0.85rem;cursor:pointer;transition:all 0.2s;font-family:inherit">UK</button>
+          <button onclick="showCountry('us')" style="background:transparent;border:1px solid var(--faint);color:var(--muted);padding:0.75rem 1.25rem;font-size:0.85rem;cursor:pointer;transition:all 0.2s;font-family:inherit">US</button>
+          <button onclick="showCountry('oman')" style="background:transparent;border:1px solid var(--wisdom);color:var(--wisdom);padding:0.75rem 1.25rem;font-size:0.85rem;cursor:pointer;transition:all 0.2s;font-family:inherit">Oman</button>
+        </div>
+
+        <!-- Country Content Panels -->
+        <div id="country-panels" style="max-width:800px;margin:0 auto">
+
+          <!-- Pakistan -->
+          <div id="panel-pakistan" style="display:none;padding:2rem;background:rgba(255,255,255,0.02);border:1px solid var(--faint)">
+            <p style="color:var(--wisdom);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.5rem">1990-1992</p>
+            <h3 style="color:#fff;font-size:1.5rem;margin-bottom:0.5rem">Pakistan — Foundation Forged by Fire</h3>
+            <p style="color:var(--wisdom);font-style:italic;margin-bottom:1.5rem">"Where I learned that circumstances don't define trajectory — response does"</p>
+            <p style="color:var(--muted);line-height:1.8;margin-bottom:1rem">Lahore sanctuary during Kuwait invasion crisis. At age seven, experienced complete system disruption and the requirement to rebuild from zero while watching parents maintain dignity and vision.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.5rem">
+              <span style="background:rgba(201,162,39,0.1);border:1px solid var(--wisdom);padding:0.4rem 0.8rem;font-size:0.75rem;color:#fff">Crisis Resilience</span>
+              <span style="background:rgba(201,162,39,0.1);border:1px solid var(--wisdom);padding:0.4rem 0.8rem;font-size:0.75rem;color:#fff">Adaptive Leadership</span>
+              <span style="background:rgba(201,162,39,0.1);border:1px solid var(--wisdom);padding:0.4rem 0.8rem;font-size:0.75rem;color:#fff">Family Unity</span>
+              <span style="background:rgba(201,162,39,0.1);border:1px solid var(--wisdom);padding:0.4rem 0.8rem;font-size:0.75rem;color:#fff">Recovery Framework</span>
+            </div>
+          </div>
+
+          <!-- Kuwait -->
+          <div id="panel-kuwait" style="display:none;padding:2rem;background:rgba(255,255,255,0.02);border:1px solid var(--faint)">
+            <p style="color:var(--wisdom);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.5rem">1983-2016</p>
+            <h3 style="color:#fff;font-size:1.5rem;margin-bottom:0.5rem">Kuwait — Origin & Entrepreneurial Foundation</h3>
+            <p style="color:var(--wisdom);font-style:italic;margin-bottom:1.5rem">"Where I learned that home isn't a place — it's the resilience you carry within you"</p>
+            <p style="color:var(--muted);line-height:1.8;margin-bottom:1rem">Born into prosperity in 1983, shaped by crisis in 1990. Iraqi invasion as first lesson in strategic resilience. National-level cricket excellence — discipline under pressure. Global Markets Telecom founding (2009-2012). Flagship Al Hamra Tower IBS project — leading 20-50 specialists. Huawei Kuwait (2012-2016) — multi-million dollar procurement frameworks.</p>
+            <p style="color:var(--muted)"><strong>Family:</strong> Nashwa (2009), Amirah (2015)</p>
+          </div>
+
+          <!-- UAE -->
+          <div id="panel-uae" style="display:none;padding:2rem;background:rgba(255,255,255,0.02);border:1px solid var(--faint)">
+            <p style="color:var(--wisdom);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.5rem">2004-05, 2020-23</p>
+            <h3 style="color:#fff;font-size:1.5rem;margin-bottom:0.5rem">UAE — Innovation Gateway & Strategic Hub</h3>
+            <p style="color:var(--wisdom);font-style:italic;margin-bottom:1.5rem">"Where speed meets governance in the region's innovation capital"</p>
+            <p style="color:var(--muted);line-height:1.8"><strong>Phase 1:</strong> Du Launch (2004-2005) — Logistics Officer with Future Communications Company International — nation-scale project execution.</p>
+            <p style="color:var(--muted);line-height:1.8;margin-top:1rem"><strong>Phase 2:</strong> Strategic Consulting Return (2020-2023) — Regional Procurement Consultant for Motorola Solutions UK Ltd — $80M+ programs across Middle East & Central Asia.</p>
+          </div>
+
+          <!-- Qatar -->
+          <div id="panel-qatar" style="display:none;padding:2rem;background:rgba(255,255,255,0.02);border:1px solid var(--faint)">
+            <p style="color:var(--wisdom);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.5rem">2007-2009</p>
+            <h3 style="color:#fff;font-size:1.5rem;margin-bottom:0.5rem">Qatar — Strategic Sophistication & Regulatory Mastery</h3>
+            <p style="color:var(--wisdom);font-style:italic;margin-bottom:1.5rem">"Where I discovered the art of navigating complex stakeholder ecosystems"</p>
+            <p style="color:var(--muted);line-height:1.8;margin-bottom:1rem">Procurement & Projects Manager at Zajel Telecommunications (2007-2009). Operating between Qatar and Kuwait (2007-2008), then Kuwait-based (2008-2009).</p>
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1rem">
+              <span style="background:rgba(201,162,39,0.1);border:1px solid var(--wisdom);padding:0.4rem 0.8rem;font-size:0.75rem;color:#fff">Regulatory Navigation</span>
+              <span style="background:rgba(201,162,39,0.1);border:1px solid var(--wisdom);padding:0.4rem 0.8rem;font-size:0.75rem;color:#fff">Government Relations</span>
+              <span style="background:rgba(201,162,39,0.1);border:1px solid var(--wisdom);padding:0.4rem 0.8rem;font-size:0.75rem;color:#fff">Cross-border Operations</span>
+            </div>
+          </div>
+
+          <!-- Bahrain -->
+          <div id="panel-bahrain" style="display:none;padding:2rem;background:rgba(255,255,255,0.02);border:1px solid var(--faint)">
+            <p style="color:var(--wisdom);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.5rem">2016-2020</p>
+            <h3 style="color:#fff;font-size:1.5rem;margin-bottom:0.5rem">Bahrain — Professional Acceleration</h3>
+            <p style="color:var(--wisdom);font-style:italic;margin-bottom:1.5rem">"Where I earned the credentials that opened global doors while building family strength"</p>
+            <p style="color:var(--muted);line-height:1.8;margin-bottom:1rem">MCIPS chartered status while managing director role. Leading Huawei's regional growth (2016-2020). 2019 sanctions navigation — architecting alternative supply chains. Future Star & Best Mentor awards.</p>
+            <p style="color:var(--muted)"><strong>Family:</strong> Ahlam's birth — family foundation solidified.</p>
+          </div>
+
+          <!-- Saudi -->
+          <div id="panel-saudi" style="display:none;padding:2rem;background:rgba(255,255,255,0.02);border:1px solid var(--faint)">
+            <p style="color:var(--wisdom);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.5rem">2016-Present</p>
+            <h3 style="color:#fff;font-size:1.5rem;margin-bottom:0.5rem">Saudi Arabia — Strategic Partnership Network</h3>
+            <p style="color:var(--wisdom);font-style:italic;margin-bottom:1.5rem">"Where relationship capital creates sustainable competitive advantage"</p>
+            <p style="color:var(--muted);line-height:1.8"><strong>Focus Areas:</strong> Vision 2030 transformation dynamics. Trust-based partnership development. Infrastructure project involvement. Real-time market intelligence.</p>
+          </div>
+
+          <!-- UK -->
+          <div id="panel-uk" style="display:none;padding:2rem;background:rgba(255,255,255,0.02);border:1px solid var(--faint)">
+            <p style="color:var(--wisdom);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.5rem">2023-2024</p>
+            <h3 style="color:#fff;font-size:1.5rem;margin-bottom:0.5rem">United Kingdom — Global Standards & Cultural Bridge-Building</h3>
+            <p style="color:var(--wisdom);font-style:italic;margin-bottom:1.5rem">"Where international perspective enhances regional expertise"</p>
+            <p style="color:var(--muted);line-height:1.8">Family immigration expanding educational opportunities. MBA pursuit with Augment Business School. Global advisory network development. Integration of Western standards with Middle Eastern wisdom.</p>
+          </div>
+
+          <!-- US -->
+          <div id="panel-us" style="display:none;padding:2rem;background:rgba(255,255,255,0.02);border:1px solid var(--faint)">
+            <p style="color:var(--wisdom);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.5rem">2024-2025</p>
+            <h3 style="color:#fff;font-size:1.5rem;margin-bottom:0.5rem">United States — Resilience Testing</h3>
+            <p style="color:var(--wisdom);font-style:italic;margin-bottom:1.5rem">"Where my family demonstrated that true strength comes from facing adversity together"</p>
+            <p style="color:var(--muted);line-height:1.8"><strong>Family Achievements:</strong> Nashwa's Robotics excellence during US family separation (2024-2025). Amirah's entrepreneurial innovation with Earth Café during US separation. March 2025 reunion in Muscat, Oman.</p>
+          </div>
+
+          <!-- Oman -->
+          <div id="panel-oman" style="display:block;padding:2rem;background:rgba(201,162,39,0.05);border:2px solid var(--wisdom)">
+            <p style="color:var(--wisdom);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.5rem">Present</p>
+            <h3 style="color:#fff;font-size:1.5rem;margin-bottom:0.5rem">Oman — Ecosystem Architecture</h3>
+            <p style="color:var(--wisdom);font-style:italic;margin-bottom:1.5rem">"Where I discovered the power of building sustainable competitive advantage through purpose-driven innovation"</p>
+            <p style="color:var(--muted);line-height:1.8;margin-bottom:1rem"><strong>Current Roles:</strong></p>
+            <ul style="color:var(--muted);line-height:1.8;padding-left:1.5rem;margin-bottom:1rem">
+              <li><strong>SuperJet Oman COO:</strong> 5M+ citizens served across 900+ centers with 99.8% uptime</li>
+              <li><strong>Shams GM:</strong> Executive Authority re-engineering national infrastructure</li>
+              <li><strong>HydroNova Chief Strategy & Operations Advisor:</strong> CO₂-to-hydrogen technology commercialization</li>
+              <li><strong>SCMDOJO Oman Managing Partner:</strong> Consulting excellence</li>
+              <li><strong>TechVent Founder:</strong> Innovation bridges</li>
+            </ul>
+            <p style="color:var(--muted)">All roles align with Oman Vision 2040 priorities — sustainable infrastructure, technology innovation, consulting excellence, strategic partnerships.</p>
+          </div>
+
+        </div>
       </div>
 
       <p style="text-align:center;margin-top:2rem;color:var(--wisdom);font-size:1.1rem;font-style:italic">"From Pakistan refugee experience to Oman ecosystem architecture — nine countries, three daughters, and two decades of strategic evolution."</p>
     </div>
   </section>
+
+  <!-- JavaScript for Country Tabs -->
+  <script>
+  function showCountry(country) {
+    // Hide all panels
+    var panels = document.querySelectorAll('[id^="panel-"]');
+    panels.forEach(function(panel) {
+      panel.style.display = 'none';
+      panel.style.border = '1px solid #3a3a4e';
+    });
+
+    // Reset all buttons
+    var buttons = document.querySelectorAll('.country-tabs button');
+    buttons.forEach(function(btn) {
+      btn.style.background = 'transparent';
+      btn.style.border = '1px solid #3a3a4e';
+      btn.style.color = '#9a9aaa';
+    });
+
+    // Show selected panel
+    var selected = document.getElementById('panel-' + country);
+    if (selected) {
+      selected.style.display = 'block';
+      selected.style.border = '2px solid #c9a227';
+    }
+  }
+  </script>
 
   <!-- ── ACHIEVEMENTS ── -->
   <section class="section section--void" id="achievements" aria-label="Achievements and Credentials">
