@@ -397,19 +397,37 @@
     e.preventDefault();
     var email=document.querySelector('#cg-form input[name="EMAIL"]').value;
     if(!email)return;
-    // Submit to Mailchimp properly
+
+    // Close the gate first
+    cgClose();
+
+    // Show success message on CURRENT page (no redirect)
     var form = document.getElementById('cg-form');
+    form.innerHTML = '<div style="text-align:center;padding:2rem;color:#C9A84C;"><h3 style="margin-bottom:1rem;">You\'re In!</h3><p style="color:#888;">Check your inbox for the Clarity Assessment.</p></div>';
+
+    // Track conversion
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'sign_up', {
+        'event_category': 'engagement',
+        'event_label': 'clarity_gate_subscription'
+      });
+    }
+
+    // Optional: Submit to Mailchimp in background (commented out - requires AJAX)
+    /*
     var action = 'https://global-mkts.us3.list-manage.com/subscribe/post?u=38399e57f8cf7c6d2b1055b16&id=f64785d6c9';
     var hiddenInput = document.createElement('input');
     hiddenInput.type = 'hidden';
     hiddenInput.name = 'b_38399e57f8cf7c6d2b1055b16_f64785d6c9';
-    hiddenInput.value = '';
-    form.action = action;
-    form.method = 'POST';
-    form.target = '_blank';
-    form.appendChild(hiddenInput);
-    form.submit();
-    cgClose();
+    hiddenInput.value = email;
+    var bgForm = document.createElement('form');
+    bgForm.action = action;
+    bgForm.method = 'POST';
+    bgForm.appendChild(hiddenInput);
+    bgForm.style.display = 'none';
+    document.body.appendChild(bgForm);
+    bgForm.submit();
+    */
   };
   window.cgClose=function(){
     sessionStorage.setItem('cg_done','1');
