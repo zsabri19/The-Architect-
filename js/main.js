@@ -186,12 +186,7 @@
             headers: { 'Accept': 'application/json' }
           });
           if (response.ok) {
-            this.innerHTML = `
-              <div style="text-align:center;padding:3rem 1rem;">
-                <div style="font-size:3rem;margin-bottom:1rem;">✓</div>
-                <h3 style="font-family:'Playfair Display',serif;color:var(--dawn);margin-bottom:0.5rem;">Message Received</h3>
-                <p style="color:var(--muted);">Zeeshan's team will respond within 48 hours.</p>
-              </div>`;
+            this.innerHTML = `\n              <div style="text-align:center;padding:3rem 1rem;">\n                <div style="font-size:3rem;margin-bottom:1rem;">✓</div>\n                <h3 style="font-family:'Playfair Display',serif;color:var(--dawn);margin-bottom:0.5rem;">Message Received</h3>\n                <p style="color:var(--muted);">Zeeshan's team will respond within 48 hours.</p>\n              </div>`;
           } else {
             throw new Error('Network error');
           }
@@ -236,15 +231,3 @@
     });
   });
 })();
-
-function handleEmailCapture(event) {
-  event.preventDefault();
-  const form = event.target;
-  form.innerHTML = '<p style="color:#C9A84C;font-size:1rem;text-align:center;padding:1rem;">Thanks! Check your inbox for the assessment.</p>';
-  if (typeof gtag !== 'undefined') {
-    gtag('event', 'generate_lead', {
-      event_category: 'form',
-      event_label: 'hero_email_capture'
-    });
-  }
-}
