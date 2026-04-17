@@ -16,8 +16,8 @@
 
   ready(function () {
     const nav = document.querySelector('.nav');
-    const hamburger = document.querySelector('.nav__hamburger');
-    const mobileMenu = document.querySelector('.nav__mobile');
+    const hamburger = document.querySelector('.nav-hamburger');
+    const mobileMenu = document.querySelector('.nav-mobile-menu');
 
     if (nav) {
       const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 80);
