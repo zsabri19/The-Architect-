@@ -141,15 +141,20 @@
     const dispatchForm = document.querySelector('.dispatch__form');
     if (dispatchForm) {
       dispatchForm.addEventListener('submit', function (e) {
-        e.preventDefault();
         const input = this.querySelector('input[type="email"]');
         const btn = this.querySelector('button[type="submit"]');
-        if (!input || !input.value) return;
+        if (!input || !input.value) {
+          e.preventDefault();
+          return;
+        }
+
+        // Show success message but allow form to submit to Mailchimp
         const originalText = btn.textContent;
         btn.textContent = 'Subscribed ✓';
         btn.disabled = true;
         btn.style.background = '#2e7d52';
-        input.value = '';
+
+        // Reset button after 4 seconds (form will have submitted by then)
         setTimeout(() => {
           btn.textContent = originalText;
           btn.disabled = false;
@@ -170,14 +175,39 @@
     });
 
     document.querySelectorAll('form.contact-form').forEach(form => {
-      form.addEventListener('submit', async function (e) {
+      form.addEventListener('submit', function (e) {
         e.preventDefault();
         const btn = this.querySelector('button[type="submit"]');
         const originalTxt = btn ? btn.textContent : '';
+
         if (btn) {
           btn.textContent = 'Sending…';
           btn.disabled = true;
         }
+
+        // For mailto forms, submit directly and show success message
+        if (this.action.startsWith('mailto:')) {
+          // Construct mailto URL with form data
+          const formData = new FormData(this);
+          const params = new URLSearchParams();
+          for (const [key, value] of formData.entries()) {
+            params.append(key, value);
+          }
+
+          const mailtoUrl = `${this.action}?${params.toString()}`;
+
+          // Show success message
+          this.innerHTML = `\n              <div style="text-align:center;padding:3rem 1rem;">\n                <div style="font-size:3rem;margin-bottom:1rem;">✓</div>\n                <h3 style="font-family:'Playfair Display',serif;color:var(--dawn);margin-bottom:0.5rem;">Message Prepared</h3>\n                <p style="color:var(--muted); margin-bottom: 1.5rem;">Your email client will open with a pre-filled message.</p>\n                <p style="font-size: 14px; color: var(--muted);">If your email client doesn't open automatically, please email: <strong>ClarityOS@global-mkts.com</strong></p>\n              </div>`;
+
+          // Open mail client
+          setTimeout(() => {
+            window.open(mailtoUrl, '_blank');
+          }, 500);
+
+          return;
+        }
+
+        // For regular forms (if you add a backend later)
         try {
           const data = new FormData(this);
           const response = await fetch(this.action, {
@@ -229,5 +259,46 @@
         card.style.transform = '';
       });
     });
+
+    // Floating Contact Button
+    const contactToggle = document.getElementById('contactToggle');
+    const contactPanel = document.getElementById('contactPanel');
+    const contactClose = document.querySelector('.floating-contact-close');
+
+    if (contactToggle && contactPanel) {
+      contactToggle.addEventListener('click', () => {
+        const isOpen = contactPanel.classList.toggle('open');
+        contactToggle.setAttribute('aria-expanded', String(isOpen));
+        contactToggle.textContent = isOpen ? '✕' : '💬';
+      });
+
+      if (contactClose) {
+        contactClose.addEventListener('click', () => {
+          contactPanel.classList.remove('open');
+          contactToggle.setAttribute('aria-expanded', 'false');
+          contactToggle.textContent = '💬';
+        });
+      }
+
+      // Close panel when clicking outside
+      document.addEventListener('click', (e) => {
+        if (contactPanel.classList.contains('open') &&
+            !contactPanel.contains(e.target) &&
+            e.target !== contactToggle) {
+          contactPanel.classList.remove('open');
+          contactToggle.setAttribute('aria-expanded', 'false');
+          contactToggle.textContent = '💬';
+        }
+      });
+
+      // Close panel with Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && contactPanel.classList.contains('open')) {
+          contactPanel.classList.remove('open');
+          contactToggle.setAttribute('aria-expanded', 'false');
+          contactToggle.textContent = '💬';
+        }
+      });
+    }
   });
 })();

@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="css/compact-theme.css">
 </head>
 <body>
-<nav class="nav"><div class="wrap"><a class="brand" href="/">Zeeshan Sabri</a><div class="navlinks"><a href="the-architect.html">The Architect</a><a href="clarityos.html">ClarityOS</a><a href="advisory.html">Advisory</a><a href="media.html">Media</a><a href="memoir.html">Memoir</a><a href="connect.html">Connect</a></div><div class="nav-mobile"><button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button><div class="nav-mobile-menu"><a href="the-architect.html">The Architect</a><a href="clarityos.html">ClarityOS</a><a href="advisory.html">Advisory</a><a href="media.html">Media</a><a href="memoir.html">Memoir</a><a href="connect.html">Connect</a><a class="cta-mobile" href="https://calendly.com/zsabri" target="_blank" rel="noopener">Book a Clarity Call</a></div></div><a class="cta" href="https://calendly.com/zsabri" target="_blank" rel="noopener">Book a Clarity Call</a></div></nav>
+<nav class="nav"><div class="wrap"><a class="brand" href="/">Zeeshan Sabri</a><div class="navlinks"><a href="the-architect.html">The Architect</a><a href="clarityos.html">ClarityOS</a><a href="advisory.html">Advisory</a><a href="media.html">Media</a><a href="memoir.html">Memoir</a><a href="connect.html">Connect</a></div><div class="nav-mobile"><button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button><div class="nav-mobile-menu"><a href="the-architect.html">The Architect</a><a href="clarityos.html">ClarityOS</a><a href="advisory.html">Advisory</a><a href="media.html">Media</a><a href="memoir.html">Memoir</a><a href="connect.html">Connect</a><a class="cta-mobile" href="https://buy.stripe.com/00w28q41PdjveV2bfWcV201" target="_blank" rel="noopener">Book a Clarity Call</a></div></div><a class="cta" href="https://buy.stripe.com/00w28q41PdjveV2bfWcV201" target="_blank" rel="noopener">Book a Clarity Call</a></div></nav>
 
 <main>
 <section class="hero">
@@ -112,8 +112,14 @@
       <h3>Notification List</h3>
       <p class="muted">Be the first to know about pre-order dates, launch events, and exclusive memoir content.</p>
 
-      <form class="dispatch__form" style="margin-top: 1rem;">
-        <input type="email" placeholder="Your email address" required style="width: 100%; padding: 12px; border: 1px solid var(--line); background: rgba(255,255,255,.05); color: var(--text); border-radius: 8px; margin-bottom: 12px;">
+      <form class="dispatch__form" style="margin-top: 1rem;" action="https://global-mkts.us3.list-manage.com/subscribe/post" method="POST" target="_blank">
+        <input type="hidden" name="u" value="38399e57f8cf7c6d2b1055b16">
+        <input type="hidden" name="id" value="f64785d6c9">
+        <input type="hidden" name="tags" value="memoir">
+        <input type="email" name="EMAIL" placeholder="Your email address" required style="width: 100%; padding: 12px; border: 1px solid var(--line); background: rgba(255,255,255,.05); color: var(--text); border-radius: 8px; margin-bottom: 12px;">
+        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+          <input type="text" name="b_38399e57f8cf7c6d2b1055b16_f64785d6c9" tabindex="-1" value="">
+        </div>
         <button type="submit" class="btn primary" style="width: 100%;">Notify Me When Available</button>
       </form>
 
@@ -158,5 +164,19 @@
 </footer>
 
 <script src="js/main.js"></script>
+<div class="floating-contact">
+  <div class="floating-contact-panel" id="contactPanel">
+    <button class="floating-contact-close" aria-label="Close contact panel">×</button>
+    <h3>Quick Contact</h3>
+    <p>Need to get in touch quickly? Choose an option below.</p>
+    <div style="display: grid; gap: 12px;">
+      <a href="https://buy.stripe.com/00w28q41PdjveV2bfWcV201" class="btn primary" target="_blank" rel="noopener" style="text-align: center;">Book a Call</a>
+      <a href="mailto:ClarityOS@global-mkts.com" class="btn" style="text-align: center;">Send Email</a>
+      <a href="connect.html" class="btn" style="text-align: center;">Contact Form</a>
+    </div>
+  </div>
+  <button class="floating-contact-btn" id="contactToggle" aria-label="Open contact options">💬</button>
+</div>
+
 </body>
 </html>
