@@ -4,16 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Media | Zeeshan Sabri</title>
-  <meta name="description" content="Talks, reels, podcasts, writing, field intelligence, and public-facing media from Zeeshan Sabri.">
+  <meta name="description" content="Talks, reels, workshops, podcasts, writing, and public-facing media from Zeeshan Sabri.">
   <link rel="canonical" href="https://architect.global-mkts.com/media.html">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Media | Zeeshan Sabri">
-  <meta property="og:description" content="Talks, reels, podcasts, writing, field intelligence, and public-facing media from Zeeshan Sabri.">
+  <meta property="og:description" content="Talks, reels, workshops, podcasts, writing, and public-facing media from Zeeshan Sabri.">
   <meta property="og:image" content="https://architect.global-mkts.com/assets/images/1000231025.jpg">
   <meta property="og:url" content="https://architect.global-mkts.com/media.html">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Media | Zeeshan Sabri">
-  <meta name="twitter:description" content="Talks, reels, podcasts, writing, field intelligence, and public-facing media from Zeeshan Sabri.">
+  <meta name="twitter:description" content="Talks, reels, workshops, podcasts, writing, and public-facing media from Zeeshan Sabri.">
   <meta name="twitter:image" content="https://architect.global-mkts.com/assets/images/1000231025.jpg">
   <link rel="stylesheet" href="css/compact-theme.css">
   <style>
@@ -21,24 +21,39 @@
     .posts{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
     .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     .testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .image-card,.post-card,.reel-card,.feature-card{border:1px solid var(--line);border-radius:24px;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
+    .image-card,.post-card,.feature-card,.spotlight-card,.reel-card{border:1px solid var(--line);border-radius:24px;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
     .image-card img{width:100%;height:260px;object-fit:cover;display:block}
-    .image-copy,.post-card,.feature-copy,.reel-copy{padding:20px 22px}
-    .post-tag,.section-tag{font:600 12px/1.2 Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2)}
+    .image-copy,.post-card,.feature-copy,.spotlight-copy,.reel-copy{padding:20px 22px}
+    .post-tag,.section-tag,.rail-label{font:600 12px/1.2 Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2)}
     .cta-row{display:flex;gap:12px;flex-wrap:wrap}
-    .rating{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:20px}.stars{display:flex;gap:4px}.star{width:22px;height:22px;fill:var(--gold)}
-    .reel-intro{display:grid;grid-template-columns:.95fr 1.05fr;gap:22px;align-items:start}
-    .reels-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:22px}
+    .rating{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+    .stars{display:flex;gap:4px}
+    .star{width:22px;height:22px;fill:var(--gold)}
+    .feature-intro{display:grid;grid-template-columns:.92fr 1.08fr;gap:22px;align-items:start}
+    .feature-stack{display:grid;gap:18px}
+    .feature-card h3,.image-copy h3,.spotlight-copy h3,.reel-copy h3{margin:0 0 10px}
+    .feature-card p,.spotlight-copy p{margin:0}
+    .feature-note{margin-top:18px;padding:16px 18px;border:1px solid rgba(214,179,106,.22);border-radius:18px;background:linear-gradient(180deg,rgba(214,179,106,.10),rgba(214,179,106,.04))}
+    .spotlight-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+    .spotlight-card{position:relative;transform:translateY(0);transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;background:linear-gradient(180deg,rgba(214,179,106,.08),rgba(255,255,255,.03))}
+    .spotlight-card:hover{transform:translateY(-8px);border-color:rgba(214,179,106,.45);box-shadow:0 24px 60px rgba(0,0,0,.22)}
+    .spotlight-card::before{content:"";position:absolute;inset:0 0 auto 0;height:2px;background:linear-gradient(90deg,var(--gold),rgba(214,179,106,0))}
+    .reel-shell{margin-top:26px}
+    .rail-head{display:flex;justify-content:space-between;gap:12px;align-items:end;margin-bottom:14px}
+    .rail-head h3{margin:6px 0 0;font:500 24px/1.1 Georgia,serif}
+    .rail-meta{font:500 13px/1.5 Arial,sans-serif;color:#a8b0be}
+    .reel-rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(280px,320px);gap:18px;overflow-x:auto;padding:4px 2px 12px;scroll-snap-type:x proximity;scrollbar-width:thin}
+    .reel-card{scroll-snap-align:start;transform:translateY(0);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+    .reel-card:hover{transform:translateY(-8px);border-color:rgba(214,179,106,.42);box-shadow:0 22px 48px rgba(0,0,0,.2)}
     .reel-frame{aspect-ratio:9/16;background:#05070b;border-bottom:1px solid var(--line)}
     .reel-frame iframe{width:100%;height:100%;border:0;display:block}
-    .reel-copy h3,.feature-copy h3,.image-copy h3{margin:0 0 10px}
     .reel-meta{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0}
     .mini-chip{padding:8px 10px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03);color:#d5dbe6;font:500 12px/1.2 Arial,sans-serif}
-    .feature-stack{display:grid;gap:18px}
-    .feature-card h3{margin:10px 0 8px}
-    .feature-card p{margin:0}
-    .reel-note{margin-top:18px;padding:16px 18px;border:1px solid rgba(214,179,106,.22);border-radius:18px;background:linear-gradient(180deg,rgba(214,179,106,.10),rgba(214,179,106,.04))}
-    @media (max-width:1000px){.media-grid,.reel-intro,.posts,.gallery,.testimonial-grid,.reels-grid{grid-template-columns:1fr}}
+    .section-divider{height:1px;background:linear-gradient(90deg,rgba(214,179,106,.3),rgba(255,255,255,.05),rgba(214,179,106,0));margin:26px 0 0}
+    @media (max-width:1000px){
+      .media-grid,.feature-intro,.posts,.gallery,.testimonial-grid,.spotlight-grid{grid-template-columns:1fr}
+      .reel-rail{grid-auto-columns:minmax(260px,84vw)}
+    }
   </style>
 </head>
 <body>
@@ -62,8 +77,8 @@
     <section class="hero">
       <div class="wrap">
         <div class="eyebrow">Media</div>
-        <h1>The field, in writing, on stage, and on camera.</h1>
-        <p class="lead">This is the public layer, live talks, podcast moments, workshop clips, writing, and field presence from the work behind ClarityOS.</p>
+        <h1>The field, in writing, on stage, and in the room.</h1>
+        <p class="lead">This is the public layer, live talks, one-on-one transformations, workshops, podcasts, writing, and field presence from the work behind ClarityOS.</p>
       </div>
     </section>
 
@@ -73,10 +88,10 @@
         <h2>Publishing, speaking, and visible proof</h2>
         <div class="media-grid">
           <div>
-            <p class="muted">This page is built to show a human, visible, present founder footprint, not faceless content. The media layer should make the public narrative feel personal, credible, and alive in the room.</p>
+            <p class="muted">This page is built to show a human, visible, present founder footprint, not faceless content. The media layer should feel curated and strategic, not noisy, and it should let the visitor move through your public presence one signal at a time.</p>
             <div class="chips">
-              <span class="chip">Live talks</span>
-              <span class="chip">Instagram reels</span>
+              <span class="chip">One-on-one sessions</span>
+              <span class="chip">Signature talks</span>
               <span class="chip">Workshop moments</span>
               <span class="chip">Podcast clips</span>
               <span class="chip">Leadership content</span>
@@ -116,131 +131,113 @@
 
     <section class="section">
       <div class="wrap panel">
-        <div class="eyebrow">Playable Talks</div>
-        <h2>Reels, live talks, workshops, and podcast moments</h2>
-        <div class="reel-intro">
+        <div class="eyebrow">Strategic Media</div>
+        <h2>A more curated public presence</h2>
+        <div class="feature-intro">
           <div>
-            <p class="muted">Instead of faceless reels, this section now centers your own public voice. These are embedded from Instagram, so they remain playable without making the site heavy with uploaded video files.</p>
-            <div class="reel-note">
+            <p class="muted">Instead of stacking every reel in the same way, this layer now prioritises the most strategic category first. The one-on-one sessions sit at the top because they show direct human impact, not just stage energy.</p>
+            <div class="feature-note">
               <div class="section-tag">Showcase logic</div>
-              <p class="muted">Short-form public proof, workshop energy, podcast presence, and quote-led authority all sit in one playable layer. It feels personal, visible, and current.</p>
+              <p class="muted">Top layer for personal transformation and one-on-one depth. Below that, signature public clips, workshop proof, podcast presence, and quote-led authority. The layout is intentionally calmer, more premium, and easier to browse.</p>
             </div>
           </div>
           <div class="feature-stack">
             <article class="feature-card">
               <div class="feature-copy">
-                <div class="section-tag">Podcast Clip</div>
-                <h3>Talks that travel beyond the room</h3>
-                <p class="muted">Use podcast and speaking clips to show how your thinking lands publicly, not just inside consulting rooms.</p>
+                <div class="section-tag">One-on-One Sessions</div>
+                <h3>Transformation, not just content</h3>
+                <p class="muted">These reels show your work in a more intimate and outcome-led way. They communicate direct intervention, trust, and depth.</p>
               </div>
             </article>
             <article class="feature-card">
               <div class="feature-copy">
-                <div class="section-tag">Workshop Presence</div>
-                <h3>Facilitating live, not just posting online</h3>
-                <p class="muted">The workshop reels give the page energy and proof that the work lives in real audiences, live environments, and executive conversations.</p>
+                <div class="section-tag">Scrollable Experience</div>
+                <h3>Less face-heavy, more deliberate</h3>
+                <p class="muted">The reels now sit in horizontal rails with hover lift, so the page feels editorial and controlled instead of dumping everything at once.</p>
               </div>
             </article>
           </div>
         </div>
 
-        <div class="reels-grid">
-          <article class="reel-card">
-            <div class="reel-frame"><iframe src="https://www.instagram.com/reel/DVqcPgiFEB9/embed" title="Zeeshan Sabri reel 1" loading="lazy" allowfullscreen></iframe></div>
-            <div class="reel-copy">
-              <h3>Founder talk clip</h3>
-              <p class="muted">Short-form leadership thought, positioned as a visible public signal rather than filler content.</p>
-              <div class="reel-meta"><span class="mini-chip">Talk</span><span class="mini-chip">Leadership</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DVqcPgiFEB9/" target="_blank" rel="noopener">Open in Instagram</a></div>
+        <div class="spotlight-grid">
+          <article class="spotlight-card">
+            <div class="reel-frame"><iframe src="https://www.instagram.com/reel/DPEE4TWgmbh/embed" title="Zeeshan Sabri one on one session 1" loading="lazy" allowfullscreen></iframe></div>
+            <div class="spotlight-copy">
+              <div class="section-tag">One-on-One Highlight</div>
+              <h3>Direct transformation work</h3>
+              <p class="muted">A stronger signal of depth, trust, and intervention than general motivational content.</p>
+              <div class="reel-meta"><span class="mini-chip">1:1 Session</span><span class="mini-chip">Transformation</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DPEE4TWgmbh/" target="_blank" rel="noopener">Open in Instagram</a></div>
             </div>
           </article>
-          <article class="reel-card">
-            <div class="reel-frame"><iframe src="https://www.instagram.com/reel/DVqOH_7EnqV/embed" title="Zeeshan Sabri reel 2" loading="lazy" allowfullscreen></iframe></div>
-            <div class="reel-copy">
-              <h3>Direct public insight</h3>
-              <p class="muted">A visible, playable clip that reinforces clarity-led voice and personal authority.</p>
-              <div class="reel-meta"><span class="mini-chip">Reel</span><span class="mini-chip">Public voice</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DVqOH_7EnqV/" target="_blank" rel="noopener">Open in Instagram</a></div>
+          <article class="spotlight-card">
+            <div class="reel-frame"><iframe src="https://www.instagram.com/reel/DNyzH7oRFaG/embed" title="Zeeshan Sabri one on one session 2" loading="lazy" allowfullscreen></iframe></div>
+            <div class="spotlight-copy">
+              <div class="section-tag">One-on-One Highlight</div>
+              <h3>Visible personal impact</h3>
+              <p class="muted">Useful for showing that the work lands person to person, not only from a stage or panel.</p>
+              <div class="reel-meta"><span class="mini-chip">1:1 Session</span><span class="mini-chip">Impact</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DNyzH7oRFaG/" target="_blank" rel="noopener">Open in Instagram</a></div>
             </div>
           </article>
-          <article class="reel-card">
-            <div class="reel-frame"><iframe src="https://www.instagram.com/reel/DVNz9cJFN8R/embed" title="Zeeshan Sabri reel 3" loading="lazy" allowfullscreen></iframe></div>
-            <div class="reel-copy">
-              <h3>On-camera clarity</h3>
-              <p class="muted">A stronger personal-brand signal than anonymous motivational video loops.</p>
-              <div class="reel-meta"><span class="mini-chip">Talk</span><span class="mini-chip">Clarity</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DVNz9cJFN8R/" target="_blank" rel="noopener">Open in Instagram</a></div>
+          <article class="spotlight-card">
+            <div class="reel-frame"><iframe src="https://www.instagram.com/reel/DNPjOSBBmn5/embed" title="Zeeshan Sabri one on one session 3" loading="lazy" allowfullscreen></iframe></div>
+            <div class="spotlight-copy">
+              <div class="section-tag">One-on-One Highlight</div>
+              <h3>Private room, public proof</h3>
+              <p class="muted">Shows intimacy, seriousness, and the kind of room where clarity actually gets installed.</p>
+              <div class="reel-meta"><span class="mini-chip">1:1 Session</span><span class="mini-chip">Clarity</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DNPjOSBBmn5/" target="_blank" rel="noopener">Open in Instagram</a></div>
             </div>
           </article>
-          <article class="reel-card">
-            <div class="reel-frame"><iframe src="https://www.instagram.com/reel/DVJbIgdj-hj/embed" title="Zeeshan Sabri reel 4" loading="lazy" allowfullscreen></iframe></div>
-            <div class="reel-copy">
-              <h3>Live room energy</h3>
-              <p class="muted">A clip that helps the audience feel how the message lands in real time.</p>
-              <div class="reel-meta"><span class="mini-chip">Room energy</span><span class="mini-chip">Speaking</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DVJbIgdj-hj/" target="_blank" rel="noopener">Open in Instagram</a></div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="reel-shell">
+          <div class="rail-head">
+            <div>
+              <div class="rail-label">Signature Talks</div>
+              <h3>Public voice and founder-led clips</h3>
             </div>
-          </article>
-          <article class="reel-card">
-            <div class="reel-frame"><iframe src="https://www.instagram.com/reel/DVDODCCj6mX/embed" title="Zeeshan Sabri reel 5" loading="lazy" allowfullscreen></iframe></div>
-            <div class="reel-copy">
-              <h3>Public-facing idea delivery</h3>
-              <p class="muted">Useful as proof that the narrative carries both on stage and in short-form media.</p>
-              <div class="reel-meta"><span class="mini-chip">Delivery</span><span class="mini-chip">Reel</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DVDODCCj6mX/" target="_blank" rel="noopener">Open in Instagram</a></div>
+            <div class="rail-meta">Scroll sideways</div>
+          </div>
+          <div class="reel-rail">
+            <article class="reel-card"><div class="reel-frame"><iframe src="https://www.instagram.com/reel/DVqcPgiFEB9/embed" title="Zeeshan Sabri talk reel 1" loading="lazy" allowfullscreen></iframe></div><div class="reel-copy"><h3>Founder talk clip</h3><p class="muted">Short-form leadership thought, positioned as a visible public signal rather than filler content.</p><div class="reel-meta"><span class="mini-chip">Talk</span><span class="mini-chip">Leadership</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DVqcPgiFEB9/" target="_blank" rel="noopener">Open in Instagram</a></div></div></article>
+            <article class="reel-card"><div class="reel-frame"><iframe src="https://www.instagram.com/reel/DVqOH_7EnqV/embed" title="Zeeshan Sabri talk reel 2" loading="lazy" allowfullscreen></iframe></div><div class="reel-copy"><h3>Direct public insight</h3><p class="muted">A visible, playable clip that reinforces clarity-led voice and personal authority.</p><div class="reel-meta"><span class="mini-chip">Reel</span><span class="mini-chip">Public voice</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DVqOH_7EnqV/" target="_blank" rel="noopener">Open in Instagram</a></div></div></article>
+            <article class="reel-card"><div class="reel-frame"><iframe src="https://www.instagram.com/reel/DVNz9cJFN8R/embed" title="Zeeshan Sabri talk reel 3" loading="lazy" allowfullscreen></iframe></div><div class="reel-copy"><h3>On-camera clarity</h3><p class="muted">A stronger personal-brand signal than anonymous motivational loops.</p><div class="reel-meta"><span class="mini-chip">Talk</span><span class="mini-chip">Clarity</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DVNz9cJFN8R/" target="_blank" rel="noopener">Open in Instagram</a></div></div></article>
+            <article class="reel-card"><div class="reel-frame"><iframe src="https://www.instagram.com/reel/DVJbIgdj-hj/embed" title="Zeeshan Sabri talk reel 4" loading="lazy" allowfullscreen></iframe></div><div class="reel-copy"><h3>Live room energy</h3><p class="muted">A clip that helps the audience feel how the message lands in real time.</p><div class="reel-meta"><span class="mini-chip">Speaking</span><span class="mini-chip">Room energy</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DVJbIgdj-hj/" target="_blank" rel="noopener">Open in Instagram</a></div></div></article>
+            <article class="reel-card"><div class="reel-frame"><iframe src="https://www.instagram.com/reel/DVDODCCj6mX/embed" title="Zeeshan Sabri talk reel 5" loading="lazy" allowfullscreen></iframe></div><div class="reel-copy"><h3>Public-facing idea delivery</h3><p class="muted">Useful as proof that the narrative carries both on stage and in short-form media.</p><div class="reel-meta"><span class="mini-chip">Delivery</span><span class="mini-chip">Reel</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DVDODCCj6mX/" target="_blank" rel="noopener">Open in Instagram</a></div></div></article>
+            <article class="reel-card"><div class="reel-frame"><iframe src="https://www.instagram.com/reel/DU_AtGfgVPO/embed" title="Zeeshan Sabri talk reel 6" loading="lazy" allowfullscreen></iframe></div><div class="reel-copy"><h3>Personal brand signal</h3><p class="muted">Keeps the page centered on your own voice, your own face, and your own authority.</p><div class="reel-meta"><span class="mini-chip">Brand</span><span class="mini-chip">Authority</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DU_AtGfgVPO/" target="_blank" rel="noopener">Open in Instagram</a></div></div></article>
+            <article class="reel-card"><div class="reel-frame"><iframe src="https://www.instagram.com/reel/DVA04lRjvFi/embed" title="Zeeshan Sabri talk reel 7" loading="lazy" allowfullscreen></iframe></div><div class="reel-copy"><h3>Founder lens in motion</h3><p class="muted">Short-form media that still feels personal, visible, and anchored in substance.</p><div class="reel-meta"><span class="mini-chip">Founder</span><span class="mini-chip">Perspective</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DVA04lRjvFi/" target="_blank" rel="noopener">Open in Instagram</a></div></div></article>
+          </div>
+        </div>
+
+        <div class="reel-shell">
+          <div class="rail-head">
+            <div>
+              <div class="rail-label">Workshop and Stage Moments</div>
+              <h3>Rooms, audiences, and facilitation energy</h3>
             </div>
-          </article>
-          <article class="reel-card">
-            <div class="reel-frame"><iframe src="https://www.instagram.com/reel/DU_AtGfgVPO/embed" title="Zeeshan Sabri reel 6" loading="lazy" allowfullscreen></iframe></div>
-            <div class="reel-copy">
-              <h3>Personal brand signal</h3>
-              <p class="muted">Keeps the page centered on your own voice, your own face, and your own authority.</p>
-              <div class="reel-meta"><span class="mini-chip">Brand</span><span class="mini-chip">Authority</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DU_AtGfgVPO/" target="_blank" rel="noopener">Open in Instagram</a></div>
+            <div class="rail-meta">Swipe or wheel across</div>
+          </div>
+          <div class="reel-rail">
+            <article class="reel-card"><div class="reel-frame"><iframe src="https://www.instagram.com/reel/DKwlGdECplN/embed" title="Oman Startup Hub workshop reel" loading="lazy" allowfullscreen></iframe></div><div class="reel-copy"><h3>Oman Startup Hub 2025</h3><p class="muted">A strategic workshop proof point, useful for showing live facilitation and founder education credibility.</p><div class="reel-meta"><span class="mini-chip">Workshop</span><span class="mini-chip">Oman Startup Hub</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DKwlGdECplN/" target="_blank" rel="noopener">Open in Instagram</a></div></div></article>
+            <article class="reel-card"><div class="reel-frame"><iframe src="https://www.instagram.com/reel/DShv4_BAlv2/embed" title="Zeeshan Sabri workshop reel 1" loading="lazy" allowfullscreen></iframe></div><div class="reel-copy"><h3>Event and workshop moment</h3><p class="muted">Shows facilitation, audience energy, and real-world session presence.</p><div class="reel-meta"><span class="mini-chip">Workshop</span><span class="mini-chip">Event</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DShv4_BAlv2/" target="_blank" rel="noopener">Open in Instagram</a></div></div></article>
+            <article class="reel-card"><div class="reel-frame"><iframe src="https://www.instagram.com/reel/DTw43UEgtec/embed" title="Zeeshan Sabri workshop reel 2" loading="lazy" allowfullscreen></iframe></div><div class="reel-copy"><h3>In-session proof</h3><p class="muted">Useful for showing how the work lives in rooms, not just online posts.</p><div class="reel-meta"><span class="mini-chip">Field</span><span class="mini-chip">Workshop</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DTw43UEgtec/" target="_blank" rel="noopener">Open in Instagram</a></div></div></article>
+            <article class="reel-card"><div class="reel-frame"><iframe src="https://www.instagram.com/reel/DRj3XhXgdXC/embed" title="Zeeshan Sabri workshop reel 3" loading="lazy" allowfullscreen></iframe></div><div class="reel-copy"><h3>Audience-facing presence</h3><p class="muted">The type of clip that makes the media page feel lived, human, and grounded.</p><div class="reel-meta"><span class="mini-chip">Audience</span><span class="mini-chip">Session</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DRj3XhXgdXC/" target="_blank" rel="noopener">Open in Instagram</a></div></div></article>
+          </div>
+        </div>
+
+        <div class="reel-shell">
+          <div class="rail-head">
+            <div>
+              <div class="rail-label">Conversation and Quotes</div>
+              <h3>Podcast presence and authority fragments</h3>
             </div>
-          </article>
-          <article class="reel-card">
-            <div class="reel-frame"><iframe src="https://www.instagram.com/reel/DVA04lRjvFi/embed" title="Zeeshan Sabri reel 7" loading="lazy" allowfullscreen></iframe></div>
-            <div class="reel-copy">
-              <h3>Founder lens in motion</h3>
-              <p class="muted">Short-form media that still feels personal, visible, and anchored in substance.</p>
-              <div class="reel-meta"><span class="mini-chip">Founder</span><span class="mini-chip">Perspective</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DVA04lRjvFi/" target="_blank" rel="noopener">Open in Instagram</a></div>
-            </div>
-          </article>
-          <article class="reel-card">
-            <div class="reel-frame"><iframe src="https://www.instagram.com/reel/DShv4_BAlv2/embed" title="Zeeshan Sabri workshop reel 1" loading="lazy" allowfullscreen></iframe></div>
-            <div class="reel-copy">
-              <h3>Event and workshop moment</h3>
-              <p class="muted">Shows facilitation, audience energy, and real-world session presence.</p>
-              <div class="reel-meta"><span class="mini-chip">Workshop</span><span class="mini-chip">Event</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DShv4_BAlv2/" target="_blank" rel="noopener">Open in Instagram</a></div>
-            </div>
-          </article>
-          <article class="reel-card">
-            <div class="reel-frame"><iframe src="https://www.instagram.com/reel/DTw43UEgtec/embed" title="Zeeshan Sabri workshop reel 2" loading="lazy" allowfullscreen></iframe></div>
-            <div class="reel-copy">
-              <h3>In-session proof</h3>
-              <p class="muted">Useful as proof that the work lives in rooms, not just online posts.</p>
-              <div class="reel-meta"><span class="mini-chip">Field</span><span class="mini-chip">Workshop</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DTw43UEgtec/" target="_blank" rel="noopener">Open in Instagram</a></div>
-            </div>
-          </article>
-          <article class="reel-card">
-            <div class="reel-frame"><iframe src="https://www.instagram.com/reel/DRj3XhXgdXC/embed" title="Zeeshan Sabri workshop reel 3" loading="lazy" allowfullscreen></iframe></div>
-            <div class="reel-copy">
-              <h3>Audience-facing presence</h3>
-              <p class="muted">The type of clip that makes the media page feel lived, human, and grounded.</p>
-              <div class="reel-meta"><span class="mini-chip">Audience</span><span class="mini-chip">Session</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DRj3XhXgdXC/" target="_blank" rel="noopener">Open in Instagram</a></div>
-            </div>
-          </article>
-          <article class="reel-card">
-            <div class="reel-frame"><iframe src="https://www.instagram.com/reel/DPrjXy6ghM1/embed" title="Zeeshan Sabri podcast reel" loading="lazy" allowfullscreen></iframe></div>
-            <div class="reel-copy">
-              <h3>Podcast moment</h3>
-              <p class="muted">A stronger media signal for long-form thinking, public conversation, and personality-led authority.</p>
-              <div class="reel-meta"><span class="mini-chip">Podcast</span><span class="mini-chip">Conversation</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DPrjXy6ghM1/" target="_blank" rel="noopener">Open in Instagram</a></div>
-            </div>
-          </article>
-          <article class="reel-card">
-            <div class="reel-frame"><iframe src="https://www.instagram.com/reel/DOCcd1XAviA/embed" title="Zeeshan Sabri quote reel" loading="lazy" allowfullscreen></iframe></div>
-            <div class="reel-copy">
-              <h3>Quote reel and talk fragments</h3>
-              <p class="muted">A compact authority layer combining public quotes, moments, and visible thinking into one playable asset.</p>
-              <div class="reel-meta"><span class="mini-chip">Quotes</span><span class="mini-chip">Authority</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DOCcd1XAviA/" target="_blank" rel="noopener">Open in Instagram</a></div>
-            </div>
-          </article>
+            <div class="rail-meta">Short-form, playable proof</div>
+          </div>
+          <div class="reel-rail">
+            <article class="reel-card"><div class="reel-frame"><iframe src="https://www.instagram.com/reel/DPrjXy6ghM1/embed" title="Zeeshan Sabri podcast reel" loading="lazy" allowfullscreen></iframe></div><div class="reel-copy"><h3>Podcast moment</h3><p class="muted">A stronger media signal for long-form thinking, public conversation, and personality-led authority.</p><div class="reel-meta"><span class="mini-chip">Podcast</span><span class="mini-chip">Conversation</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DPrjXy6ghM1/" target="_blank" rel="noopener">Open in Instagram</a></div></div></article>
+            <article class="reel-card"><div class="reel-frame"><iframe src="https://www.instagram.com/reel/DOCcd1XAviA/embed" title="Zeeshan Sabri quote reel" loading="lazy" allowfullscreen></iframe></div><div class="reel-copy"><h3>Quote reel and talk fragments</h3><p class="muted">A compact authority layer combining public quotes, moments, and visible thinking into one playable asset.</p><div class="reel-meta"><span class="mini-chip">Quotes</span><span class="mini-chip">Authority</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DOCcd1XAviA/" target="_blank" rel="noopener">Open in Instagram</a></div></div></article>
+          </div>
         </div>
       </div>
     </section>
