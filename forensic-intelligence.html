@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ClarityOS Intelligence - Program Forensic Analysis</title>
+<meta name="description" content="Evidence-based program analysis validating the ClarityOS thesis through real transformation engagements.">
+<link rel="canonical" href="https://architect.global-mkts.com/forensic-intelligence.html">
+<link rel="stylesheet" href="css/compact-theme.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --void: #0a0a0f;
+  --shadow: #12121a;
+  --depth: #1a1a2e;
+  --dawn: #f5f5f7;
+  --muted: #9a9aaa;
+  --faint: #3a3a4e;
+  --wisdom: #c9a227;
+  --shine: #e8c547;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--void);
+  color: var(--dawn);
+  line-height: 1.75;
+  font-size: 1.125rem;
+}
+h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; line-height: 1.2; }
+h1 { font-size: clamp(2.25rem, 5vw, 4rem); }
+h2 { font-size: clamp(1.75rem, 3vw, 2.75rem); }
+h3 { font-size: clamp(1.25rem, 2vw, 1.875rem); }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+section { padding: clamp(3rem, 8vw, 6rem) 0; }
+.bg-shadow { background: var(--shadow); }
+.bg-depth { background: var(--depth); }
+.border-faint { border: 1px solid var(--faint); }
+.rounded-lg { border-radius: 12px; }
+.rounded-xl { border-radius: 20px; }
+.text-wisdom { color: var(--wisdom); }
+.text-muted { color: var(--muted); }
+.text-dawn { color: var(--dawn); }
+.font-serif { font-family: 'Playfair Display', serif; }
+.gold-glow { box-shadow: 0 0 40px rgba(201, 162, 39, 0.15); }
+.btn {
+  display: inline-block;
+  padding: 16px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.btn-primary {
+  background: var(--wisdom);
+  color: var(--void);
+}
+.btn-primary:hover {
+  background: var(--shine);
+  transform: translateY(-3px);
+  box-shadow: 0 0 40px rgba(201, 162, 39, 0.25);
+}
+.btn-ghost {
+  border: 1px solid var(--dawn);
+  color: var(--dawn);
+}
+.btn-ghost:hover {
+  background: var(--dawn);
+  color: var(--void);
+}
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 15, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--faint);
+}
+.nav .container { display: flex; justify-content: space-between; align-items: center; }
+.nav-brand { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 600; color: var(--dawn); text-decoration: none; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { color: var(--muted); text-decoration: none; transition: color 0.32s; }
+.nav-links a:hover { color: var(--wisdom); }
+.hero { padding-top: clamp(6rem, 12vw, 10rem); padding-bottom: clamp(3rem, 6vw, 5rem); text-align: center; }
+.hero h1 { margin-bottom: 1.5rem; }
+.hero h1 span { color: var(--wisdom); }
+.hero-subtitle { font-size: 1.25rem; color: var(--muted); max-width: 700px; margin: 0 auto 2rem; }
+.card { background: var(--shadow); border-radius: 20px; padding: 2rem; box-shadow: 0 2px 24px rgba(0,0,0,0.4); }
+.card:hover { transform: translateY(-4px); box-shadow: 0 8px 48px rgba(0,0,0,0.5); }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.stat-number { font-size: 3rem; font-weight: 700; font-family: 'Playfair Display', serif; }
+.stat-label { color: var(--muted); font-size: 0.9375rem; }
+.border-left-gold { border-left: 4px solid var(--wisdom); }
+.badge { display: inline-block; padding: 4px 12px; border-radius: 6px; font-size: 0.8125rem; font-weight: 500; }
+.badge-wisdom { background: rgba(201, 162, 39, 0.15); color: var(--wisdom); }
+.badge-amber { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+.badge-red { background: rgba(239, 68, 68, 0.15); color: #f87171; }
+.badge-green { background: rgba(34, 197, 94, 0.15); color: #22c55e; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--faint); }
+th { font-weight: 600; color: var(--muted); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; }
+tr:hover { background: rgba(255,255,255,0.02); }
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+@media (max-width: 768px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+}
+footer { background: var(--shadow); border-top: 1px solid var(--faint); padding: 3rem 0; text-align: center; color: var(--muted); }
+.hero-badge { display: inline-block; padding: 8px 20px; background: rgba(201, 162, 39, 0.1); border: 1px solid var(--wisdom); border-radius: 50px; color: var(--wisdom); font-size: 0.875rem; margin-bottom: 1.5rem; }
+.section-intro { text-align: center; max-width: 800px; margin: 0 auto 3rem; }
+.section-intro h2 { margin-bottom: 1rem; }
+.section-intro p { color: var(--muted); }
+.highlight-box { background: linear-gradient(135deg, rgba(201,162,39,0.1) 0%, rgba(26,26,46,0.5) 100%); border: 1px solid var(--wisdom); border-radius: 20px; padding: 2.5rem; text-align: center; }
+.highlight-box h3 { color: var(--wisdom); margin-bottom: 1rem; }
+.highlight-box p { color: var(--dawn); font-size: 1.125rem; }
+</style>
+</head>
+<body>
+<nav class="nav">
+<div class="container">
+<a href="index.html" class="nav-brand">The Architect</a>
+<ul class="nav-links">
+<li><a href="the-architect.html">The Architect</a></li>
+<li><a href="clarityos.html">ClarityOS</a></li>
+<li><a href="advisory.html">Advisory</a></li>
+<li><a href="media.html">Media</a></li>
+<li><a href="forensic-intelligence.html" style="color:var(--wisdom)">Intelligence</a></li>
+</ul>
+</div>
+</nav>
+
+<header class="hero">
+<div class="container">
+<span class="hero-badge">ClarityOS Intelligence</span>
+<h1>Program Forensic <span>Analysis</span></h1>
+<p class="hero-subtitle">Evidence-based validation of the ClarityOS thesis through real transformation engagements. Two programs. One pattern. Zero ambiguity.</p>
+<div style="display:flex;gap:1rem;justify-content:center;margin-top:2rem;">
+<a href="#programs" class="btn btn-primary">View Programs</a>
+<a href="#thesis" class="btn btn-ghost">The Thesis</a>
+</div>
+</div>
+</header>
+
+<section id="thesis" class="bg-shadow">
+<div class="container">
+<div class="highlight-box">
+<h3>The ClarityOS Thesis</h3>
+<p>"Organizations can only operate at the quality of their judgment infrastructure."</p>
+<p style="margin-top:1rem;color:var(--muted)">The gap between where an organization is and where it could be is the gap in its judgment infrastructure.</p>
+</div>
+</div>
+</section>
+
+<section id="programs">
+<div class="container">
+<div class="section-intro">
+<h2>Two Programs. One Validation.</h2>
+<p>Both programs reveal the same pattern: clarity provided without sustained attempt support infrastructure does not convert to execution.</p>
+</div>
+
+<div class="card-grid">
+<div class="card">
+<div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:1.5rem;">
+<h3>Program A</h3>
+<span class="badge badge-amber">System Integrator</span>
+</div>
+<p style="color:var(--muted);margin-bottom:1.5rem;">ICT & Data Centers sector, Oman. 100+ employees. Focus: operational transformation, AI integration.</p>
+<div class="grid-2" style="gap:1rem;">
+<div><div class="stat-number text-wisdom">18</div><div class="stat-label">Events Tracked</div></div>
+<div><div class="stat-number text-wisdom">0%</div><div class="stat-label">Follow-ups Completed</div></div>
+</div>
+</div>
+
+<div class="card">
+<div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:1.5rem;">
+<h3>Program B</h3>
+<span class="badge badge-red">Smart Home</span>
+</div>
+<p style="color:var(--muted);margin-bottom:1.5rem;">GCC-based smart home technology. Team of 8. Focus: team stabilization, client relationships.</p>
+<div class="grid-2" style="gap:1rem;">
+<div><div class="stat-number text-wisdom">18</div><div class="stat-label">Communications</div></div>
+<div><div class="stat-number text-wisdom">6%</div><div class="stat-label">Follow-ups Resolved</div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="evidence" class="bg-shadow">
+<div class="container">
+<div class="section-intro">
+<h2>The Evidence</h2>
+<p>Direct from the forensic databases — no interpretation, just pattern recognition.</p>
+</div>
+
+<div class="grid-2" style="gap:2rem;">
+<div class="card border-left-gold">
+<h3 style="margin-bottom:1.5rem;">Program A: System Integrator</h3>
+<ul style="list-style:none;space-y:1rem;">
+<li style="padding:0.75rem 0;border-bottom:1px solid var(--faint);">
+<strong>18 events</strong> in chronology
+</li>
+<li style="padding:0.75rem 0;border-bottom:1px solid var(--faint);">
+<strong>17 of 18</strong> show "Follow-up required"
+</li>
+<li style="padding:0.75rem 0;border-bottom:1px solid var(--faint);">
+<strong>0 completed</strong> — zero evidence of follow-up
+</li>
+<li style="padding:0.75rem 0;">
+<strong>1 of 15</strong> deliverables utilized (6.7%)
+</li>
+</ul>
+</div>
+
+<div class="card border-left-gold">
+<h3 style="margin-bottom:1.5rem;">Program B: Smart Home</h3>
+<ul style="list-style:none;">
+<li style="padding:0.75rem 0;border-bottom:1px solid var(--faint);">
+<strong>18 communications</strong> logged
+</li>
+<li style="padding:0.75rem 0;border-bottom:1px solid var(--faint);">
+<strong>15 of 18</strong> show "Follow-up required"
+</li>
+<li style="padding:0.75rem 0;border-bottom:1px solid var(--faint);">
+<strong>2 resolved</strong> — only quarter end & resignation
+</li>
+<li style="padding:0.75rem 0;">
+<strong>15 critical</strong> issues identified
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section id="insight">
+<div class="container">
+<div class="highlight-box" style="border-color:var(--faint);background:linear-gradient(135deg, rgba(239,68,68,0.05) 0%, rgba(26,26,46,0.5) 100%);">
+<h3>The Core Discovery</h3>
+<p style="font-size:1.25rem;font-style:italic;">"Even when clarity was provided, and people felt that clarity, it doesn't move toward implementation if a sustained, personalized attempt support structure is not built."</p>
+<p style="margin-top:1.5rem;color:var(--muted)">The gap was NOT between understanding and willingness. The gap was between "clarity provided" and "sustained personal attempt support to develop the habit."</p>
+</div>
+</div>
+</section>
+
+<section id="8c" class="bg-shadow">
+<div class="container">
+<div class="section-intro">
+<h2>8C Framework Validation</h2>
+<p>Mapping where each program had gaps against the ClarityOS methodology.</p>
+</div>
+
+<div class="card-grid">
+<div class="card">
+<h4 style="color:var(--wisdom);margin-bottom:1rem;">Clarity</h4>
+<p style="color:var(--muted);font-size:0.9375rem;">Both programs: Issues identified. Solutions created. Clarity provided.</p>
+<div style="margin-top:1rem;"><span class="badge badge-green">Working</span></div>
+</div>
+<div class="card">
+<h4 style="color:var(--wisdom);margin-bottom:1rem;">Control</h4>
+<p style="color:var(--muted);font-size:0.9375rem;">Both programs: No decision authority established. No executive mandate.</p>
+<div style="margin-top:1rem;"><span class="badge badge-red">Gap</span></div>
+</div>
+<div class="card">
+<h4 style="color:var(--wisdom);margin-bottom:1rem;">Continuity</h4>
+<p style="color:var(--muted);font-size:0.9375rem;">Both programs: No operating rhythm. No sustained attempt support.</p>
+<div style="margin-top:1rem;"><span class="badge badge-red">Gap</span></div>
+</div>
+<div class="card">
+<h4 style="color:var(--wisdom);margin-bottom:1rem;">Coaching</h4>
+<p style="color:var(--muted);font-size:0.9375rem;">Both programs: Team not developed. Capability not built.</p>
+<div style="margin-top:1rem;"><span class="badge badge-red">Gap</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="takeaways">
+<div class="container">
+<div class="section-intro">
+<h2>What This Validates</h2>
+</div>
+<div class="grid-2" style="gap:2rem;">
+<div class="card">
+<h3 style="margin-bottom:1.5rem;">What Looks Like Progress</h3>
+<ul style="list-style:none;">
+<li style="padding:0.5rem 0;color:var(--muted)">✓ Document creation</li>
+<li style="padding:0.5rem 0;color:var(--muted)">✓ Analysis completion</li>
+<li style="padding:0.5rem 0;color:var(--muted)">✓ Strategy development</li>
+<li style="padding:0.5rem 0;color:var(--muted)">✓ Framework documentation</li>
+<li style="padding:0.5rem 0;color:var(--muted)">✓ Meeting outputs</li>
+</ul>
+</div>
+<div class="card" style="border:1px solid var(--wisdom);">
+<h3 style="margin-bottom:1.5rem;">What Actually Drives Transformation</h3>
+<ul style="list-style:none;">
+<li style="padding:0.5rem 0;color:var(--dawn)">→ Decision authority established</li>
+<li style="padding:0.5rem 0;color:var(--dawn)">→ Executive mandate secured</li>
+<li style="padding:0.5rem 0;color:var(--dawn)">→ Operating rhythm embedded</li>
+<li style="padding:0.5rem 0;color:var(--dawn)">→ Governance enforced</li>
+<li style="padding:0.5rem 0;color:var(--dawn)">→ Sustained attempt support</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section id="cta" class="bg-shadow">
+<div class="container" style="text-align:center;">
+<h2>Ready to Install the Human OS?</h2>
+<p style="color:var(--muted);margin:1rem auto 2rem;max-width:600px;">This analysis validates what ClarityOS has always stated: organizations need judgment infrastructure before transformation can execute.</p>
+<div style="display:flex;gap:1rem;justify-content:center;">
+<a href="clarityos.html" class="btn btn-primary">Explore ClarityOS</a>
+<a href="connect.html" class="btn btn-ghost">Start a Conversation</a>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="container">
+<p>© 2026 The Architect — Powered by ClarityOS</p>
+<p style="font-size:0.875rem;margin-top:0.5rem;">ClarityOS Intelligence Program Validation</p>
+</div>
+</footer>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+  });
+});
+</script>
+</body>
+</html>
