@@ -40,25 +40,21 @@
     .spotlight-card:hover{transform:translateY(-6px);border-color:rgba(214,179,106,.45);box-shadow:0 18px 40px rgba(0,0,0,.2)}
     .spotlight-card::before{content:"";position:absolute;inset:0 0 auto 0;height:2px;background:linear-gradient(90deg,var(--gold),rgba(214,179,106,0))}
     .spotlight-card .reel-frame{aspect-ratio:4/5;max-height:360px;background:linear-gradient(180deg,rgba(15,20,30,.88),rgba(7,9,14,.98))}
-    .spotlight-copy{padding:16px 16px 18px}
-    .spotlight-copy h3{font:500 20px/1.1 Georgia,serif}
-    .spotlight-copy p{font-size:14px;line-height:1.55}
-    .spotlight-card video{width:100%;height:100%;object-fit:cover;display:block}
-    .person-panel{height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:22px;background:
-      radial-gradient(circle at top right,rgba(214,179,106,.18),transparent 38%),
-      linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));}
-    .person-panel::before{content:"Conversation";display:inline-flex;align-self:flex-start;margin-bottom:auto;padding:8px 10px;border:1px solid rgba(214,179,106,.28);border-radius:999px;font:600 11px/1 Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2)}
-    .person-name{margin:0 0 8px;font:500 24px/1.05 Georgia,serif}
-    .person-role{margin:0;color:#d5dbe6;font:500 13px/1.55 Arial,sans-serif}
+    .spotlight-copy,.reel-copy{padding:16px 16px 18px}
+    .spotlight-copy h3,.reel-copy h3{margin:0 0 10px;font:500 20px/1.1 Georgia,serif}
+    .spotlight-copy p,.reel-copy p{font-size:14px;line-height:1.55}
+    .spotlight-card video,.reel-card video{width:100%;height:100%;object-fit:cover;display:block}
+    .media-hint{margin-top:10px;color:#c8ced8;font:500 12px/1.5 Arial,sans-serif}
     .known-for{margin:12px 0 0;color:#f3e3b1;font:600 12px/1.5 Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase}
     .reel-shell{margin-top:26px}
     .rail-head{display:flex;justify-content:space-between;gap:12px;align-items:end;margin-bottom:14px}
     .rail-head h3{margin:6px 0 0;font:500 24px/1.1 Georgia,serif}
     .rail-meta{font:500 13px/1.5 Arial,sans-serif;color:#a8b0be}
-    .reel-rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(240px,280px);gap:18px;overflow-x:auto;padding:4px 2px 12px;scroll-snap-type:x proximity;scrollbar-width:thin}
-    .reel-card{scroll-snap-align:start;transform:translateY(0);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+    .reel-rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(248px,296px);gap:18px;overflow-x:auto;padding:4px 2px 12px;scroll-snap-type:x proximity;scrollbar-width:thin}
+    .reel-card{scroll-snap-align:start;transform:translateY(0);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;background:linear-gradient(180deg,rgba(214,179,106,.08),rgba(255,255,255,.03))}
     .reel-card:hover{transform:translateY(-8px);border-color:rgba(214,179,106,.42);box-shadow:0 22px 48px rgba(0,0,0,.2)}
     .reel-frame{position:relative;aspect-ratio:9/16;background:#05070b;border-bottom:1px solid var(--line);overflow:hidden}
+    .spotlight-card .reel-frame iframe{position:absolute;left:0;width:100%;height:calc(100% + 240px);top:-50px;border:0;display:block}
     .reel-frame iframe{position:absolute;left:0;width:100%;height:calc(100% + 250px);top:-52px;border:0;display:block}
     .reel-frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0;display:block}
     .reel-meta{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0}
@@ -122,6 +118,7 @@
             <div class="image-copy">
               <h3>Personal brand, in motion</h3>
               <p class="muted">Replacing the static portrait with a real one-on-one clip makes the media layer feel more alive, current, and credibility-led.</p>
+              <p class="media-hint">Use the speaker control to enable sound on supported browsers.</p>
             </div>
           </div>
         </div>
@@ -186,22 +183,19 @@
           <div class="spotlight-grid">
             <article class="spotlight-card">
               <div class="reel-frame">
-                <div class="person-panel">
-                  <h4 class="person-name">Zack Kass</h4>
-                  <p class="person-role">Former Head of Go-to-Market at OpenAI, AI advisor, and speaker.</p>
-                  <p class="known-for">Known for AI strategy, go-to-market, and applied enterprise adoption.</p>
-                </div>
+                <iframe src="https://www.instagram.com/reel/DPEE4TWgmbh/embed" title="Zeeshan Sabri with Zack Kass" loading="lazy" allowfullscreen></iframe>
               </div>
               <div class="spotlight-copy">
                 <div class="section-tag">One-on-One Conversation</div>
                 <h3>AI leadership and market insight</h3>
-                <p class="muted">A stronger framing than “direct transformation work”, this positions the clip around a recognisable AI operator with real public credibility.</p>
+                <p class="muted">Former Head of Go-to-Market at OpenAI, AI advisor, and speaker. This now keeps the actual conversation visible while preserving the stronger editorial framing.</p>
+                <p class="known-for">Known for AI strategy, go-to-market, and applied enterprise adoption.</p>
                 <div class="reel-meta"><span class="mini-chip">Zack Kass</span><span class="mini-chip">Former OpenAI GTM</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DPEE4TWgmbh/" target="_blank" rel="noopener">Open in Instagram</a></div>
               </div>
             </article>
             <article class="spotlight-card">
               <div class="reel-frame">
-                <video autoplay muted loop playsinline preload="metadata" aria-label="Zeeshan Sabri in conversation with Simon Sinek">
+                <video autoplay muted loop playsinline controls preload="metadata" aria-label="Zeeshan Sabri in conversation with Simon Sinek">
                   <source src="https://exposed-port-8766-7751ff1936482e7d0247-3frosa43xo.h85.openclaw.agent37.com/assets/1n1-simon-sinek-web.mp4" type="video/mp4">
                 </video>
               </div>
@@ -209,21 +203,20 @@
                 <div class="section-tag">One-on-One Conversation</div>
                 <h3>In conversation with Simon Sinek</h3>
                 <p class="muted">Leadership thinker and author of <em>Start With Why</em>. Presented as a recognised leadership conversation, not a generic impact clip.</p>
+                <p class="known-for">Known for leadership thinking, clarity of purpose, and executive influence.</p>
+                <p class="media-hint">Use the speaker control to enable sound on supported browsers.</p>
                 <div class="reel-meta"><span class="mini-chip">Simon Sinek</span><span class="mini-chip">Start With Why</span><span class="mini-chip">Leadership Thinker</span></div>
               </div>
             </article>
             <article class="spotlight-card">
               <div class="reel-frame">
-                <div class="person-panel">
-                  <h4 class="person-name">Kristen Hadeed</h4>
-                  <p class="person-role">Leadership author, entrepreneur, and internationally recognised speaker.</p>
-                  <p class="known-for">Known for human-centered leadership, culture, and honest conversations at work.</p>
-                </div>
+                <iframe src="https://www.instagram.com/reel/DNPjOSBBmn5/embed" title="Zeeshan Sabri with Kristen Hadeed" loading="lazy" allowfullscreen></iframe>
               </div>
               <div class="spotlight-copy">
                 <div class="section-tag">Private Leadership Conversation</div>
                 <h3>Private room, public credibility</h3>
-                <p class="muted">A more mature framing for this clip, anchored to Kristen Hadeed’s known leadership profile rather than an abstract “proof” label.</p>
+                <p class="muted">Leadership author, entrepreneur, and internationally recognised speaker. The actual clip is back, but the narrative stays cleaner and more mature.</p>
+                <p class="known-for">Known for human-centered leadership, culture, and honest conversations at work.</p>
                 <div class="reel-meta"><span class="mini-chip">Kristen Hadeed</span><span class="mini-chip">Leadership Author</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DNPjOSBBmn5/" target="_blank" rel="noopener">Open in Instagram</a></div>
               </div>
             </article>
@@ -238,7 +231,7 @@
               <div class="rail-label">Institutional and Venture Signals</div>
               <h3>Flagship venture and partner proof</h3>
             </div>
-            <div class="rail-meta">Compact strategic layer</div>
+            <div class="rail-meta">Matched editorial treatment</div>
           </div>
           <div class="reel-rail">
             <article class="reel-card"><div class="reel-frame"><iframe src="https://www.instagram.com/reel/DMkHeDIi6ND/embed" title="SuperJet OM partner signing reel" loading="lazy" allowfullscreen></iframe></div><div class="reel-copy"><h3>SuperJet OM partner signing</h3><p class="muted">A flagship venture signal, useful for institutional credibility and partner-conversion proof.</p><div class="reel-meta"><span class="mini-chip">SuperJet OM</span><span class="mini-chip">Signing Ceremony</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DMkHeDIi6ND/" target="_blank" rel="noopener">Open in Instagram</a></div></div></article>
@@ -251,7 +244,7 @@
               <div class="rail-label">Signature Talks</div>
               <h3>Public voice and founder-led clips</h3>
             </div>
-            <div class="rail-meta">Scroll sideways</div>
+            <div class="rail-meta">Founder voice, same typography</div>
           </div>
           <div class="reel-rail">
             <article class="reel-card"><div class="reel-frame"><iframe src="https://www.instagram.com/reel/DVqcPgiFEB9/embed" title="Zeeshan Sabri talk reel 1" loading="lazy" allowfullscreen></iframe></div><div class="reel-copy"><h3>Founder talk clip</h3><p class="muted">Short-form leadership thought, positioned as a visible public signal rather than filler content.</p><div class="reel-meta"><span class="mini-chip">Talk</span><span class="mini-chip">Leadership</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DVqcPgiFEB9/" target="_blank" rel="noopener">Open in Instagram</a></div></div></article>
@@ -270,7 +263,7 @@
               <div class="rail-label">Workshop and Stage Moments</div>
               <h3>Rooms, audiences, and facilitation energy</h3>
             </div>
-            <div class="rail-meta">Swipe or wheel across</div>
+            <div class="rail-meta">Rooms, audiences, same editorial tone</div>
           </div>
           <div class="reel-rail">
             <article class="reel-card"><div class="reel-frame"><iframe src="https://www.instagram.com/reel/DKwlGdECplN/embed" title="Oman Startup Hub workshop reel" loading="lazy" allowfullscreen></iframe></div><div class="reel-copy"><h3>Oman Startup Hub 2025</h3><p class="muted">A strategic workshop proof point, useful for showing live facilitation and founder education credibility.</p><div class="reel-meta"><span class="mini-chip">Workshop</span><span class="mini-chip">Oman Startup Hub</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DKwlGdECplN/" target="_blank" rel="noopener">Open in Instagram</a></div></div></article>
@@ -288,7 +281,7 @@
               <div class="rail-label">Conversation and Quotes</div>
               <h3>Podcast presence and authority fragments</h3>
             </div>
-            <div class="rail-meta">Short-form, playable proof</div>
+            <div class="rail-meta">Conversation-led authority layer</div>
           </div>
           <div class="reel-rail">
             <article class="reel-card"><div class="reel-frame"><iframe src="https://www.instagram.com/reel/DPrjXy6ghM1/embed" title="Zeeshan Sabri podcast reel" loading="lazy" allowfullscreen></iframe></div><div class="reel-copy"><h3>Podcast moment</h3><p class="muted">A stronger media signal for long-form thinking, public conversation, and personality-led authority.</p><div class="reel-meta"><span class="mini-chip">Podcast</span><span class="mini-chip">Conversation</span><a class="mini-chip" href="https://www.instagram.com/zsabri/reel/DPrjXy6ghM1/" target="_blank" rel="noopener">Open in Instagram</a></div></div></article>
